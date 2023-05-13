@@ -21,7 +21,9 @@ def create():
     first_name=request.form['fname']
     last_name=request.form['lname']
     gender=request.form['gender']
-    cur.execute('''INSERT INTO courses ( first_name, last_name,gender) VALUES (%s,%s,%s)''',(first_name,last_name,gender))
+    date_of_birth=request.form['date_of_birth']
+    phone_no=request.form['phone']
+    cur.execute('''INSERT INTO courses (first_name,last_name,gender,date_of_birth,phone_no) VALUES (%s,%s,%s,%s,%s)''',(first_name,last_name,gender,date_of_birth,phone_no))
     conn.commit()
     cur.close()
     conn.close()
