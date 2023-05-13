@@ -20,7 +20,8 @@ def create():
     #variables to connect form with db
     first_name=request.form['fname']
     last_name=request.form['lname']
-    cur.execute('''INSERT INTO courses ( first_name, last_name) VALUES (%s,%s)''',(first_name,last_name))
+    gender=request.form['gender']
+    cur.execute('''INSERT INTO courses ( first_name, last_name,gender) VALUES (%s,%s,%s)''',(first_name,last_name,gender))
     conn.commit()
     cur.close()
     conn.close()
