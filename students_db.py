@@ -23,7 +23,8 @@ def create():
     gender=request.form['gender']
     date_of_birth=request.form['date_of_birth']
     phone_no=request.form['phone']
-    cur.execute('''INSERT INTO courses (first_name,last_name,gender,date_of_birth,phone_no) VALUES (%s,%s,%s,%s,%s)''',(first_name,last_name,gender,date_of_birth,phone_no))
+    email=request.form['email']
+    cur.execute('''INSERT INTO courses (first_name,last_name,gender,date_of_birth,phone_no,email) VALUES (%s,%s,%s,%s,%s,%s)''',(first_name,last_name,gender,date_of_birth,phone_no,email))
     conn.commit()
     cur.close()
     conn.close()
