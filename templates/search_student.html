@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Search for student detail</h1>
+<form action="/search" method="post">
+    <h3>Search by Name</h3>
+    <!-- <lable for="search_fname">First Name</lable>
+    <input type="text" id="search_fname" name="fname" placeholder="Name">
+    <lable for="search_lname">Last Name</lable> -->
+    <lable for="id">ID</lable>
+    <input type="text" id="search_id" name="id">
+    <input type="submit" value="search">
+    <h3>Search by date of birth</h3>
+</form>
+{{rows}}
+{% endblock %}
