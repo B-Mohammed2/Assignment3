@@ -51,18 +51,10 @@ def search():
 def search_update():
     conn=db_conn()
     cur=conn.cursor()
-   # query="select * from courses where id=%s"
-    #params=('lesly',)
-    # first_name=request.form['fname']
     ID=request.form['id']
-    # cur.execute('''select * from courses where first_name=%s''')
-    cur.execute('''select * from courses where id='''+ID)
-    #cur.execute('''select * from courses where id=%s''',ID)
-    #print('''select * from courses where gender=%s''',ID)
-    #cur.execute(query,params)
+    search_string="select * from courses where student_reference='"+ID+"';"
+    cur.execute(search_string)
     data=cur.fetchall()
-    # for row in rows:
-    #     print(row)
     cur.close()
     conn.close()
     #render_template going to the template and finding the data and display it
@@ -79,9 +71,9 @@ def update():
     # date_of_birth=request.form['date_of_birth']
     # phone_no=request.form['phone']
     # email=request.form['email']
-    id=request.form['id']
+    ID=request.form['id']
     # cur.execute('''UPDATE courses SET first_name=%s,last_name=%s,gender=%s,date_of_birth=%s,phone_no=%s,email=%s WHERE id=%s'''),(first_name,last_name,gender,date_of_birth,phone_no,email,id)
-    cur.execute('''UPDATE courses SET first_name=%s WHERE id=%s''',(first_name,id))
+    cur.execute('''UPDATE courses SET first_name=%s WHERE student_reference=%s''',(first_name,ID))
     # commit the changes
     conn.commit()
     cur.close()
@@ -93,7 +85,8 @@ def search_delete():
     conn=db_conn()
     cur=conn.cursor()
     ID=request.form['id']
-    cur.execute('''select * from courses where id='''+ID)
+    search_string="select * from courses where student_reference='"+ID+"';"
+    cur.execute(search_string)
     data=cur.fetchall()
     cur.close()
     conn.close()
@@ -104,12 +97,46 @@ def search_delete():
 def delete():
     conn=db_conn()
     cur=conn.cursor()
-    id=request.form['id']
-    cur.execute('''DELETE FROM courses  WHERE id=%s''', (id,))
+    ID=request.form['id']
+    # we need to delete the data from both table.if a student detail was deleted from main table
+    # the related table will be left without connected data and will face error.
+    cur.execute('''DELETE FROM attendance  WHERE student_reference=%s''', (ID,))
+    cur.execute('''DELETE FROM courses  WHERE student_reference=%s''', (ID,))
     conn.commit()
     cur.close()
     conn.close()
     return redirect(url_for('index'))
+
+#this part is for students Attendance
+@app.route("/create_attendance",methods=['POST'])
+def create_attendance():
+    conn=db_conn()
+    cur=conn.cursor()
+    #variables to connect form with db
+    subject=request.form['subject']
+    cur.execute('''INSERT INTO attendance(subject) VALUES (%s)''',(subject))
+    conn.commit()
+    cur.close()
+    conn.close()
+    #redirecting to a function called add_student
+    return redirect(url_for('attendance_student'))
+ #display table for students name,ref,attendance
+
+# @app.route("/display_attendance",methods=['POST'])
+# def display_attendance():
+#     conn=db_conn()
+#     cur=conn.cursor()
+#     # first_name=request.form['fname']
+#     # ID=request.form['id']
+#     # st_ID=str(st_ID)
+#     #joinn strings (id and st_ref togehter (concatenation) 
+#     search_string="select * from courses"
+#     cur.execute(search_string)
+#     data=cur.fetchall()
+#     cur.close()
+#     conn.close()
+#     #render_template going to the template and finding the data and display it
+#     return  render_template("attendance_student.html", data=data)
 
 #route to home webpage
 @app.route("/index")
@@ -131,6 +158,20 @@ def update_student():
 @app.route("/delete_student")
 def delete_student():
     return render_template("delete_student.html")
+#route to attendance_student webpage
+@app.route("/attendance_student")
+def attendance_student():
+    conn=db_conn()
+    cur=conn.cursor()
+    # first_name=request.form['fname']
+    # ID=request.form['id']
+    search_string="select * from courses;"
+    cur.execute(search_string)
+    data=cur.fetchall()
+    cur.close()
+    conn.close()
+    return render_template("attendance_student.html", data=data)
+
 
 
 if __name__ == '__main__':
