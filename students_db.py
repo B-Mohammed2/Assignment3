@@ -35,23 +35,12 @@ def search():
     conn=db_conn()
     cur=conn.cursor()
     # first_name=request.form['fname']
-    st_ID=request.form['id']
-    st_ID=str(st_ID)
+    ID=request.form['id']
+    # st_ID=str(st_ID)
     #joinn strings (id and st_ref togehter (concatenation) 
-    # search_string="select * from courses where student_reference='"+ID+"';"
-    # print(search_string)
-    # cur.execute('''select * from courses where first_name=%s''')
-    # cur.execute('''select * from courses where id='''+ID)
-    # cur.execute=(search_string)
-    #cur.execute('''select * from courses where id=%s''',ID)
-    #print('''select * from courses where gender=%s''',ID)
-    # cur.execute("select * from courses where student_reference='12';")
-    cur.execute("select * from courses where student_reference='+st_ID+';")
-    print("select * from courses where student_reference='"+st_ID+"';")
-    #cur.execute(query,params)
+    search_string="select * from courses where student_reference='"+ID+"';"
+    cur.execute(search_string)
     data=cur.fetchall()
-    # for row in rows:
-    #     print(row)
     cur.close()
     conn.close()
     #render_template going to the template and finding the data and display it
