@@ -91,6 +91,29 @@ def update():
     cur.close()
     conn.close()
     return redirect(url_for('update_student'))
+#search student for delete
+@app.route("/search_delete",methods=['POST'])
+def search_delete():
+    conn=db_conn()
+    cur=conn.cursor()
+    ID=request.form['id']
+    cur.execute('''select * from courses where id='''+ID)
+    data=cur.fetchall()
+    cur.close()
+    conn.close()
+    #render_template going to the template and finding the data and display it
+    return  render_template("delete_student.html", data=data)
+#Delet Student
+@app.route("/delete",methods=['POST'])
+def delete():
+    conn=db_conn()
+    cur=conn.cursor()
+    id=request.form['id']
+    cur.execute('''DELETE FROM courses  WHERE id=%s''', (id,))
+    conn.commit()
+    cur.close()
+    conn.close()
+    return redirect(url_for('index'))
 
 #route to home webpage
 @app.route("/index")
@@ -100,14 +123,19 @@ def index():
 @app.route("/add_student")
 def add_student():
     return render_template("add_student.html")
-#route to search student webpage
+#route to search student webpage 
 @app.route("/search_student")
 def search_student():
     return render_template("search_student.html")
-    #route to search student webpage
+ #route to search student webpage 
 @app.route("/update_student")
 def update_student():
     return render_template("update_student.html")
+#route to delete student webpage
+@app.route("/delete_student")
+def delete_student():
+    return render_template("delete_student.html")
+
 
 if __name__ == '__main__':
     app.run(debug=True)

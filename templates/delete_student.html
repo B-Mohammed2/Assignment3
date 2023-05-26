@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Delete Students </h1>
+<form action="/search_delete" method="post">   
+    <lable for="id">ID</lable>
+    <input type="text" id="search_id" name="id">
+    <input type="submit" value="search">
+    
+</form>
+{% for column in data %}
+<form action="/delete" method="post">
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname" placeholder="first name" value="{{column[1]}}" required> <br>
+    <input type="text"  name="id"  value="{{column[0]}}" required> <br>
+    <input type="submit" value="search">
+</form>
+{% endfor %}
+<!-- {{data}} -->
+<table>
+
+
+
+{% endblock %}
