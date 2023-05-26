@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 <a href={{url_for("add_student")}}> Add Students</a>
+<br>
 <a href={{url_for("search_student")}}>search for student</a>
+<br>
+<!-- this is where you update any detail of the student -->
+<a href={{url_for("update_student")}}>Update student detail</a>
+<br>
 {% endblock %}

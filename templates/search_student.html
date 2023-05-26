@@ -11,5 +11,43 @@
     <input type="submit" value="search">
     <h3>Search by date of birth</h3>
 </form>
-{{rows}}
+
+<!-- {{data}} -->
+<table>
+{% for column in data %}
+
+
+    <th>Id</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Gender</th>
+    <th>DOB</th>
+    <th>Contact_No</th>
+    <th>email</th>
+<tr>
+    <td>
+        {{column[0]}}
+    </td>
+    <td>
+        {{column[1]}}
+    </td>
+    <td>
+        {{column[2]}}
+    </td>
+    <td>
+        {{column[3]}}
+    </td> 
+    <td>
+        {{column[4]}}
+    </td>
+     <td>
+        {{column[5]}}
+    </td>
+     <td>
+        {{column[6]}}
+    </td>
+</tr>
+{% endfor %}
+</table>
+
 {% endblock %}

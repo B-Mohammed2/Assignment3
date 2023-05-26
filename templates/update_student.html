@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Update Students detail</h1>
+<form action="/search_update" method="post">   
+    <lable for="id">ID</lable>
+    <input type="text" id="search_id" name="id">
+    <input type="submit" value="search">
+    <h3>Search by date of birth</h3>
+</form>
+{% for column in data %}
+<form action="/update" method="post">
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname" placeholder="first name" value="{{column[1]}}" required> <br>
+    <input type="text"  name="id"  value="{{column[0]}}" required> <br>
+    <input type="submit" value="search">
+</form>
+{% endfor %}
+<!-- {{data}} -->
+<table>
+
+
+
+{% endblock %}
