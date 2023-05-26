@@ -16,13 +16,14 @@ def create():
     conn=db_conn()
     cur=conn.cursor()
     #variables to connect form with db
+    student_reference=request.form['st_ref']
     first_name=request.form['fname']
     last_name=request.form['lname']
     gender=request.form['gender']
     date_of_birth=request.form['date_of_birth']
     phone_no=request.form['phone']
     email=request.form['email']
-    cur.execute('''INSERT INTO courses (first_name,last_name,gender,date_of_birth,phone_no,email) VALUES (%s,%s,%s,%s,%s,%s)''',(first_name,last_name,gender,date_of_birth,phone_no,email))
+    cur.execute('''INSERT INTO courses (student_reference,first_name,last_name,gender,date_of_birth,phone_no,email) VALUES (%s,%s,%s,%s,%s,%s,%s)''',(student_reference,first_name,last_name,gender,date_of_birth,phone_no,email))
     conn.commit()
     cur.close()
     conn.close()
@@ -33,14 +34,20 @@ def create():
 def search():
     conn=db_conn()
     cur=conn.cursor()
-   # query="select * from courses where id=%s"
-    #params=('lesly',)
     # first_name=request.form['fname']
-    ID=request.form['id']
+    st_ID=request.form['id']
+    st_ID=str(st_ID)
+    #joinn strings (id and st_ref togehter (concatenation) 
+    # search_string="select * from courses where student_reference='"+ID+"';"
+    # print(search_string)
     # cur.execute('''select * from courses where first_name=%s''')
-    cur.execute('''select * from courses where id='''+ID)
+    # cur.execute('''select * from courses where id='''+ID)
+    # cur.execute=(search_string)
     #cur.execute('''select * from courses where id=%s''',ID)
     #print('''select * from courses where gender=%s''',ID)
+    # cur.execute("select * from courses where student_reference='12';")
+    cur.execute("select * from courses where student_reference='+st_ID+';")
+    print("select * from courses where student_reference='"+st_ID+"';")
     #cur.execute(query,params)
     data=cur.fetchall()
     # for row in rows:
