@@ -162,7 +162,7 @@ def create_attendance():
     # print(result.values())
     # print(keylist [1])
     # print(valuelist[1][0])
-    sql_update_attendance="UPDATE attendance WHERE student_reference=keylist[1] SET attendance=valuelist[1];"
+    sql_update_attendance="UPDATE attendance WHERE student_reference='keylist[1]' SET attendance='valuelist[1]';"
     cur.execute(sql_update_attendance)
     conn.commit()
     cur.close()
