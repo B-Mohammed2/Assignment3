@@ -139,8 +139,14 @@ def attendance_student():
     cur=conn.cursor()
     # first_name=request.form['fname']
     # ID=request.form['id']
-    search_string="select * from courses, attendance where courses.student_reference=attendance.student_reference;"
-    cur.execute(search_string)
+    # search_string="select * from courses, attendance where courses.student_reference=attendance.student_reference;"
+    table_attendance="select * from courses, attendance where courses.student_reference=attendance.student_reference order by attendance_id ASC;"
+    cur.execute(table_attendance)
+    cur.execute("select * from attendance where date_of_attendance<>CURRENT_DATE;")
+    #retrieve all records from attendance table where date of attendance is today
+    #if no records where retrived then
+    #creat todays register
+    print(cur.rowcount)
     data=cur.fetchall()
     cur.close()
     conn.close()
@@ -154,15 +160,16 @@ def create_attendance():
     # subject=request.form['subject']
     # cur.execute('''INSERT INTO attendance(subject) VALUES (%s)''',(subject))
     
-    #variable to request data structured from form
+    #variable to request data structured from form(convert data to dictionary type)
     result=request.form.to_dict(flat=False)
     #to list the keys in to col values to show one item
     keylist=list(result.keys())
-    # valuelist=list(result.values())
+    valuelist=list(result.values())
     # print(result.values())
     # print(keylist [1])
     # print(valuelist[1][0])
-    sql_update_attendance="UPDATE attendance WHERE student_reference='keylist[1]' SET attendance='valuelist[1]';"
+    # sql_update_attendance="UPDATE attendance where student_reference='"+keylist[1]+"' SET attendance='"+valuelist[1][0]+"';"
+    sql_update_attendance="UPDATE attendance SET attendance='"+valuelist[1][0]+"' where student_reference='"+keylist[1]+"' ;"
     cur.execute(sql_update_attendance)
     conn.commit()
     cur.close()
