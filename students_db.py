@@ -165,6 +165,8 @@ def attendance_student():
     data=cur.fetchall()
     cur.close()
     conn.close()
+    print('search_string='+ search_string)
+    print('data='+str(data))
     return render_template("attendance_student.html", data=data)
     
 @app.route("/create_attendance",methods=['POST'])
