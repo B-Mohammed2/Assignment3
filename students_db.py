@@ -139,14 +139,29 @@ def attendance_student():
     cur=conn.cursor()
     # first_name=request.form['fname']
     # ID=request.form['id']
+    # table_attendance="select * from courses, attendance where courses.student_reference=attendance.student_reference order by attendance_id ASC;"
+    cur.execute("select * from attendance where date_of_attendance=CURRENT_DATE;")
+    if cur.rowcount==0:
+        cur.execute("select * from courses")
+          
     # search_string="select * from courses, attendance where courses.student_reference=attendance.student_reference;"
-    table_attendance="select * from courses, attendance where courses.student_reference=attendance.student_reference order by attendance_id ASC;"
-    cur.execute(table_attendance)
-    cur.execute("select * from attendance where date_of_attendance<>CURRENT_DATE;")
+    
+    # cur.execute(table_attendance)
+    
     #retrieve all records from attendance table where date of attendance is today
     #if no records where retrived then
     #creat todays register
-    print(cur.rowcount)
+    
+    studentdata=cur.fetchall()
+    for x in studentdata:
+        # print(x[0])
+        # the date of attendance will be added by defult
+        # cur.execute("INSERT INTO attendance(subject,student_reference,attendance) VALUES ('math','"+x[0]+"',null);")
+        sql_test="INSERT INTO attendance(subject,student_reference,attendance) VALUES ('math','"+x[0]+"',null);"
+        print(sql_test)
+        cur.execute(sql_test)
+    search_string="select * from courses, attendance where courses.student_reference=attendance.student_reference;"
+    cur.execute(search_string)
     data=cur.fetchall()
     cur.close()
     conn.close()
