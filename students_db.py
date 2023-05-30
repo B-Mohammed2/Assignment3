@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, request, url_for
 import psycopg2
+# import json
 app=Flask(__name__)
 #connecting to DB
 def db_conn():
@@ -107,14 +108,62 @@ def delete():
     conn.close()
     return redirect(url_for('index'))
 
+
+
+#route to home webpage
+@app.route("/index")
+def index():
+    return render_template("index.html")
+#route to add student webpage
+@app.route("/add_student")
+def add_student():
+    return render_template("add_student.html")
+#route to search student webpage 
+@app.route("/search_student")
+def search_student():
+    return render_template("search_student.html")
+ #route to search student webpage 
+@app.route("/update_student")
+def update_student():
+    return render_template("update_student.html")
+#route to delete student webpage
+@app.route("/delete_student")
+def delete_student():
+    return render_template("delete_student.html")
+
 #this part is for students Attendance
+#route to attendance_student webpage
+@app.route("/attendance_student")
+def attendance_student():
+    conn=db_conn()
+    cur=conn.cursor()
+    # first_name=request.form['fname']
+    # ID=request.form['id']
+    search_string="select * from courses, attendance where courses.student_reference=attendance.student_reference;"
+    cur.execute(search_string)
+    data=cur.fetchall()
+    cur.close()
+    conn.close()
+    return render_template("attendance_student.html", data=data)
+    
 @app.route("/create_attendance",methods=['POST'])
 def create_attendance():
     conn=db_conn()
     cur=conn.cursor()
     #variables to connect form with db
-    subject=request.form['subject']
-    cur.execute('''INSERT INTO attendance(subject) VALUES (%s)''',(subject))
+    # subject=request.form['subject']
+    # cur.execute('''INSERT INTO attendance(subject) VALUES (%s)''',(subject))
+    
+    #variable to request data structured from form
+    result=request.form.to_dict(flat=False)
+    #to list the keys in to col values to show one item
+    keylist=list(result.keys())
+    # valuelist=list(result.values())
+    # print(result.values())
+    # print(keylist [1])
+    # print(valuelist[1][0])
+    sql_update_attendance="UPDATE attendance WHERE student_reference=keylist[1] SET attendance=valuelist[1];"
+    cur.execute(sql_update_attendance)
     conn.commit()
     cur.close()
     conn.close()
@@ -137,42 +186,6 @@ def create_attendance():
 #     conn.close()
 #     #render_template going to the template and finding the data and display it
 #     return  render_template("attendance_student.html", data=data)
-
-#route to home webpage
-@app.route("/index")
-def index():
-    return render_template("index.html")
-#route to add student webpage
-@app.route("/add_student")
-def add_student():
-    return render_template("add_student.html")
-#route to search student webpage 
-@app.route("/search_student")
-def search_student():
-    return render_template("search_student.html")
- #route to search student webpage 
-@app.route("/update_student")
-def update_student():
-    return render_template("update_student.html")
-#route to delete student webpage
-@app.route("/delete_student")
-def delete_student():
-    return render_template("delete_student.html")
-#route to attendance_student webpage
-@app.route("/attendance_student")
-def attendance_student():
-    conn=db_conn()
-    cur=conn.cursor()
-    # first_name=request.form['fname']
-    # ID=request.form['id']
-    search_string="select * from courses, attendance where courses.student_reference=attendance.student_reference;"
-    cur.execute(search_string)
-    data=cur.fetchall()
-    cur.close()
-    conn.close()
-    return render_template("attendance_student.html", data=data)
-
-
 
 if __name__ == '__main__':
     app.run(debug=True)
