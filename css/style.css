@@ -1,0 +1,14 @@
+*{
+    margin:0;
+    padding: 0;
+    font-family: 'roboto', sans-serif;
+}
+/* body{
+    background-image: -moz-linear-gradient(rgb(103, 52, 52));
+
+} */
+.header{
+    background-color: rgb(13, 93, 66);
+    width: 100%;
+    height: 50vh;
+}

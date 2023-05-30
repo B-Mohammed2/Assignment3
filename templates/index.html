@@ -1,13 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
-<a href={{url_for("add_student")}}> Add Students</a>
-<br>
-<a href={{url_for("search_student")}}>Search for student</a>
-<br>
-<!-- this is where you update any detail of the student -->
-<a href={{url_for("update_student")}}>Update student detail</a>
-<br>
-<a href={{url_for("delete_student")}}>Delete student</a>
-<br>
-<a href={{url_for("attendance_student")}}>Student's daily attendance</a>
+<div class="container overflow-hidden text-center">
+    <div class="row gy-5">
+      <div class="col-6">
+        <div class="p-3 border bg-light"><a href={{url_for("add_student")}}> Add Students <img src="/icon/student.png" title="add user icons"></div>
+      <div class="col-6">
+        <div class="p-3 border bg-light"><a href={{url_for("search_student")}}>Search for student</a></div>
+      </div>
+      <div class="col-6">
+        <!-- this is where you update any detail of the student -->
+        <div class="p-3 border bg-light"><a href={{url_for("update_student")}}>Update student detail</a></div>
+      </div>
+      <div class="col-6">
+        <div class="p-3 border bg-light"><a href={{url_for("delete_student")}}>Delete student</a></div>
+      </div>
+      <div class="col-6">
+        <div class="p-3 border bg-light"><a href={{url_for("attendance_student")}}>Student's daily attendance</a></div>
+      </div>
+    </div>
+  </div>
 {% endblock %}

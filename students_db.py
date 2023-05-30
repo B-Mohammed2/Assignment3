@@ -165,7 +165,7 @@ def attendance_student():
     cur=conn.cursor()
     # first_name=request.form['fname']
     # ID=request.form['id']
-    search_string="select * from courses;"
+    search_string="select * from courses, attendance where courses.student_reference=attendance.student_reference;"
     cur.execute(search_string)
     data=cur.fetchall()
     cur.close()
