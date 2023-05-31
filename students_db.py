@@ -178,13 +178,13 @@ def attendance_student():
             sql_test="INSERT INTO attendance(subject,student_reference,attendance) VALUES (null,'"+x[0]+"',null);"
             print(sql_test)
             cur.execute(sql_test)
-    search_string="select * from courses, attendance where courses.student_reference=attendance.student_reference;"
+    search_string="select * from courses, attendance where courses.student_reference=attendance.student_reference order by student_reference ASC;"
     cur.execute(search_string)
     data=cur.fetchall()
     cur.close()
     conn.close()
-    print('search_string='+ search_string)
-    print('data='+str(data))
+    # print('search_string='+ search_string)
+    # print('data='+str(data))
     return render_template("attendance_student.html", data=data)
 
     
@@ -196,18 +196,32 @@ def create_attendance():
     # subject=request.form['subject']
     # cur.execute('''INSERT INTO attendance(subject) VALUES (%s)''',(subject))
     
-    #variable to request data structured from form(convert data to dictionary type)
+    #variable to request data structured in  alist from form(convert data to dictionary type)
+    #reasult givs attendance record
     result=request.form.to_dict(flat=False)
     #to list the keys in to col values to show one item
     keylist=list(result.keys())
     valuelist=list(result.values())
+    number_of_records=len(keylist)
+    for current_attendance_record in range(number_of_records-1):
+        sql_update_attendance="UPDATE attendance SET attendance='"+valuelist[current_attendance_record+1][0]+"' where student_reference='"+keylist[current_attendance_record+1]+"';"
+        
+        sql_update_subject="UPDATE attendance SET subject='" + valuelist[0][0] + "' where student_reference='"+keylist[current_attendance_record]+"';"
+        # print(type(valuelist[0][0]))
+        # print(valuelist[0][0])
+        cur.execute(sql_update_attendance)
+        cur.execute(sql_update_subject)
+        conn.commit()
+        
+        
     # print(result.values())
     # print(keylist [1])
     # print(valuelist[1][0])
     # sql_update_attendance="UPDATE attendance where student_reference='"+keylist[1]+"' SET attendance='"+valuelist[1][0]+"';"
-    sql_update_attendance="UPDATE attendance SET attendance='"+valuelist[1][0]+"' where student_reference='"+keylist[1]+"' ;"
-    cur.execute(sql_update_attendance)
-    conn.commit()
+    #[0]=subject
+    #key no1 =first student 
+    #value [1][0] for student number 1
+   
     cur.close()
     conn.close()
     #redirecting to a function called add_student
