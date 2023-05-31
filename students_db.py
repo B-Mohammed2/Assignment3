@@ -6,10 +6,13 @@ app=Flask(__name__)
 def db_conn():
     conn=psycopg2.connect(database="students_details",host="localhost",user="postgres",password="Pass12",port="5432")
     return conn
+
+
 #route to index.html
 @app.route("/")
 def homepage():
     return render_template("index.html") 
+
 
 #insert data from add_student
 @app.route("/create",methods=['POST'])
@@ -30,6 +33,8 @@ def create():
     conn.close()
     #redirecting to a function called add_student
     return redirect(url_for('add_student'))
+
+
 #search for student
 @app.route("/search",methods=['POST'])
 def search():
@@ -47,6 +52,7 @@ def search():
     #render_template going to the template and finding the data and display it
     return  render_template("search_student.html", data=data)
 
+
 #search student for update
 @app.route("/search_update",methods=['POST'])
 def search_update():
@@ -60,6 +66,7 @@ def search_update():
     conn.close()
     #render_template going to the template and finding the data and display it
     return  render_template("update_student.html", data=data)
+
 
 #update student details
 @app.route("/update",methods=['POST'])
@@ -80,6 +87,8 @@ def update():
     cur.close()
     conn.close()
     return redirect(url_for('update_student'))
+
+
 #search student for delete
 @app.route("/search_delete",methods=['POST'])
 def search_delete():
@@ -93,6 +102,8 @@ def search_delete():
     conn.close()
     #render_template going to the template and finding the data and display it
     return  render_template("delete_student.html", data=data)
+
+
 #Delet Student
 @app.route("/delete",methods=['POST'])
 def delete():
@@ -109,27 +120,35 @@ def delete():
     return redirect(url_for('index'))
 
 
-
 #route to home webpage
 @app.route("/index")
 def index():
     return render_template("index.html")
+
+
 #route to add student webpage
 @app.route("/add_student")
 def add_student():
     return render_template("add_student.html")
+
+
 #route to search student webpage 
 @app.route("/search_student")
 def search_student():
     return render_template("search_student.html")
- #route to search student webpage 
+
+
+ #route to update student webpage 
 @app.route("/update_student")
 def update_student():
     return render_template("update_student.html")
+
+
 #route to delete student webpage
 @app.route("/delete_student")
 def delete_student():
     return render_template("delete_student.html")
+
 
 #this part is for students Attendance
 #route to attendance_student webpage
@@ -151,23 +170,25 @@ def attendance_student():
     #retrieve all records from attendance table where date of attendance is today
     #if no records where retrived then
     #creat todays register
-    
     studentdata=cur.fetchall()
     for x in studentdata:
         # print(x[0])
         # the date of attendance will be added by defult
         # cur.execute("INSERT INTO attendance(subject,student_reference,attendance) VALUES ('math','"+x[0]+"',null);")
-        sql_test="INSERT INTO attendance(subject,student_reference,attendance) VALUES ('math','"+x[0]+"',null);"
+        sql_test="INSERT INTO attendance(subject,student_reference,attendance) VALUES (null,'"+x[0]+"',null);"
         print(sql_test)
         cur.execute(sql_test)
+    # connecting the two tables
     search_string="select * from courses, attendance where courses.student_reference=attendance.student_reference;"
     cur.execute(search_string)
+    conn.commit()
     data=cur.fetchall()
     cur.close()
     conn.close()
     print('search_string='+ search_string)
     print('data='+str(data))
     return render_template("attendance_student.html", data=data)
+
     
 @app.route("/create_attendance",methods=['POST'])
 def create_attendance():
@@ -194,6 +215,7 @@ def create_attendance():
     #redirecting to a function called add_student
     return redirect(url_for('attendance_student'))
  #display table for students name,ref,attendance
+
 
 # @app.route("/display_attendance",methods=['POST'])
 # def display_attendance():
