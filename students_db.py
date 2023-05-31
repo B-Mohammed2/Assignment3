@@ -175,20 +175,18 @@ def attendance_student():
         # print(x[0])
         # the date of attendance will be added by defult
         # cur.execute("INSERT INTO attendance(subject,student_reference,attendance) VALUES ('math','"+x[0]+"',null);")
-        sql_test="INSERT INTO attendance(subject,student_reference,attendance) VALUES (null,'"+x[0]+"',null);"
+        sql_test="INSERT INTO attendance(subject,student_reference,attendance) VALUES ('math','"+x[0]+"',null);"
         print(sql_test)
         cur.execute(sql_test)
-    # connecting the two tables
     search_string="select * from courses, attendance where courses.student_reference=attendance.student_reference;"
     cur.execute(search_string)
-    conn.commit()
     data=cur.fetchall()
     cur.close()
     conn.close()
     print('search_string='+ search_string)
     print('data='+str(data))
     return render_template("attendance_student.html", data=data)
-
+    
     
 @app.route("/create_attendance",methods=['POST'])
 def create_attendance():
@@ -215,7 +213,6 @@ def create_attendance():
     #redirecting to a function called add_student
     return redirect(url_for('attendance_student'))
  #display table for students name,ref,attendance
-
 
 # @app.route("/display_attendance",methods=['POST'])
 # def display_attendance():
