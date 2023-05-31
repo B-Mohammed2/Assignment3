@@ -170,14 +170,14 @@ def attendance_student():
     #retrieve all records from attendance table where date of attendance is today
     #if no records where retrived then
     #creat todays register
-    studentdata=cur.fetchall()
-    for x in studentdata:
-        # print(x[0])
-        # the date of attendance will be added by defult
-        # cur.execute("INSERT INTO attendance(subject,student_reference,attendance) VALUES ('math','"+x[0]+"',null);")
-        sql_test="INSERT INTO attendance(subject,student_reference,attendance) VALUES (null,'"+x[0]+"',null);"
-        print(sql_test)
-        cur.execute(sql_test)
+        studentdata=cur.fetchall()
+        for x in studentdata:
+            # print(x[0])
+            # the date of attendance will be added by defult
+            # cur.execute("INSERT INTO attendance(subject,student_reference,attendance) VALUES ('math','"+x[0]+"',null);")
+            sql_test="INSERT INTO attendance(subject,student_reference,attendance) VALUES (null,'"+x[0]+"',null);"
+            print(sql_test)
+            cur.execute(sql_test)
     search_string="select * from courses, attendance where courses.student_reference=attendance.student_reference;"
     cur.execute(search_string)
     data=cur.fetchall()
