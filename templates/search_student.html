@@ -2,19 +2,24 @@
 {% block content %}
 <h1>Search for student detail</h1>
 <form action="/search" method="post">
-    <h3>Search by Name</h3>
-    <!-- <lable for="search_fname">First Name</lable>
-    <input type="text" id="search_fname" name="fname" placeholder="Name">
-    <lable for="search_lname">Last Name</lable> -->
-    <lable for="id">ID</lable>
+    <h4>Search by Name</h4>
+    <lable for="search_fname">First Name</lable>
+    <input type="text" id="search_fname" name="fname" placeholder="First name">
+    <lable for="search_lname">Last Name</lable>
+    <input type="text" id="search_lname" name="lname" placeholder="Last name">
+    <h4>Search by Student Number</h4>
+    <lable for="id">Student ID Number</lable>
     <input type="text" id="search_id" name="id">
+    <!-- <h4>Search by date of birth</h4>
+    <lable for="date_of_birth">Date Of Birth</lable>
+    <input type="date" id="date_of_birth" name="birth_date"><br> -->
+    <br>
     <input type="submit" value="search">
-    <h3>Search by date of birth</h3>
+    
 </form>
 <!-- {{data}} -->
 <div class="table-responsive">
     <table class="table table-bordered table-hover ">
-    {% for column in data %}
         <thead class="table-success">
             <tr>
                 <th>Id</th>
@@ -26,6 +31,7 @@
                 <th>email</th>
             </tr>
         </thead>
+    {% for column in data %}
         <tbody>
              <tr>
                 <td>

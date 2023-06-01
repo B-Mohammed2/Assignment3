@@ -33,13 +33,13 @@ I needed to make a seperate table for students attendance containing details of 
 <!-- Tables -->
 | Test No | Purpose            | Test and Or data|Expected Outcome|Actual Outcome|Comments|
 | --------| ------------------ |-------- |--------|--------|--------|
-| 5      | install psycopg2  |         |        |        |for mac user add binary in th end|
+| 5       | install psycopg2  |         |        |        |for mac user add binary in th end|
 
 
 
 
 # Bugs and problems encountered
-one of the issuse i face was I tried to cary a command to insert a data into a table then i found out i forgot to commit it 
+one of the issuse i face was I tried to cary a command to insert a data into a table then i found out i forgot to commit it. Another chalenge was linking (css,img) files to the website as it wasn't finding it so I tried to use url method and put all the files in static folder.
 
 ## references
 ### Icone Website https://www.flaticon.com

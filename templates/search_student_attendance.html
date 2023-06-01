@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+ <h1>Search for student attendance</h1>
+ <form action="/search_student_attendance" method="post">
+     <h3>Search by Name</h3>  
+   <lable for="search_fname">First Name</lable>
+    <input type="text" id="search_fname" name="fname" placeholder="Name">
+    <lable for="search_lname">Last Name</lable> 
+    <lable for="id">ID</lable>
+    <input type="text" id="search_id" name="id">
+    <input type="submit" value="search">
+     <h3>Search by date of birth</h3> 
+ </form> 
+<!-- {{data}} -->
+<ul>
+    <li> Student ID:{{data[0][0]}} </li>
+    <li> Student First Name:{{data[0][1]}} </li>
+    <li> Student Last Name:{{data[0][2]}} </li>
+    <li> Gender:{{data[0][3]}} </li>
+    <li> DOB:{{data[0][4]}} </li>
+    <li> Contact_No:{{data[0][5]}} </li>
+    <li> Email:{{data[0][6]}} </li>
+</ul>
+<!-- <p> Student First Name:{{data[0][1]}}</p> -->
+<div class="table-responsive">
+
+    <table class="table table-bordered table-hover ">
+    
+        <thead class="table-success">
+            <tr>
+                <th>subject</th>
+                <th>date of attendance</th>
+                <th>attendance</th>
+            </tr>
+        </thead>
+    {% for column in data %}
+        <tbody>
+             <tr>
+                <td>
+                    {{column[8]}}
+                </td>
+                <td>
+                    {{column[9]}}
+                </td>
+                <td>
+                    {{column[11]}}
+                </td>
+            </tr>
+        </tbody>
+    {% endfor %}
+    </table>
+</div> 
+{% endblock %}
