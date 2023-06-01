@@ -49,16 +49,23 @@ def search():
     cur=conn.cursor()
     first_name=request.form['fname']
     last_name=request.form['lname']
-    # date_of_birth=request.form['birth_date']
+    date_of_birth=request.form['birth_date']
     ID=request.form['id']
-    #joinn strings (id and st_ref togehter (concatenation)  date_of_birth='"+date_of_birth+"'
-    search_string="select * from courses where student_reference='"+ID+"' OR first_name='"+first_name+"' And last_name='"+last_name+"' ;"
+    #joinn strings (id and st_ref togehter (concatenation)  
+    search_string="select * from courses where first_name='"+first_name+"' And last_name='"+last_name+"' OR student_reference='"+ID+"' OR date_of_birth='"+date_of_birth+"' ;"
     cur.execute(search_string)
-    data=cur.fetchall()
+    if date_of_birth==None:
+        print('Date of birth empty')
+    else:
+        print('date of birth included')
+
+    # print(search_string)
+    #data=cur.fetchall()
     cur.close()
     conn.close()
     #render_template going to the template and finding the data and display it
     return  render_template("search_student.html", data=data)
+    # return  render_template("search_student.html")
 
 
 #search student for update
