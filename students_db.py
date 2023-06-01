@@ -243,6 +243,5 @@ def create_attendance():
 #     conn.close()
 #     #render_template going to the template and finding the data and display it
 #     return  render_template("attendance_student.html", data=data)
-
 if __name__ == '__main__':
     app.run(debug=True)
