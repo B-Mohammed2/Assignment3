@@ -17,6 +17,13 @@ def homepage():
 def index():
     return render_template("index.html")
 
+
+#route to add student webpage
+@app.route("/add_student")
+def add_student():
+    return render_template("add_student.html")
+
+
 #insert data from add_student
 @app.route("/create",methods=['POST'])
 def create():
@@ -30,7 +37,8 @@ def create():
     date_of_birth=request.form['date_of_birth']
     phone_no=request.form['phone']
     email=request.form['email']
-    cur.execute('''INSERT INTO courses (student_reference,first_name,last_name,gender,date_of_birth,phone_no,email) VALUES (%s,%s,%s,%s,%s,%s,%s)''',(student_reference,first_name,last_name,gender,date_of_birth,phone_no,email))
+    address=range(request.form['first_line'] +request.form['second_line'] +request.form['city'] +request.form['postcode'])
+    cur.execute('''INSERT INTO courses (student_reference,first_name,last_name,gender,date_of_birth,phone_no,email,address) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)''',(student_reference,first_name,last_name,gender,date_of_birth,phone_no,email,address))
     conn.commit()
     cur.close()
     conn.close()
@@ -60,12 +68,18 @@ def search():
         print('date of birth included')
 
     # print(search_string)
-    #data=cur.fetchall()
+    data=cur.fetchall()
     cur.close()
     conn.close()
     #render_template going to the template and finding the data and display it
     return  render_template("search_student.html", data=data)
     # return  render_template("search_student.html")
+
+#update student detail
+ #route to update student webpage 
+@app.route("/update_student")
+def update_student():
+    return render_template("update_student.html")
 
 
 #search student for update
@@ -77,10 +91,12 @@ def search_update():
     search_string="select * from courses where student_reference='"+ID+"';"
     cur.execute(search_string)
     data=cur.fetchall()
+    print('data='+str(data))
     cur.close()
     conn.close()
     #render_template going to the template and finding the data and display it
     return  render_template("update_student.html", data=data)
+
 
 
 #update student details
@@ -89,14 +105,14 @@ def update():
     conn=db_conn()
     cur=conn.cursor()
     first_name=request.form['fname']
-    # last_name=request.form['lname']
-    # gender=request.form['gender']
-    # date_of_birth=request.form['date_of_birth']
-    # phone_no=request.form['phone']
-    # email=request.form['email']
+    last_name=request.form['lname']
+    gender=request.form['gender']
+    date_of_birth=request.form['date_of_birth']
+    phone_no=request.form['phone']
+    email=request.form['email']
     ID=request.form['id']
     # cur.execute('''UPDATE courses SET first_name=%s,last_name=%s,gender=%s,date_of_birth=%s,phone_no=%s,email=%s WHERE id=%s'''),(first_name,last_name,gender,date_of_birth,phone_no,email,id)
-    cur.execute('''UPDATE courses SET first_name=%s WHERE student_reference=%s''',(first_name,ID))
+    cur.execute('''UPDATE courses SET first_name=%s ,last_name=%s ,gender=%s date_of_birth=%s,phone_no=%s,email=%s WHERE student_reference=%s''',(first_name,last_name,gender,date_of_birth,phone_no,email,ID))
     # commit the changes
     conn.commit()
     cur.close()
@@ -135,20 +151,6 @@ def delete():
     return redirect(url_for('index'))
 
 
-#route to add student webpage
-@app.route("/add_student")
-def add_student():
-    return render_template("add_student.html")
-
-
-
-
-
- #route to update student webpage 
-@app.route("/update_student")
-def update_student():
-    return render_template("update_student.html")
-
 
 #route to delete student webpage
 @app.route("/delete_student")
@@ -177,7 +179,6 @@ def attendance_student():
     search_string="select * from courses, attendance where courses.student_reference=attendance.student_reference AND attendance.date_of_attendance=CURRENT_DATE order by attendance_id ASC;"
     cur.execute(search_string)
     data=cur.fetchall()
-    
     cur.close()
     conn.close()
     # print('search_string='+ search_string)
