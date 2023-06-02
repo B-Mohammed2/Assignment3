@@ -2,41 +2,42 @@
 {% block content %}
 <h1>Add student detail</h1>
 <form action="/create" method="post">
-    <lable for="student_ref"> Student Ref</lable>
-    <input type="text" id="st_ref" name="st_ref"><br>
-    <label for="fname">First name:</label><br>
-    <input type="text" id="fname" name="fname" placeholder="first name" required><br>
-    <label for="lname">Last name:</label><br>
-    <input type="text" id="lname" name="lname" placeholder="last name" required><br>
-   
-    <label for="gender">Gender</label>
-    <input id="male" name="gender" value="Male" type="radio">
-    <label for="male">Male</label>
-    <input id="female" name="gender" value="Female" type="radio">
-    <label for="female">Female</label>
-    <input id="other" name="gender" value="other" type="radio">
-    <label for="other">Other</label>
-    <br>
-    <label for="date_of_birth">Date Of Birth:</label>
-    <input type="date" id="date_of_birth" name="date_of_birth" required>
-    <br>
-    <label for="phone">Contact No:</label>
-    <input type="tel" id="phone" name="phone">
-    <br>
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-    <h3>Home Address</h3>
-    <lable for="first_line">First line of address flat/house number and name:</lable>
-    <input type="text" id="first_line" name="first_line" required><br>
-    <lable for="second_line">Sreet name:</lable>
-    <input type="text" id="second_line" name="second_line" required> 
-    <lable for="city">City:</lable>
-    <input type="text" id="city" name="city">
-    <lable for="postcode">postcode</lable>
-    <input type="text" id="postcode" name="postcode" placeholder="Enter post code" required>
-    <br>
+    <div class="mb-3">  
+        <lable for="student_ref"> Student Ref</lable>
+        <input type="text" id="st_ref" name="st_ref"><br>
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname" placeholder="first name" required><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname" placeholder="last name" required><br>
+    
+        <label for="gender">Gender</label>
+        <input id="male" name="gender" value="Male" type="radio">
+        <label for="male">Male</label>
+        <input id="female" name="gender" value="Female" type="radio">
+        <label for="female">Female</label>
+        <input id="other" name="gender" value="other" type="radio">
+        <label for="other">Other</label>
+        <br>
+        <label for="date_of_birth">Date Of Birth:</label>
+        <input type="date" id="date_of_birth" name="date_of_birth" required>
+        <br>
+        <label for="phone">Contact No:</label>
+        <input type="tel" id="phone" name="phone">
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <h3>Home Address</h3>
+        <lable for="first_line">First line of address flat/house number and name:</lable>
+        <input type="text" id="first_line" name="first_line" required><br>
+        <lable for="second_line">Sreet name:</lable>
+        <input type="text" id="second_line" name="second_line" required> 
+        <lable for="city">City:</lable>
+        <input type="text" id="city" name="city">
+        <lable for="postcode">postcode</lable>
+        <input type="text" id="postcode" name="postcode" placeholder="Enter post code" required>
+        <br>
 
-    <input type="submit" value="Add Student">
+        <input type="submit" value="Add Student">
 </form>
 
 {% endblock %}

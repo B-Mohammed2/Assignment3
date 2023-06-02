@@ -6,13 +6,19 @@ I made a table adding the col needed for students detale such as (First name,Las
 I needed to make a seperate table for students attendance containing details of the subjects they are attending and the date status of attendance. 
 
 # design
-
+I designed the webpage as simple as possible with green calming colors to not have negative effects on the users as colors effects mental health and as this webpage is only used for addministration work. as it was design to give comfortbal feeling while working with it.
 
 <!-- Introduction -->
 # Introduction 
+
+
 ## Attendance record website
  
 ## Target audience for web application
+I originally created this project for school addministration works to deal with student ditals and mark their daily attendance. 
+However,the users of this type of webpage are mostlly working for administration for companies or schools or even some businesses as they can addd data and update or remove it very easley.
+
+
 ### Heading 3
 #### Heading 4
 ##### Heading 5
@@ -39,7 +45,8 @@ I needed to make a seperate table for students attendance containing details of 
 
 
 # Bugs and problems encountered
-one of the issuse i face was I tried to cary a command to insert a data into a table then i found out i forgot to commit it. Another chalenge was linking (css,img) files to the website as it wasn't finding it so I tried to use url method and put all the files in static folder.
+one of the issuse i face was I tried to cary a command to insert a data into a table then i found out i forgot to commit it. Another chalenge was linking (css,img) files to the website as it wasn't finding it so I tried to use url method and put all the files in static folder. I had another problem in searching for students.the program was crashing whenever I search without the date of birth.Therefore,I used if function to work with and without date of birth.
+In searching attendance student, I had problem with defining data when I tried to get student details to show out of the table seperatly for it not to be repeated with table with each attendance. I fixed it by useing if jinja to show the page without crashing and show the results whenever searched for data. 
 
 ## references
 ### Icone Website https://www.flaticon.com

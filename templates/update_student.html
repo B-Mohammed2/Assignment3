@@ -2,10 +2,19 @@
 {% block content %}
 <h1>Update Students detail</h1>
 <form action="/search_update" method="post">   
-    <lable for="id">ID</lable>
+    <h4>Search by Name</h4>
+    <lable for="search_fname">First Name</lable>
+    <input type="text" id="search_fname" name="fname" placeholder="First name">
+    <lable for="search_lname">Last Name</lable>
+    <input type="text" id="search_lname" name="lname" placeholder="Last name">
+    <h4>Search by Student Number</h4>
+    <lable for="id">Student ID Number</lable>
     <input type="text" id="search_id" name="id">
+    <h4>Search by date of birth</h4>
+    <lable for="date_of_birth">Date Of Birth</lable>
+    <input type="date" id="date_of_birth" name="birth_date"><br>
+    <br>
     <input type="submit" value="search">
-    <h3>Search by date of birth</h3>
 </form>
 {% for column in data %}
 <form action="/update" method="post">
