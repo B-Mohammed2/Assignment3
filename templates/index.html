@@ -1,26 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="row gy-5">
-      <div class="col-6">
-        <div class="p-3 border bg-light"><a href="{{url_for('add_student')}}"> Add Students <img src="{{url_for('static',filename='images/student.png')}}" width="50px" hight="50px"></div>
-      <div class="col-6">
-        <div class="p-3 border bg-light"><a href="{{url_for('search_student')}}">Search for student</a></div>
-      </div>
-      <div class="col-6">
-        <!-- this is where you update any detail of the student -->
-        <div class="p-3 border bg-light"><a href="{{url_for('update_student')}}">Update student detail</a></div>
-      </div>
-      <div class="col-6">
-        <div class="p-3 border bg-light"><a href="{{url_for('delete_student')}}">Delete student</a></div>
-      </div>
-      <div class="col-6">
-        <div class="p-3 border bg-light"><a href="{{url_for('attendance_student')}}">Student's daily register </a></div>
-      </div>
-      <div class="col-6">
-        <div class="p-3 border bg-light"><a href="{{url_for('search_attendance_student')}}">Student's daily attendance</a></div>
-      </div>
+    <div class="row gy-1">
+      <div class="col-6 p-3">
+        <div class="p-3 border bg-light w-50"><a href="{{url_for('add_student')}}" class="nav-link"> Add Students <img src="{{url_for('static',filename='images/student.png')}}" width="50px" hight="50px" class="img_icon"></a></div>
     </div>
+      <div class="col-6 p-3">
+        <div class="p-3 border bg-light w-50"><a href="{{url_for('search_student')}}" class="nav-link"> Search for student <img src="{{url_for('static',filename='images/search_student.png')}}" width="50px" hight="50px" class="img_icon"></a></div>
+      </div>
+      <div class="col-6 p-3">
+        <!-- this is where you update any detail of the student -->
+        <div class="p-3 border bg-light w-50"><a href="{{url_for('update_student')}}" class="nav-link"> Update student detail <img src="{{url_for('static',filename='images/update.png')}}" width="50px" hight="50px" class="img_icon"></a></div>
+      </div>
+      <div class="col-6 p-3">
+        <div class="p-3 border bg-light w-50"><a href="{{url_for('delete_student')}}" class="nav-link"> Delete student <img src="{{url_for('static',filename='images/remove_student.png')}}" width="50px" hight="50px" class="img_icon"></a></div>
+      </div>
+      <div class="col-6 p-3">
+        <div class="p-3 border bg-light w-50"><a href="{{url_for('attendance_student')}}" class="nav-link"> Student's daily register <img src="{{url_for('static',filename='images/attendance.png')}}" width="50px" hight="50px" class="img_icon"></a></div>
+      </div>
+      <div class="col-6 p-3">
+        <div class="p-3 border bg-light w-50"><a href="{{url_for('search_attendance_student')}}" class="nav-link"> Student's daily attendance <img src="{{url_for('static',filename='images/search_attendance.png')}}" width="50px" hight="50px" class="img_icon"></a></div>
+      </div>
+     
   </div>
 
   
