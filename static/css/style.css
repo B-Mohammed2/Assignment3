@@ -10,7 +10,9 @@
 .header{
     background-color: rgb(13, 93, 66);
     width: 100%;
-    height: 20vh;
+    height: 18vh;
+    min-height: 90px;
+    max-height: 120px;
 }
 .subtn{
     width: 20vw;
@@ -23,3 +25,53 @@
    
     margin-block-start: -40px;
 }
+.nav-p{
+    margin-block-start: 10px;
+    
+}
+.nav-background{
+    width: 100%;
+    margin: 10px;
+   
+}
+.nav-bar{
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    color:white;
+    
+}
+
+.lable{
+    color:#D4C7D7; 
+    font-size: 40px;
+    font-weight: bold;
+}
+ul li {
+    display: inline-block;
+    line-height: 100px;
+    margin: 0 20px;
+    padding: top;
+    
+
+    
+}
+ul li a {
+    font-size: 18px;
+    text-transform: uppercase;
+    height: 40px;
+    width:100px;
+}
+li:hover {
+    background-color:  rgba(30, 156, 93, 0.543);
+    transition: .5s;
+    /* height: 40px;
+    width: 100px; */
+}
+
+
+h2 {
+    margin: 20px;
+
+}
+
