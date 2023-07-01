@@ -38,7 +38,13 @@ def create():
     phone_no=request.form['phone']
     email=request.form['email']
     address=request.form['first_line'] +'  ' + request.form['second_line'] + '  '+ request.form['city'] + '  ' +request.form['postcode']
-    cur.execute('''INSERT INTO courses (student_reference,first_name,last_name,gender,date_of_birth,phone_no,email,address) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)''',(student_reference,first_name,last_name,gender,date_of_birth,phone_no,email,address))
+    next_kin=request.form['kin_fname'] +'  ' + request.form['kin_lname']
+    kin_rel=request.form['kin_relationship']
+    kin_no=request.form['kin_phone']
+    kin_email=request.form['kin_email']
+    sql_add = "INSERT INTO courses (student_reference, first_name, last_name, gender, date_of_birth, phone_no, email, address, kin_full_name, kin_relationship, kin_phone, kin_email) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+    data = (student_reference, first_name, last_name, gender, date_of_birth, phone_no, email, address, next_kin, kin_rel, kin_no, kin_email)
+    cur.execute(sql_add, data)
     conn.commit()
     cur.close()
     conn.close()
@@ -124,7 +130,6 @@ def update():
     phone_no=request.form['phone']
     email=request.form['email']
     ID=request.form['id']
-    # cur.execute('''UPDATE courses SET first_name=%s,last_name=%s,gender=%s,date_of_birth=%s,phone_no=%s,email=%s WHERE id=%s'''),(first_name,last_name,gender,date_of_birth,phone_no,email,id)
     cur.execute('''UPDATE courses SET first_name=%s ,last_name=%s ,gender=%s date_of_birth=%s,phone_no=%s,email=%s WHERE student_reference=%s''',(first_name,last_name,gender,date_of_birth,phone_no,email,ID))
     # commit the changes
     conn.commit()
@@ -152,7 +157,6 @@ def search_delete():
     print("dateofbirth is" + date_of_birth)
     if date_of_birth =='':
         search_string="select * from courses where first_name='"+first_name+"' And last_name='"+last_name+"' OR student_reference='"+ID+"' ;"
-        # print('Date of birth empty')
     else:
         search_string="select * from courses where first_name='"+first_name+"' And last_name='"+last_name+"' OR student_reference='"+ID+"' OR date_of_birth='"+date_of_birth+"' ;"
 
@@ -204,8 +208,6 @@ def attendance_student():
     data=cur.fetchall()
     cur.close()
     conn.close()
-    # print('search_string='+ search_string)
-    # print('data='+str(data))
     return render_template("attendance_student.html", data=data)
 
 #creating daily attendance in register page
@@ -255,11 +257,8 @@ def search_student_attendance_detail():
     
     if date_of_birth =='':
         search_by_name="select * from courses, attendance where courses.student_reference=attendance.student_reference AND courses.first_name='"+first_name+"' And courses.last_name='"+last_name+"' OR courses.student_reference='"+ID+"' ;"
-        # search_By_id="select * from courses, attendance where courses.student_reference=attendance.student_reference AND courses.student_reference='"+ID+"';"
-        # print('Date of birth empty')
     else:
         search_by_name="select * from courses, attendance where courses.student_reference=attendance.student_reference AND courses.first_name='"+first_name+"' And courses.last_name='"+last_name+"' AND courses.date_of_birth='"+date_of_birth+"';"
-        # print('date of birth included')
 
     # cur.execute(search_By_id)
     cur.execute(search_by_name)

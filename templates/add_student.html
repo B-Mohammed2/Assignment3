@@ -4,13 +4,13 @@
 <form action="/create" method="post">
     <div class="mb-3">  
         <lable for="student_ref"> Student Ref</lable>
-        <input type="text" id="st_ref" name="st_ref"><br>
+        <input type="text" id="st_ref" name="st_ref" placeholder="Enter student number" required><br>
         <label for="fname">First name:</label><br>
-        <input type="text" id="fname" name="fname" placeholder="first name" required><br>
+        <input type="text" id="fname" name="fname" placeholder="First name" required><br>
         <label for="lname">Last name:</label><br>
-        <input type="text" id="lname" name="lname" placeholder="last name" required><br>
+        <input type="text" id="lname" name="lname" placeholder="Last name" required><br>
     
-        <label for="gender">Gender</label>
+        <label for="gender">Gender:</label>
         <input id="male" name="gender" value="Male" type="radio">
         <label for="male">Male</label>
         <input id="female" name="gender" value="Female" type="radio">
@@ -22,58 +22,33 @@
         <input type="date" id="date_of_birth" name="date_of_birth" required>
         <br>
         <label for="phone">Contact No:</label>
-        <input type="tel" id="phone" name="phone">
+        <input type="tel" id="phone" name="phone" placeholder="Contact No" required>
         <br>
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <h3>Home Address</h3>
-        <lable for="first_line">First line of address flat/house number and name:</lable>
-        <input type="text" id="first_line" name="first_line" required><br>
-        <lable for="second_line">Sreet name:</lable>
-        <input type="text" id="second_line" name="second_line" required> 
+        <input type="email" id="email" name="email" placeholder="Email" required>
+        <h2>Home Address</h2>
+        <lable for="first_line">First Line Of Address Flat/House Number And Name:</lable>
+        <input type="text" id="first_line" name="first_line" placeholder="Enter First Line Of Address" required><br>
+        <lable for="second_line">Sreet Name:</lable>
+        <input type="text" id="second_line" name="second_line" placeholder="Enter Street Name" required> 
         <lable for="city">City:</lable>
-        <input type="text" id="city" name="city">
-        <lable for="postcode">postcode</lable>
-        <input type="text" id="postcode" name="postcode" placeholder="Enter post code" required>
+        <input type="text" id="city" name="city" placeholder="Enter City Name">
+        <lable for="postcode">Postcode</lable>
+        <input type="text" id="postcode" name="postcode" placeholder="Enter Postcode" required>
         <br>
+        <h2>Next of Kin Details</h2>
+        <label for="kin_fname">Kin's First Name:</label>
+        <input type="text" id="kin_fname" name="kin_fname" placeholder="Kin's First Name">
+        <label for="kin_lname">Kin's Last Name:</label>
+        <input type="text" id="kin_lname" name="kin_lname" placeholder="Kin's Last Name"><br>
+        <label for="kin_relationship">Relationship:</label>
+        <input type="text" id="kin_relationship" name="kin_relationship" placeholder="Relationship"><br>
+        <label for="kin_phone">Contact No:</label>
+        <input type="tel" id="kin_phone" name="kin_phone" placeholder="Contact No"><br>
+        <label for="kin_email">Email:</label>
+        <input type="email" id="kin_email" name="kin_email" placeholder="Email"><br>
 
         <input type="submit" value="Add Student">
 </form>
 
 {% endblock %}
-
-
-<!-- css
---swiper-theme-color: #007aff;
---swiper-navigation-size: 44px;
--webkit-font-smoothing: antialiased;
-pointer-events: auto;
---teaser-background-color: #fff;
---teaser-top-left-border-radius: 15px 0 0 0;
---teaser-right-border-radius: 0 15px 15px 0;
---teaser-top-left-bottom-right-border-radius: 15px 0;
---teaser-top-right-border-radius: 0px 15px 0px 0px;
---teaser-top-right-bottom-left-border-radius: 0 15px;
---teaser-left-border-radius: 15px 0 0 15px;
---teaser-bottom-right-border-radius: 0 0 15px 0;
---teaser-top-right-bottom-left-border-radius-large: 0 20px;
---teaser-border-radius-large: 20px;
---teaser-no-border-radius: 0;
---teaser-border: 1px solid #d0d0d0;
---theme-color: #05054b;
---theme-text-color: #333;
-margin: 0;
-appearance: none;
--webkit-tap-highlight-color: rgba(255,255,255,0)!important;
-outline: none!important;
-color: #333 !important;
-width: 100%;
-font-size: 16px;
-height: 40px;
-box-sizing: border-box;
-border-radius: 5px;
-border: solid 1px #767676;
-background: transparent;
-font-family: "Boots Sharp",Arial,sans-serif;
-font-weight: 300;
-padding: 0 56px 0 11px; -->
