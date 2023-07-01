@@ -1,33 +1,61 @@
 {% extends "base.html" %}
-{% block content %}
 
+{% block content %}
+  <h2 class="h2-text">Please choose from the following:</h2>
+  <div class="container">
     <div class="row gy-1">
-      <div class="col-6 p-3">
-        <div class="p-3 border bg-light w-50"><a href="{{url_for('add_student')}}" class="nav-link"> Add Students <img src="{{url_for('static',filename='images/student.png')}}" width="50px" hight="50px" class="img_icon"></a></div>
+      <div class="col-md-6 p-3">
+        
+        <button class="responsive-button">
+          <a href="{{url_for('add_student')}}" class="nav-link">
+            <span>Add Students </span>
+            <img src="{{url_for('static',filename='images/student.png')}}" class="img_icon" alt="add-student">
+          </a>
+        </button>
+      </div>
+
+      <div class="col-md-6 p-3">
+        <button class="responsive-button">
+          <a href="{{url_for('search_student')}}" class="nav-link">
+            <span>Search for student </span>
+            <img src="{{url_for('static',filename='images/search_student.png')}}"  class="img_icon" alt="search-student">
+          </a>
+        </button>
+      </div>
+
+      <div class="col-md-6 p-3">
+        <button class="responsive-button">
+          <a href="{{url_for('update_student')}}" class="nav-link">
+            <span>Update student detail </span>
+            <img src="{{url_for('static',filename='images/update.png')}}" class="img_icon" alt="update-icon">
+          </a>
+        </button>
+      </div>
+
+      <div class="col-md-6 p-3">
+        <button class="responsive-button">
+          <a href="{{url_for('delete_student')}}" class="nav-link">
+            <span>Delete student</span>
+            <img src="{{url_for('static',filename='images/remove_student.png')}}" class="img_icon" alt="remove-student-icon">
+          </a>
+        </button>
+      </div>
+
+      <div class="col-md-6 p-3">
+        <button class="responsive-button">
+          <a href="{{url_for('attendance_student')}}" class="nav-link"><span>Student's daily register </span><img src="{{url_for('static',filename='images/attendance.png')}}" width="50px" height="50px" class="img_icon" alt="attendance-list-icon"></a>
+        </button>
+      </div>
+
+      <div class="col-md-6 p-3">
+        <button class="responsive-button">
+          <a href="{{url_for('search_attendance_student')}}" class="nav-link">
+            <span>Student's daily attendance </span>
+            <img src="{{url_for('static',filename='images/search_attendance.png')}}" class="img_icon" alt="search-attendance">
+          </a>
+        </button>
+      </div>
     </div>
-      <div class="col-6 p-3">
-        <div class="p-3 border bg-light w-50"><a href="{{url_for('search_student')}}" class="nav-link"> Search for student <img src="{{url_for('static',filename='images/search_student.png')}}" width="50px" hight="50px" class="img_icon"></a></div>
-      </div>
-      <div class="col-6 p-3">
-        <!-- this is where you update any detail of the student -->
-        <div class="p-3 border bg-light w-50"><a href="{{url_for('update_student')}}" class="nav-link"> Update student detail <img src="{{url_for('static',filename='images/update.png')}}" width="50px" hight="50px" class="img_icon"></a></div>
-      </div>
-      <div class="col-6 p-3">
-        <div class="p-3 border bg-light w-50"><a href="{{url_for('delete_student')}}" class="nav-link"> Delete student <img src="{{url_for('static',filename='images/remove_student.png')}}" width="50px" hight="50px" class="img_icon"></a></div>
-      </div>
-      <div class="col-6 p-3">
-        <div class="p-3 border bg-light w-50"><a href="{{url_for('attendance_student')}}" class="nav-link"> Student's daily register <img src="{{url_for('static',filename='images/attendance.png')}}" width="50px" hight="50px" class="img_icon"></a></div>
-      </div>
-      <div class="col-6 p-3">
-        <div class="p-3 border bg-light w-50"><a href="{{url_for('search_attendance_student')}}" class="nav-link"> Student's daily attendance <img src="{{url_for('static',filename='images/search_attendance.png')}}" width="50px" hight="50px" class="img_icon"></a></div>
-      </div>
-     
   </div>
 
-  
-        <!-- <img src="{{url_for('static',filename='images/student.png')}}"> -->
-        <!-- class="container overflow-hidden text-center"> -->
-       
-     
-        
 {% endblock %}
