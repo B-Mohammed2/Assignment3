@@ -34,7 +34,7 @@
         <lable for="city">City:</lable>
         <input type="text" id="city" name="city" placeholder="Enter City Name">
         <lable for="postcode">Postcode</lable>
-        <input type="text" id="postcode" name="postcode" placeholder="Enter Postcode" required>
+        <input type="text" id="postcode" name="postcode" placeholder="Enter Postcode" oninput="this.value = this.value.toUpperCase();" required>
         <br>
         <h2>Next of Kin Details</h2>
         <label for="kin_fname">Kin's First Name:</label>
