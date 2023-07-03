@@ -1,46 +1,49 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Attendance daily records</h1>
-<form action="/create_attendance" method="post">
-    <div class="p-3 bg-light border">
-        <lable for="subject">Subject</lable>
-        <input type="text" id="subject" name="subject" placeholder="write the subject name" class="p-1 bg-light rounded-pill border-dark">
+<div class="container">
+  <h1>Attendance Daily Records</h1>
+  <form action="/create_attendance" method="post">
+    <div class="container custom-width">
+        <div class="form-group">
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" placeholder="Write the subject name" class="form-control">
+        </div>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-success">
+                    <tr>
+                        <th>Student First Name</th>
+                        <th>Student Last Name</th>
+                        <th>Student Ref</th>
+                        <th>Attendance</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for column in data %}
+                    <tr>
+                        <td>{{ column[1] }}</td>
+                        <td>{{ column[2] }}</td>
+                        <td>{{ column[0] }}</td>
+                        <td>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="yes_{{ column[0] }}" name="{{ column[0] }}" value="yes">
+                            <label class="form-check-label" for="yes_{{ column[0] }}">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="no_{{ column[0] }}" name="{{ column[0] }}" value="no">
+                            <label class="form-check-label" for="no_{{ column[0] }}">No</label>
+                        </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="text-center">
+        <button type="submit" class="btn btn-success btn-lg">Submit</button><br><br>
+        </div>
     </div>
- <!-- {{data}} -->
-    <div class="table-responsive">
-        <table  class="table table-bordered table-hover">
-            <thead class="table-success"> 
-                <th>Student first name</th>
-                <th>Student last name</th>
-                <th>Student Ref</th>
-                <th>Attendance</th>
-            </thead>
-            {% for column in data %}
-            <tbody>
-                <tr>
-                    <td>
-                        {{column[1]}}
-                    </td>
-                    <td>
-                        {{column[2]}}
-                    </td>
-                    <td>
-                        {{column[0]}}
-                    </td>
-                    <td>
-                        <label for="yes">Yes</label>
-                        <input id="yes" name="{{column[0]}}" value="yes" type="radio">
-                        <label for="no">No</label>
-                        <input id="no" name="{{column[0]}}" value="no" type="radio">
-                    </td>
-                </tr>
-            </tbody>
-            {% endfor %}
-        </table>
-    </div>
- <br><input type="submit" value="submit" class="btn btn-success position-absolute top-75 start-50 translate-middle subtn fs-5">
-</form>
-
-
-
+  </form>
+</div>
 {% endblock %}

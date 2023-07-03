@@ -69,20 +69,16 @@ def search():
     print("dateofbirth is" + date_of_birth)
     if date_of_birth =='':
         search_string="select * from courses where first_name='"+first_name+"' And last_name='"+last_name+"' OR student_reference='"+ID+"' ;"
-        # print('Date of birth empty')
     else:
         search_string="select * from courses where first_name='"+first_name+"' And last_name='"+last_name+"' OR student_reference='"+ID+"' OR date_of_birth='"+date_of_birth+"' ;"
-    
-        # print('date of birth included')
 
     cur.execute(search_string)
-    # print(search_string)
     data=cur.fetchall()
     cur.close()
     conn.close()
     #render_template going to the template and finding the data and display it
     return  render_template("search_student.html", data=data)
-    # return  render_template("search_student.html")
+    
 
 #update student detail
  #route to update student webpage 
@@ -96,9 +92,9 @@ def update_student():
 def search_update():
     conn=db_conn()
     cur=conn.cursor()
-    first_name=request.form['fname']
-    last_name=request.form['lname']
-    date_of_birth=request.form['birth_date']
+    first_name=request.form['search_fname']
+    last_name=request.form['search_lname']
+    date_of_birth=request.form['search_birth_date']
     ID=request.form['id']
     #joinn strings (id and st_ref togehter (concatenation)  
     print("dateofbirth is" + date_of_birth)
@@ -129,8 +125,15 @@ def update():
     date_of_birth=request.form['date_of_birth']
     phone_no=request.form['phone']
     email=request.form['email']
+    address = request.form['address']
+    next_kin=request.form['kin_full_name']
+    relationship = request.form['relationship']
+    kin_phone=request.form['kin_phone']
+    kin_email=request.form['kin_email']
     ID=request.form['id']
-    cur.execute('''UPDATE courses SET first_name=%s ,last_name=%s ,gender=%s date_of_birth=%s,phone_no=%s,email=%s WHERE student_reference=%s''',(first_name,last_name,gender,date_of_birth,phone_no,email,ID))
+    sql_update='''UPDATE courses SET first_name=%s, last_name=%s, gender=%s, date_of_birth=%s, phone_no=%s, email=%s, address=%s, kin_full_name=%s, kin_relationship=%s, kin_phone=%s, kin_email=%s WHERE student_reference=%s'''
+    data=(first_name, last_name, gender, date_of_birth, phone_no, email, address, next_kin, relationship, kin_phone, kin_email, ID)
+    cur.execute(sql_update,data)
     # commit the changes
     conn.commit()
     cur.close()
@@ -154,7 +157,6 @@ def search_delete():
     date_of_birth=request.form['birth_date']
     ID=request.form['id']
     #joinn strings (id and st_ref togehter (concatenation)  
-    print("dateofbirth is" + date_of_birth)
     if date_of_birth =='':
         search_string="select * from courses where first_name='"+first_name+"' And last_name='"+last_name+"' OR student_reference='"+ID+"' ;"
     else:
@@ -242,32 +244,7 @@ def create_attendance():
 def search_attendance_student():
     return  render_template("search_student_attendance.html")
     
-    
-#search for student attendance by id first and last name and date of birth
-# @app.route("/search_student_attendance",methods=['POST'])
-# def search_student_attendance_detail():
-#     conn=db_conn()
-#     cur=conn.cursor()
-#     first_name=request.form['fname']
-#     last_name=request.form['lname']
-#     ID=request.form['id']
-#     date_of_birth=request.form['birth_date']
-#     #joinn strings (id and st_ref togehter (concatenation) 
-#     if date_of_birth =='':
-#         # search by name and ID
-#         search_by_name="select * from courses, attendance where courses.student_reference=attendance.student_reference AND courses.first_name='"+first_name+"' And courses.last_name='"+last_name+"' OR courses.student_reference='"+ID+"' ;"
-#     else:
-#         # search by name and date of birth
-#         search_by_name="select * from courses, attendance where courses.student_reference=attendance.student_reference AND courses.first_name='"+first_name+"' And courses.last_name='"+last_name+"' AND courses.date_of_birth='"+date_of_birth+"';"
-#     cur.execute(search_by_name)
-#     data=cur.fetchall()
-#     cur.close()
-#     conn.close()
-#     #render_template going to the template and finding the data and display it
-#     return  render_template("search_student_attendance.html", data=data)
 
-# if __name__ == '__main__':
-#     app.run(debug=True)
 @app.route("/search_student_attendance", methods=['POST'])
 def search_student_attendance_detail():
     conn = db_conn()
@@ -276,7 +253,7 @@ def search_student_attendance_detail():
     last_name = request.form['lname']
     ID = request.form['id']
     date_of_birth = request.form['birth_date']
-
+    #joinn strings (id and st_ref togehter (concatenation)
     if date_of_birth == '':
         # Search by name and ID
         search_query = "SELECT * FROM courses, attendance WHERE courses.student_reference=attendance.student_reference AND (courses.first_name=%s AND courses.last_name=%s OR courses.student_reference=%s);"
@@ -289,8 +266,17 @@ def search_student_attendance_detail():
     data = cur.fetchall()
     cur.close()
     conn.close()
-
+    #render_template going to the template and finding the data and display it
     return render_template("search_student_attendance.html", data=data)
+
+@app.route('/help')
+def help():
+    return render_template('help.html')
+
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

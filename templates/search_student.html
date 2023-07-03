@@ -2,51 +2,73 @@
 {% block content %}
     <h1>Search for student detail</h1>
     <form action="/search" method="post">
-        <h4>Search by Name</h4>
+        <label>Search by Name</label>
+        <br>
         <label for="search_fname">First Name</label>
         <input type="text" id="search_fname" name="fname" placeholder="First name">
+
         <label for="search_lname">Last Name</label>
         <input type="text" id="search_lname" name="lname" placeholder="Last name">
-        <h4>Search by Student Number</h4>
+
+        <label>Search by Student Number</label>
+        <br>
         <label for="search_id">Student ID Number</label>
-        <input type="text" id="search_id" name="id">
-        <h4>Search by date of birth</h4>
+        <input type="text" id="search_id" name="id" placeholder="Student Number">
+
+        <label>Search by date of birth</label>
+        <br>
         <label for="date_of_birth">Date Of Birth</label>
         <input type="date" id="date_of_birth" name="birth_date">
         <br><br>
         <input type="submit" value="Search">
     </form>
+    <br>
 
     {% if data %}
         <div class="table-responsive">
-            <table class="table table-bordered table-hover">
-                <thead class="table-success">
-                    <tr>
-                        <th>ID</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Gender</th>
-                        <th>Date of Birth</th>
-                        <th>Contact No</th>
-                        <th>Email</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for column in data %}
+            <div class="overflow-x-scroll">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-success">
                         <tr>
-                            <td>{{ column[0] }}</td>
-                            <td>{{ column[1] }}</td>
-                            <td>{{ column[2] }}</td>
-                            <td>{{ column[3] }}</td>
-                            <td>{{ column[4] }}</td>
-                            <td>{{ column[5] }}</td>
-                            <td>{{ column[6] }}</td>
+                            <th>ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Gender</th>
+                            <th>Date of Birth</th>
+                            <th>Contact No</th>
+                            <th>Email</th>
+                            <th>Address</th>
+                            <th>Next Kin</th>
+                            <th>Relationship</th>
+                            <th>Kin Phone No</th>
+                            <th>Kin Email</th>
                         </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {% for column in data %}
+                            <tr>
+                                <td>{{ column[0] }}</td>
+                                <td>{{ column[1] }}</td>
+                                <td>{{ column[2] }}</td>
+                                <td>{{ column[3] }}</td>
+                                <td>{{ column[4] }}</td>
+                                <td>{{ column[5] }}</td>
+                                <td>{{ column[6] }}</td>
+                                <td>{{ column[7] }}</td>
+                                <td>{{ column[8] }}</td>
+                                <td>{{ column[9] }}</td>
+                                <td>{{ column[10] }}</td>
+                                <td>{{ column[11] }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
     {% else %}
-        <h3>Student Not Found</h3>
+        {% if request.method == 'POST' %}
+
+            <h2 style="padding-left: 20px;">Student Not Found</h2>
+        {% endif %}
     {% endif %}
 {% endblock %}

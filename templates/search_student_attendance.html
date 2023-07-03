@@ -49,6 +49,11 @@
             </table>
         </div>
     {% else %}
-        <h3>Student Not Found</h3>
+        {% if request.method == 'POST' %}
+
+        <h2 style="padding-left: 20px;">No Record Found</h2>
+        
+        {% endif %}
+        
     {% endif %}
 {% endblock %}
