@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, request, url_for
 import psycopg2
-# import json
+
 app=Flask(__name__)
 #connecting to DB
 def db_conn():
