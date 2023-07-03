@@ -1,59 +1,61 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>Search for student attendance</h1>
-    <form action="/search_student_attendance" method="post">
-        <h4>Search by Name</h4>
-        <label for="search_fname">First Name</label>
-        <input type="text" id="search_fname" name="fname" placeholder="First name">
-        <label for="search_lname">Last Name</label>
-        <input type="text" id="search_lname" name="lname" placeholder="Last name">
-        <h4>Search by Student Number</h4>
-        <label for="search_id">Student ID Number</label>
-        <input type="text" id="search_id" name="id" placeholder="Student Number">
-        <h4>Search by date of birth</h4>
-        <label for="date_of_birth">Date Of Birth</label>
-        <input type="date" id="date_of_birth" name="birth_date"><br>
-        <br>
-        <input type="submit" value="Search">
-    </form> 
+    <div class="content-wrapper">
+        <h1>Search for student attendance</h1>
+        <form action="/search_student_attendance" method="post">
+            <h4>Search by Name</h4>
+            <label for="search_fname">First Name</label>
+            <input type="text" id="search_fname" name="fname" placeholder="First name">
+            <label for="search_lname">Last Name</label>
+            <input type="text" id="search_lname" name="lname" placeholder="Last name">
+            <h4>Search by Student Number</h4>
+            <label for="search_id">Student ID Number</label>
+            <input type="text" id="search_id" name="id" placeholder="Student Number">
+            <h4>Search by date of birth</h4>
+            <label for="date_of_birth">Date Of Birth</label>
+            <input type="date" id="date_of_birth" name="birth_date"><br>
+            <br>
+            <input type="submit" value="Search">
+        </form> 
 
-    {% if data is defined and data|length != 0 %}
-        <ul>
-            <li>Student ID: {{ data[0][0] }}</li>
-            <li>Student First Name: {{ data[0][1] }}</li>
-            <li>Student Last Name: {{ data[0][2] }}</li>
-            <li>Gender: {{ data[0][3] }}</li>
-            <li>DOB: {{ data[0][4] }}</li>
-            <li>Contact_No: {{ data[0][5] }}</li>
-            <li>Email: {{ data[0][6] }}</li>
-        </ul> 
+        {% if data is defined and data|length != 0 %}
+            <ul>
+                <li>Student ID: {{ data[0][0] }}</li>
+                <li>Student First Name: {{ data[0][1] }}</li>
+                <li>Student Last Name: {{ data[0][2] }}</li>
+                <li>Gender: {{ data[0][3] }}</li>
+                <li>DOB: {{ data[0][4] }}</li>
+                <li>Contact_No: {{ data[0][5] }}</li>
+                <li>Email: {{ data[0][6] }}</li>
+            </ul> 
 
-        <div class="table-responsive">
-            <table class="table table-bordered table-hover">
-                <thead class="table-success">
-                    <tr>
-                        <th>Subject</th>
-                        <th>Date of Attendance</th>
-                        <th>Attendance</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for column in data %}
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-success">
                         <tr>
-                            <td>{{ column[13] }}</td>
-                            <td>{{ column[14] }}</td>
-                            <td>{{ column[16] }}</td>
+                            <th>Subject</th>
+                            <th>Date of Attendance</th>
+                            <th>Attendance</th>
                         </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    {% else %}
-        {% if request.method == 'POST' %}
+                    </thead>
+                    <tbody>
+                        {% for column in data %}
+                            <tr>
+                                <td>{{ column[13] }}</td>
+                                <td>{{ column[14] }}</td>
+                                <td>{{ column[16] }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            {% if request.method == 'POST' %}
 
-        <h2 style="padding-left: 20px;">No Record Found</h2>
-        
+            <h2 style="padding-left: 20px;">No Record Found</h2>
+            
+            {% endif %}
+            
         {% endif %}
-        
-    {% endif %}
+    </div>
 {% endblock %}

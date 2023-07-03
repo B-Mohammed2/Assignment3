@@ -92,9 +92,9 @@ def update_student():
 def search_update():
     conn=db_conn()
     cur=conn.cursor()
-    first_name=request.form['search_fname']
-    last_name=request.form['search_lname']
-    date_of_birth=request.form['search_birth_date']
+    first_name=request.form['fname']
+    last_name=request.form['lname']
+    date_of_birth=request.form['birth_date']
     ID=request.form['id']
     #joinn strings (id and st_ref togehter (concatenation)  
     print("dateofbirth is" + date_of_birth)

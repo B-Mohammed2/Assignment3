@@ -3,6 +3,14 @@
   padding: 0;
   font-family: 'roboto', sans-serif;
 }
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
+.content-wrapper {
+  padding-bottom: 50px; /* Adjust this value as needed */
+}
 
 .header{
   background-color: rgb(13, 93, 66);
@@ -89,7 +97,7 @@
   max-width: 400px;
   width: 360px;
   min-width: 100px;
-  height:80px;
+  height:70px;
 }
 /* adjust font size and width of the button for smaller screens */
 @media screen and (max-width: 480px) {
@@ -235,6 +243,18 @@ li:first-child {
 footer {
   background-color: rgb(13, 93, 66);
   width: 100%;
-  height: auto;
+  height: 80px;
+  position:absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(13, 93, 66);
+  padding: 20px 0;
+  color: #fff;
+  text-align: center;
+  clear: both;
+  /* position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px; Adjust this value as needed */
 }
-  
