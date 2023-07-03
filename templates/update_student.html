@@ -21,7 +21,7 @@
 {% if data %}
     {% for column in data %}
     <form action="/update" method="post">
-        <label>Student's details</label>
+        <label>Student details</label><br>
 
         <label for="student_ref">Student No:</label>
         <input type="text" id="student_ref" name="id" value="{{column[0]}}" required><br>
