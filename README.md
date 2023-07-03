@@ -5,12 +5,13 @@ Student Records Management
 This is a web application page that allows you to perform various operations related to student management. It provides the following features:
 
 ## Features
-- Add Students: Add new students to the system from add student page.
-- Search for Student: Search and retrieve student details based on different using different methods.
-- Update Student Detail: Update the details of existing students.
-- Delete Student: Remove a student from the system.
-- Student's Daily Register: Record and manage daily attendance records for students.
-- Student's Daily Attendance: Search and view the daily attendance records of students.
+
+- Add Students: add new students to the system by filling out the form on the "Add Student" page.
+- Search for Students:search and retrieve student details using their full name, ID number, or date of birth.
+- Update Student Details: Seamlessly update the information of existing students as needed.
+- Delete Students: Conveniently remove a student from the system when necessary.
+- Student Attendance Register: Maintain and manage daily attendance records for students.
+View Student Attendance: Quickly search and view the daily attendance records of students.
 
 
 ## User Stories
@@ -34,21 +35,19 @@ This is a web application page that allows you to perform various operations rel
 - PostgreSQL: A powerful open-source relational database management system used for storing and managing student details and attendance data.
 - Psycopg2: A PostgreSQL adapter for Python that allows Python programs to access a PostgreSQL database. It is used to establish a connection between the Flask application and the PostgreSQL database.
 
-Feel free to explore and utilize the different features of the web application page to manage student-related tasks efficiently.
 
-## First Table
-I made a table adding the col needed for students detale such as (First name,Last name, Date of birth, Address, email address, contact number, refrance no)
 
-## Second Table
-I needed to make a seperate table for students attendance containing details of the subjects they are attending and the date status of attendance. 
 
 # design
-I designed the webpage as simple as possible with green calming colors to not have negative effects on the users as colors effects mental health and as this webpage is only used for addministration work. as it was design to give comfortbal feeling while working with it.
+I designed the webpage with a clean and minimalist design, using soothing green colors to create a calm and comfortable environment for users. The purpose of the webpage is to serve as an administration tool, providing a pleasant and stress-free experience while performing administrative tasks. By using calming colors, the design aims to have a positive impact on users' mental well-being, promoting a sense of tranquility and ease while working with the webpage.
 
 ## Wireframe
 | Desktop  | Tablet             | Smartpfhone|
 | -------- | ------------------ |---------------------- |
 |![](static/images/readme_file_image/wireframe/desktop.drawio.png)|![](static/images/readme_file_image/wireframe/tablet.drawio-2.png)|![](static/images/readme_file_image/wireframe/smartphone.drawio.png)|
+
+
+
 
 ## Attendance record website
  
@@ -79,8 +78,15 @@ However,the users of this type of webpage are mostlly working for administration
 
 
 # Bugs and problems encountered
-one of the issuse i face was I tried to cary a command to insert a data into a table then i found out i forgot to commit it. Another chalenge was linking (css,img) files to the website as it wasn't finding it so I tried to use url method and put all the files in static folder. I had another problem in searching for students.the program was crashing whenever I search without the date of birth.Therefore,I used if function to work with and without date of birth.
-In searching attendance student, I had problem with defining data when I tried to get student details to show out of the table seperatly for it not to be repeated with table with each attendance. I fixed it by useing if jinja to show the page without crashing and show the results whenever searched for data. 
+
+|Issue    |	Description	       |Solution |
+| --------| ------------------ |-------- |
+|Inserting data without committing|	Forgot to commit the database transaction after inserting data into a table.|	Ensure to commit the transaction after executing the insert command.|
+|Linking CSS and image files|Encountered issues with linking CSS and image files to the website.|	Use the URL method and place all the CSS and image files in the static folder of the web application.|
+|Searching for students without Date of Birth|The program crashes when searching for students without providing the Date of Birth.|	Implement an if statement to handle searching with or without the Date of Birth.|
+|Handling student details separately in attendance table|Faced difficulty in displaying student details separately from the attendance table to avoid repetition.|	Use conditional statements (e.g., if statement) in Jinja template to show the page without crashing and display the student details when searched for.|
+|Multiple data shown when searching attendance by Student ID|When searching for student attendance records by Student ID, multiple records were displayed.|	Modify the SQL query in Python to fetch only the relevant attendance record for the given Student ID.|
+
 
 ## references
 ### Icone Website https://www.flaticon.com
@@ -108,6 +114,36 @@ For Mac (source  'Name'env/bin/activate)
 4. pip3 install flask
 5. install psycopg2 (pip3 install psycopg2)For Mac (pip3 install psycopg2-binary)
 Required Python packages installed. You can install them by running the following command:
+
+## SQL 
+I have designed a database with two tables to enhance the functionality of the web application:
+
+### First Table
+
+I have created a table that includes the following columns for student details:
+
+* First Name
+* Last Name
+* Date of Birth
+* Address
+* Email Address
+* Contact Number
+* Next of Kin
+* Relationship to Next of Kin
+* Next of Kin's Phone Number
+* Next of Kin's Email
+* Reference Number
+This table is designed to store and manage the personal information and contact details of students.
+
+### Second Table
+
+To track students' attendance, I have created a separate table. This table includes the following columns:
+
+* Student ID: A unique identifier for each student.
+* Subject: Details of the subjects or courses that students are attending.
+* Date: The date on which the attendance is recorded.
+* Attendance Status: The status of attendance for each student on a particular date.
+This table allows you to keep a record of students' attendance for different subjects or courses, providing valuable information for monitoring and analyzing attendance patterns.
 
 <!-- how to set up the program -->
 # Deployment
