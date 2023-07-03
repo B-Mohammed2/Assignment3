@@ -48,7 +48,7 @@ I designed the webpage as simple as possible with green calming colors to not ha
 ## Wireframe
 | Desktop  | Tablet             | Smartpfhone|
 | -------- | ------------------ |---------------------- |
-|![](static/images/readme_file_image/wireframe/desktop_wireframe.drawio.png)|        |        |
+|![](static/images/readme_file_image/wireframe/desktop.drawio.png)|![](static/images/readme_file_image/wireframe/tablet.drawio-2.png)||![](static/images/readme_file_image/wireframe/smartphone.drawio.png)
 
 ## Attendance record website
  
