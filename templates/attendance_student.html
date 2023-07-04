@@ -12,18 +12,18 @@
                 <table class="table table-bordered table-hover">
                     <thead class="table-success">
                     <tr>
-                        <th>Student First Name</th>
-                        <th>Student Last Name</th>
                         <th>Student Ref</th>
+                        <th>Student Last Name</th>
+                        <th>Student First Name</th>
                         <th>Attendance</th>
                     </tr>
                     </thead>
                     <tbody>
                     {% for column in data %}
                     <tr>
-                        <td>{{ column[1] }}</td>
-                        <td>{{ column[2] }}</td>
                         <td>{{ column[0] }}</td>
+                        <td>{{ column[2] }}</td>
+                        <td>{{ column[1] }}</td>
                         <td>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" id="yes_{{ column[0] }}" name="{{ column[0] }}" value="yes">
