@@ -52,7 +52,7 @@ I designed the webpage with a clean and minimalist design, using soothing green 
 |Home|![](static/images/readme_file_image/lighthouse/desktop-index.png) | ![](static/images/readme_file_image/lighthouse/mobile-index.png)|
 |Add student|![](static/images/readme_file_image/lighthouse/desktop-add.png) |![](static/images/readme_file_image/lighthouse/mobile_add.png)|
 |Search for student|![](static/images/readme_file_image/lighthouse/desktop-search.png)|![](static/images/readme_file_image/lighthouse/mobile-search.png)|
-|Update student detale|![](static/images/readme_file_image/lighthouse/desktop-update.png)|![](static/images/readme_file_image/lighthouse/mobile-update.png)|
+|Update student detail|![](static/images/readme_file_image/lighthouse/desktop-update.png)|![](static/images/readme_file_image/lighthouse/mobile-update.png)|
 |Delete student|![](static/images/readme_file_image/lighthouse/desktop-delete.png)|![](static/images/readme_file_image/lighthouse/mobile-delete.png)|
 |Student daily register|![](static/images/readme_file_image/lighthouse/desktop-register.png)|![](static/images/readme_file_image/lighthouse/mobile-register.png)|
 |Search for student attendance|![](static/images/readme_file_image/lighthouse/desktop-reg-search.png)|![](static/images/readme_file_image/lighthouse/mobile-reg-search.png)|
