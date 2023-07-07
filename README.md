@@ -160,7 +160,8 @@ This table allows you to keep a record of students' attendance for different sub
 connect with gethub and outhorize it
 install render in github
 get all the reposetries from github
-connect
+connect with the reposetry
+
 
 
 
