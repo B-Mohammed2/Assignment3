@@ -56,28 +56,34 @@ def create():
 def search_student():
     return render_template("search_student.html")
 
-#search for student
-@app.route("/search",methods=['POST'])
+#search for student   
+@app.route("/search", methods=['POST'])
 def search():
-    conn=db_conn()
-    cur=conn.cursor()
-    first_name=request.form['fname'].upper()
-    last_name=request.form['lname'].upper()
-    date_of_birth=request.form['birth_date']
-    ID=request.form['id']
-    #joinn strings (id and st_ref togehter (concatenation)  
-    print("dateofbirth is" + date_of_birth)
-    if date_of_birth =='':
-        search_string="select * from courses where upper(first_name='"+first_name+"') And upper(last_name='"+last_name+"') OR student_reference='"+ID+"' ;"
-    else:
-        search_string="select * from courses where upper(first_name='"+first_name+"') And upper(last_name='"+last_name+"') OR student_reference='"+ID+"' OR date_of_birth='"+date_of_birth+"' ;"
+    conn = db_conn()
+    cur = conn.cursor()
 
-    cur.execute(search_string)
-    data=cur.fetchall()
+    first_name = request.form['fname'].upper()
+    last_name = request.form['lname'].upper()
+    date_of_birth = request.form['birth_date']
+    ID = request.form['id']
+    #joinn strings (id and st_ref togehter (concatenation)
+    if date_of_birth == '':
+        search_string = "SELECT * FROM courses WHERE upper(first_name) = ? AND last_name = ? OR student_reference = ?;"
+        params = (first_name, last_name, ID)
+    else:
+        search_string = "SELECT * FROM courses WHERE upper(first_name) = ? AND last_name = ? OR student_reference = ? OR date_of_birth = ?;"
+        params = (first_name, last_name, ID, date_of_birth)
+
+    cur.execute(search_string, params)
+    data = cur.fetchall()
     cur.close()
     conn.close()
     #render_template going to the template and finding the data and display it
-    return  render_template("search_student.html", data=data)
+    return render_template("search_student.html", data=data)
+
+
+
+
     
 
 #update student detail
