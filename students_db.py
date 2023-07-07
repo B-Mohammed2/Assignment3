@@ -4,7 +4,8 @@ import psycopg2
 app=Flask(__name__)
 #connecting to DB
 def db_conn():
-    conn=psycopg2.connect(database="students_details",host="dpg-cijuec5ph6euh7if58e0-a",user="students_details_user",password="XvSta6aWEsLkW1T9cgKgu59yoDbB1BqR",port="5432")
+    # conn=psycopg2.connect(database="students_details",host="dpg-cijuec5ph6euh7if58e0-a",user="students_details_user",password="XvSta6aWEsLkW1T9cgKgu59yoDbB1BqR",port="5432")
+    conn=psycopg2.connect(database="students_details",host="localhost",user="postgres",password="Pass12",port="5432")
     return conn
 
 
@@ -82,65 +83,69 @@ def search():
 
 
 
-#update student detail
- #route to update student webpage 
+# Route to update student webpage
 @app.route("/update_student")
 def update_student():
     return render_template("update_student.html")
 
-
-#search student for update
-@app.route("/search_update",methods=['POST'])
+# Search student for update
+@app.route("/search_update", methods=['GET', 'POST'])
 def search_update():
-    conn=db_conn()
-    cur=conn.cursor()
-    first_name=request.form['fname']
-    last_name=request.form['lname']
-    date_of_birth=request.form['birth_date']
-    ID=request.form['id']
-    #joinn strings (id and st_ref togehter (concatenation)  
-    print("dateofbirth is" + date_of_birth)
-    if date_of_birth =='':
-        search_string="select * from courses where first_name='"+first_name+"' And last_name='"+last_name+"' OR student_reference='"+ID+"' ;"
-        # print('Date of birth empty')
+    if request.method == 'POST':
+        conn = db_conn()
+        cur = conn.cursor()
+        first_name = request.form['fname']
+        last_name = request.form['lname']
+        date_of_birth = request.form['birth_date']
+        ID = request.form['id']
+
+        if date_of_birth == '':
+            search_string = "SELECT * FROM courses WHERE first_name=%s AND last_name=%s OR student_reference=%s;"
+            params = (first_name, last_name, ID)
+        else:
+            search_string = "SELECT * FROM courses WHERE first_name=%s AND last_name=%s OR student_reference=%s OR date_of_birth=%s;"
+            params = (first_name, last_name, ID, date_of_birth)
+
+        cur.execute(search_string, params)
+        data = cur.fetchall()
+
+        cur.close()
+        conn.close()
+
+        return render_template("update_student.html", data=data)
     else:
-        search_string="select * from courses where first_name='"+first_name+"' And last_name='"+last_name+"' OR student_reference='"+ID+"' OR date_of_birth='"+date_of_birth+"' ;"
+        return redirect(url_for('update_student'))
 
-    cur.execute(search_string)
-    data=cur.fetchall()
-    print('data='+str(data))
-    cur.close()
-    conn.close()
-    #render_template going to the template and finding the data and display it
-    return  render_template("update_student.html", data=data)
-
-
-
-#update student details
-@app.route("/update",methods=['POST'])
+# Update student details
+@app.route("/update", methods=['POST'])
 def update():
-    conn=db_conn()
-    cur=conn.cursor()
-    first_name=request.form['fname']
-    last_name=request.form['lname']
-    gender=request.form['gender']
-    date_of_birth=request.form['date_of_birth']
-    phone_no=request.form['phone']
-    email=request.form['email']
-    address = request.form['address']
-    next_kin=request.form['kin_full_name']
-    relationship = request.form['relationship']
-    kin_phone=request.form['kin_phone']
-    kin_email=request.form['kin_email']
-    ID=request.form['id']
-    sql_update='''UPDATE courses SET first_name=%s, last_name=%s, gender=%s, date_of_birth=%s, phone_no=%s, email=%s, address=%s, kin_full_name=%s, kin_relationship=%s, kin_phone=%s, kin_email=%s WHERE student_reference=%s'''
-    data=(first_name, last_name, gender, date_of_birth, phone_no, email, address, next_kin, relationship, kin_phone, kin_email, ID)
-    cur.execute(sql_update,data)
-    # commit the changes
-    conn.commit()
-    cur.close()
-    conn.close()
+    # conn = db_conn()
+    # cur = conn.cursor()
+
+    # first_name = request.form['fname']
+    # last_name = request.form['lname']
+    # gender = request.form['gender']
+    # date_of_birth = request.form['date_of_birth']
+    # phone_no = request.form['phone']
+    # email = request.form['email']
+    # address = request.form['address']
+    # next_kin = request.form['kin_full_name']
+    # relationship = request.form['relationship']
+    # kin_phone = request.form['kin_phone']
+    # kin_email = request.form['kin_email']
+    # ID= request.form['id']
+
+    # sql_update = '''UPDATE courses SET first_name=%s, last_name=%s, gender=%s, date_of_birth=%s, phone_no=%s, email=%s, address=%s, kin_full_name=%s, kin_relationship=%s, kin_phone=%s, kin_email=%s WHERE student_reference=%s'''
+    # params = (first_name, last_name, gender, date_of_birth, phone_no, email, address, next_kin, relationship, kin_phone, kin_email, ID)
+
+    # cur.execute(sql_update, params)
+    print("Hello world")
+    # conn.commit()
+    # cur.close()
+    # conn.close()
+
     return redirect(url_for('update_student'))
+
 
 
 #route to delete student webpage

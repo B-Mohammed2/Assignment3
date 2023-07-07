@@ -1,5 +1,8 @@
 # Assignment3
 Student Records Management
+
+live link to the website
+https://record-wep-service.onrender.com
 <!-- Introduction -->
 # Introduction 
 This is a web application page that allows you to perform various operations related to student management. It provides the following features:
@@ -169,6 +172,11 @@ explening Use the Server dialog to describe a connection to a server:
 http://127.0.0.1:62055/help/help/server_dialog.html
  when connecting from outside 
 
+
+
+
+testing
+search doesn't find data if the input was not capitalasation wasn't as data in sql. fixed by adding upper function.
 
 
 
