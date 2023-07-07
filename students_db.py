@@ -68,9 +68,9 @@ def search():
     #joinn strings (id and st_ref togehter (concatenation)  
     print("dateofbirth is" + date_of_birth)
     if date_of_birth =='':
-        search_string="select * from courses where upper(first_name)='"+first_name+"' And upper(last_name='"+last_name+"') OR student_reference='"+ID+"' ;"
+        search_string="select * from courses where upper(first_name)='"+first_name+"' And upper(last_name)='"+last_name+"' OR student_reference='"+ID+"' ;"
     else:
-        search_string="select * from courses where upper(first_name)='"+first_name+"' And upper(last_name='"+last_name+"') OR student_reference='"+ID+"' OR date_of_birth='"+date_of_birth+"' ;"
+        search_string="select * from courses where upper(first_name)='"+first_name+"' And upper(last_name)='"+last_name+"' OR student_reference='"+ID+"' OR date_of_birth='"+date_of_birth+"' ;"
 
     cur.execute(search_string)
     data=cur.fetchall()
