@@ -57,8 +57,6 @@ I designed the webpage with a clean and minimalist design, using soothing green 
 |Student daily register|![](static/images/readme_file_image/lighthouse/desktop-register.png)|![](static/images/readme_file_image/lighthouse/mobile-register.png)|
 |Search for student attendance|![](static/images/readme_file_image/lighthouse/desktop-reg-search.png)|![](static/images/readme_file_image/lighthouse/mobile-reg-search.png)|
 
-
-## Attendance record website
  
 ## Target audience for web application
 I originally created this project for school addministration works to deal with student ditals and mark their daily attendance. 
@@ -102,7 +100,7 @@ However,the users of this type of webpage are mostlly working for administration
 ### bootstrap 
 ### w3school
 
-#Security
+# Security
 
 # Code attribution
 ## e.g. bootstrap library
