@@ -6,57 +6,48 @@
   <div class="container content-wrapper">
     <div class="row gy-1">
       <div class="col-md-6 p-3">
-        
-        <button class="responsive-button">
-          <a href="{{url_for('add_student')}}" class="nav-link">
-            <span>Add Students </span>
-            <img src="{{url_for('static',filename='images/student.png')}}" class="img_icon" alt="add-student">
-          </a>
-        </button>
+        <a href="{{url_for('add_student')}}" class="responsive-button">
+          <span class="link-text">Add Students </span>
+          <img src="{{url_for('static',filename='images/student.png')}}" class="img_icon" alt="add-student">
+        </a>
       </div>
 
       <div class="col-md-6 p-3">
-        <button class="responsive-button">
-          <a href="{{url_for('search_student')}}" class="nav-link">
-            <span>Search for student </span>
-            <img src="{{url_for('static',filename='images/search_student.png')}}"  class="img_icon" alt="search-student">
-          </a>
-        </button>
+        <a href="{{url_for('search_student')}}" class="responsive-button">
+          <span class="link-text">Search for student </span>
+          <img src="{{url_for('static',filename='images/search_student.png')}}" class="img_icon" alt="search-student">
+        </a>
       </div>
 
       <div class="col-md-6 p-3">
-        <button class="responsive-button">
-          <a href="{{url_for('update_student')}}" class="nav-link">
-            <span>Update student detail </span>
-            <img src="{{url_for('static',filename='images/update.png')}}" class="img_icon" alt="update-icon">
-          </a>
-        </button>
+        <a href="{{url_for('update_student')}}" class="responsive-button">
+          <span class="link-text">Update student detail </span>
+          <img src="{{url_for('static',filename='images/update.png')}}" class="img_icon" alt="update-icon">
+        </a>
       </div>
 
       <div class="col-md-6 p-3">
-        <button class="responsive-button">
-          <a href="{{url_for('delete_student')}}" class="nav-link">
-            <span>Delete student</span>
-            <img src="{{url_for('static',filename='images/remove_student.png')}}" class="img_icon" alt="remove-student-icon">
-          </a>
-        </button>
+        <a href="{{url_for('delete_student')}}" class="responsive-button">
+          <span class="link-text">Delete student</span>
+          <img src="{{url_for('static',filename='images/remove_student.png')}}" class="img_icon" alt="remove-student-icon">
+        </a>
       </div>
 
       <div class="col-md-6 p-3">
-        <button class="responsive-button">
-          <a href="{{url_for('attendance_student')}}" class="nav-link"><span>Student's daily register </span><img src="{{url_for('static',filename='images/attendance.png')}}" width="50px" height="50px" class="img_icon" alt="attendance-list-icon"></a>
-        </button>
+        <a href="{{url_for('attendance_student')}}" class="responsive-button">
+          <span class="link-text">Student's daily register </span>
+          <img src="{{url_for('static',filename='images/attendance.png')}}" class="img_icon" alt="attendance-list-icon">
+        </a>
       </div>
 
       <div class="col-md-6 p-3">
-        <button class="responsive-button">
-          <a href="{{url_for('search_attendance_student')}}" class="nav-link">
-            <span>Student's daily attendance </span>
-            <img src="{{url_for('static',filename='images/search_attendance.png')}}" class="img_icon" alt="search-attendance">
-          </a>
-        </button>
+        <a href="{{url_for('search_attendance_student')}}" class="responsive-button">
+          <span class="link-text">Student's daily attendance </span>
+          <img src="{{url_for('static',filename='images/search_attendance.png')}}" class="img_icon" alt="search-attendance">
+        </a>
       </div>
     </div>
   </div>
+
 
 {% endblock %}
