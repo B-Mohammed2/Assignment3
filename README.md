@@ -161,7 +161,13 @@ connect with gethub and outhorize it
 install render in github
 get all the reposetries from github
 connect with the reposetry
-
+instal gunicorn
+ make pip >requirments.txt
+4. pg admine 
+image
+explening Use the Server dialog to describe a connection to a server:
+http://127.0.0.1:62055/help/help/server_dialog.html
+ when connecting from outside 
 
 
 
