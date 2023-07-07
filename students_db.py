@@ -119,30 +119,30 @@ def search_update():
 # Update student details
 @app.route("/update", methods=['POST'])
 def update():
-    # conn = db_conn()
-    # cur = conn.cursor()
+    conn = db_conn()
+    cur = conn.cursor()
 
-    # first_name = request.form['fname']
-    # last_name = request.form['lname']
-    # gender = request.form['gender']
-    # date_of_birth = request.form['date_of_birth']
-    # phone_no = request.form['phone']
-    # email = request.form['email']
-    # address = request.form['address']
-    # next_kin = request.form['kin_full_name']
-    # relationship = request.form['relationship']
-    # kin_phone = request.form['kin_phone']
-    # kin_email = request.form['kin_email']
-    # ID= request.form['id']
+    first_name = request.form['fname']
+    last_name = request.form['lname']
+    gender = request.form['gender']
+    date_of_birth = request.form['date_of_birth']
+    phone_no = request.form['phone']
+    email = request.form['email']
+    address = request.form['address']
+    next_kin = request.form['kin_full_name']
+    relationship = request.form['relationship']
+    kin_phone = request.form['kin_phone']
+    kin_email = request.form['kin_email']
+    ID= request.form['id']
 
-    # sql_update = '''UPDATE courses SET first_name=%s, last_name=%s, gender=%s, date_of_birth=%s, phone_no=%s, email=%s, address=%s, kin_full_name=%s, kin_relationship=%s, kin_phone=%s, kin_email=%s WHERE student_reference=%s'''
-    # params = (first_name, last_name, gender, date_of_birth, phone_no, email, address, next_kin, relationship, kin_phone, kin_email, ID)
+    sql_update = '''UPDATE courses SET first_name=%s, last_name=%s, gender=%s, date_of_birth=%s, phone_no=%s, email=%s, address=%s, kin_full_name=%s, kin_relationship=%s, kin_phone=%s, kin_email=%s WHERE student_reference=%s'''
+    params = (first_name, last_name, gender, date_of_birth, phone_no, email, address, next_kin, relationship, kin_phone, kin_email, ID)
 
-    # cur.execute(sql_update, params)
-    print("Hello world")
-    # conn.commit()
-    # cur.close()
-    # conn.close()
+    cur.execute(sql_update, params)
+    print(sql_update)
+    conn.commit()
+    cur.close()
+    conn.close()
 
     return redirect(url_for('update_student'))
 
