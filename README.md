@@ -154,6 +154,13 @@ This table allows you to keep a record of students' attendance for different sub
 
 <!-- how to set up the program -->
 # Deployment
+1. creat render account
+2. creat postgrasql database in render
+3. creat webservice
+connect with gethub and outhorize it
+install render in github
+get all the reposetries from github
+connect
 
 
 
