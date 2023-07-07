@@ -4,15 +4,14 @@
     <h1>Add student detail</h1>
     <div class="mb-3"> 
         <form action="/create" method="post">
-            
-                <label for="student_ref"> Student Ref</label>
+                <label for="st_ref">Student Ref:</label>
                 <input type="text" id="st_ref" name="st_ref" placeholder="Enter student number" required><br>
                 <label for="fname">First name:</label><br>
                 <input type="text" id="fname" name="fname" placeholder="First name" required><br>
                 <label for="lname">Last name:</label><br>
-                <input type="text" id="lname" name="lname" placeholder="Last name" required><br>
-            
-                <label for="gender">Gender:</label>
+                <input type="text" id="lname" name="lname" placeholder="Last name" required>
+                <br>
+                <label>Gender:</label>
                 <input id="male" name="gender" value="Male" type="radio">
                 <label for="male">Male</label>
                 <input id="female" name="gender" value="Female" type="radio">
