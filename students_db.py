@@ -61,16 +61,16 @@ def search_student():
 def search():
     conn=db_conn()
     cur=conn.cursor()
-    first_name=request.form['fname']
-    last_name=request.form['lname']
+    first_name=request.form['fname'].upper()
+    last_name=request.form['lname'].upper()
     date_of_birth=request.form['birth_date']
     ID=request.form['id']
     #joinn strings (id and st_ref togehter (concatenation)  
     print("dateofbirth is" + date_of_birth)
     if date_of_birth =='':
-        search_string="select * from courses where first_name='"+first_name+"' And last_name='"+last_name+"' OR student_reference='"+ID+"' ;"
+        search_string="select * from courses where upper(first_name='"+first_name+"') And upper(last_name='"+last_name+"') OR student_reference='"+ID+"' ;"
     else:
-        search_string="select * from courses where first_name='"+first_name+"' And last_name='"+last_name+"' OR student_reference='"+ID+"' OR date_of_birth='"+date_of_birth+"' ;"
+        search_string="select * from courses where upper(first_name='"+first_name+"') And upper(last_name='"+last_name+"') OR student_reference='"+ID+"' OR date_of_birth='"+date_of_birth+"' ;"
 
     cur.execute(search_string)
     data=cur.fetchall()
