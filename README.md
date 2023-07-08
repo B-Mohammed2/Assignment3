@@ -130,7 +130,7 @@ the website was tested on different devices such as laptops, smartphones,tablets
 ||||
 |Device|test & Procedures|Home|Add Student|Search Student|Update student|Delete Student|Record Student Attendance|Search Student Attendance|Help|About Us|
 |---|---|---|---|---|---|---|---|---|---|---|
-|Laptop|Responsiveness|   |   |   |   |   |   |   |   |   |
+|Laptop|Responsiveness|![](static/images/readme_file_image/manual-test/laptop/home.png)|![](static/images/readme_file_image/manual-test/laptop/add-student.png)|![](static/images/readme_file_image/manual-test/laptop/search-student.png)|![](static/images/readme_file_image/manual-test/laptop/update.png)|![](static/images/readme_file_image/manual-test/laptop/delete.png)|![](static/images/readme_file_image/manual-test/laptop/attendance.png)|![](static/images/readme_file_image/manual-test/laptop/search-attendance.png)|![](static/images/readme_file_image/manual-test/laptop/help.png)|![](static/images/readme_file_image/manual-test/laptop/about.png)|
 |Tablet|Portrait mode|   |   |   |   |   |   |   |   |   |
 |Tablet|Landscape mode|   |   |   |   |   |   |   |   |   |
 |Smartphone|Portrait mode|   |   |   |   |   |   |   |   |   |
