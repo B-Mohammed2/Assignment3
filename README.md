@@ -3,6 +3,17 @@ Student Records Management
 
 live link to the website
 https://record-wep-service.onrender.com
+
+# Table of content
+[Introduction](#Introduction)
+[Features](#Features)
+[User Stories](#User-Stories)
+[Technologies Used](#Technologies-Used)
+[Design](#Design)
+[Wireframe](#Wireframe)
+[Testing](#Testing)
+[]
+
 <!-- Introduction -->
 # Introduction 
 This is a web application page that allows you to perform various operations related to student management. It provides the following features:
@@ -16,6 +27,9 @@ This is a web application page that allows you to perform various operations rel
 - Student Attendance Register: Maintain and manage daily attendance records for students.
 View Student Attendance: Quickly search and view the daily attendance records of students.
 
+## Target audience for web application
+I originally created this project for school addministration works to deal with student ditals and mark their daily attendance. 
+However,the users of this type of webpage are mostlly working for administration for companies or schools or even some businesses as they can addd data and update or remove it very easley.
 
 ## User Stories
 
@@ -39,7 +53,7 @@ View Student Attendance: Quickly search and view the daily attendance records of
 - Psycopg2: A PostgreSQL adapter for Python that allows Python programs to access a PostgreSQL database. It is used to establish a connection between the Flask application and the PostgreSQL database.
 
 
-# design
+# Design
 I designed the webpage with a clean and minimalist design, using soothing green colors to create a calm and comfortable environment for users. The purpose of the webpage is to serve as an administration tool, providing a pleasant and stress-free experience while performing administrative tasks. By using calming colors, the design aims to have a positive impact on users' mental well-being, promoting a sense of tranquility and ease while working with the webpage.
 
 ## Wireframe
@@ -48,8 +62,14 @@ I designed the webpage with a clean and minimalist design, using soothing green 
 |![](static/images/readme_file_image/wireframe/desktop.drawio.png)|![](static/images/readme_file_image/wireframe/tablet.drawio-2.png)|![](static/images/readme_file_image/wireframe/smartphone.drawio.png)|
 
 ## Testing
+The purpose of this Test Plan is to outline the testing approach and strategies for ensuring the proper functionality and usability of the web application. The test was devided by aoutomated and manual. Aoutomated tests included (lighthouse,code validation tests). furthumore, the web app was tested manually on different devices such as(Laptop, Tablet, smartphone) regarding responsiveness and functionality.
+
+
+#### Aoutomated tests
 
 ### Lighthouse test
+The web app was tested on Lighthouse for categories performance, accessibility, best practices, and SEO(Search Engine Optimization) for Mobile devices and Desktops. This is the report as in the images for all web pages:
+
 |page|Desktop|Mobile|
 |----|-------|------|
 |Home|![](static/images/readme_file_image/lighthouse/desktop-index.png) | ![](static/images/readme_file_image/lighthouse/mobile-index.png)|
@@ -60,23 +80,52 @@ I designed the webpage with a clean and minimalist design, using soothing green 
 |Student daily register|![](static/images/readme_file_image/lighthouse/desktop-register.png)|![](static/images/readme_file_image/lighthouse/mobile-register.png)|
 |Search for student attendance|![](static/images/readme_file_image/lighthouse/desktop-reg-search.png)|![](static/images/readme_file_image/lighthouse/mobile-reg-search.png)|
 
- 
-## Target audience for web application
-I originally created this project for school addministration works to deal with student ditals and mark their daily attendance. 
-However,the users of this type of webpage are mostlly working for administration for companies or schools or even some businesses as they can addd data and update or remove it very easley.
+
+### Validation tests
+All the html codes and css codes was tested via W3C validator here is the results:
+
+#### [HTML validator](https://validator.w3.org)
+During the initial validation process, direct validation of the HTML code containing Jinja templates was not possible due to the presence of dynamic code elements. Therefore, the validation tests were conducted after deploying the web application. The validation process identified and corrected minor spelling errors, such as replacing '<lable>' with '<label>'. Additionally, it was discovered that using a link element '<a>' as a child element of a button element is not allowed, and this issue was resolved accordingly. Following the necessary fixes, the HTML code was revalidated and successfully passed the validation tests.
+|page|validation Report|
+|-----|---------------|
+|Home |![](static/images/readme_file_image/validation/html%20validation/validate-index.png) |
+|Add Student|![](static/images/readme_file_image/validation/html%20validation/validate-add-student.png) |
+|Search Student|![](static/images/readme_file_image/validation/html%20validation/validate-search-student.png) |
+|Update Student detail|![](static/images/readme_file_image/validation/html%20validation/validate-update.png) |
+|Delete Student|![](static/images/readme_file_image/validation/html%20validation/validate-delete.png) |
+|Student daily register|![](static/images/readme_file_image/validation/html%20validation/validate-attendance.png)|
+|Searching Student Attendance|![](static/images/readme_file_image/validation/html%20validation/validate-search-attendance.png)|
+|Help|![](static/images/readme_file_image/validation/html%20validation/validate-help.png) |
+|About Us|![](static/images/readme_file_image/validation/html%20validation/validate-about.png) |
 
 
-# Testing
-### description of test plan
+#### [CSS Validation](https://jigsaw.w3.org/css-validator/#validate_by_upload)
+The CSS code was tested by uploading the file via validator. The result was No Errore found.
+
+![](static/images/readme_file_image/validation/html%20validation/css-valid.png)
+
+
 ### Test on different web browsers
 * Safari
 *  Chrome
 *  Edge
 
-### Lighthouse
 
-### https://validator.w3.org
 
+
+
+
+
+
+
+
+
+
+
+
+The web app provides various features and functionalities such as adding students, searching for students, updating student details, deleting students, and managing student attendance records. The goal of testing is to ensure that users can navigate through the application seamlessly, perform the intended actions, and have a positive user experience.
+
+This Test Plan covers a range of test cases, including link navigation, verification of link text and images, and responsiveness across different screen sizes. By following this plan, we aim to identify any functional or usability issues, validate the correctness of the link destinations, and confirm that the web app behaves as expected in different environments.
 
 ## Test table
 <!-- Tables -->
