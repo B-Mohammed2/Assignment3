@@ -12,7 +12,13 @@ https://record-wep-service.onrender.com
 [Design](#Design)
 [Wireframe](#Wireframe)
 [Testing](#Testing)
-[]
+[Bugs and problems encountered](#Bugs-and-problems-encountered)
+[Compatibility](Compatibility)
+[User manual](#User-manual)
+[Deployment](#Deployment)
+[References](#References)
+[Acknowledgment](#Acknowledgment)
+
 
 <!-- Introduction -->
 # Introduction 
@@ -52,6 +58,7 @@ However,the users of this type of webpage are mostlly working for administration
 - PostgreSQL: A powerful open-source relational database management system used for storing and managing student details and attendance data.
 - Psycopg2: A PostgreSQL adapter for Python that allows Python programs to access a PostgreSQL database. It is used to establish a connection between the Flask application and the PostgreSQL database.
 
+______
 
 # Design
 I designed the webpage with a clean and minimalist design, using soothing green colors to create a calm and comfortable environment for users. The purpose of the webpage is to serve as an administration tool, providing a pleasant and stress-free experience while performing administrative tasks. By using calming colors, the design aims to have a positive impact on users' mental well-being, promoting a sense of tranquility and ease while working with the webpage.
@@ -61,11 +68,13 @@ I designed the webpage with a clean and minimalist design, using soothing green 
 | -------- | ------------------ |---------------------- |
 |![](static/images/readme_file_image/wireframe/desktop.drawio.png)|![](static/images/readme_file_image/wireframe/tablet.drawio-2.png)|![](static/images/readme_file_image/wireframe/smartphone.drawio.png)|
 
-## Testing
+_______
+
+# Testing
 The purpose of this Test Plan is to outline the testing approach and strategies for ensuring the proper functionality and usability of the web application. The test was devided by aoutomated and manual. Aoutomated tests included (lighthouse,code validation tests). furthumore, the web app was tested manually on different devices such as(Laptop, Tablet, smartphone) regarding responsiveness and functionality.
 
 
-#### Aoutomated tests
+## Aoutomated tests
 
 ### Lighthouse test
 The web app was tested on Lighthouse for categories performance, accessibility, best practices, and SEO(Search Engine Optimization) for Mobile devices and Desktops. This is the report as in the images for all web pages:
@@ -77,14 +86,14 @@ The web app was tested on Lighthouse for categories performance, accessibility, 
 |Search for student|![](static/images/readme_file_image/lighthouse/desktop-search.png)|![](static/images/readme_file_image/lighthouse/mobile-search.png)|
 |Update student detail|![](static/images/readme_file_image/lighthouse/desktop-update.png)|![](static/images/readme_file_image/lighthouse/mobile-update.png)|
 |Delete student|![](static/images/readme_file_image/lighthouse/desktop-delete.png)|![](static/images/readme_file_image/lighthouse/mobile-delete.png)|
-|Student daily register|![](static/images/readme_file_image/lighthouse/desktop-register.png)|![](static/images/readme_file_image/lighthouse/mobile-register.png)|
+|Record Student Attendance|![](static/images/readme_file_image/lighthouse/desktop-register.png)|![](static/images/readme_file_image/lighthouse/mobile-register.png)|
 |Search for student attendance|![](static/images/readme_file_image/lighthouse/desktop-reg-search.png)|![](static/images/readme_file_image/lighthouse/mobile-reg-search.png)|
 
 
 ### Validation tests
 All the html codes and css codes was tested via W3C validator here is the results:
 
-#### [HTML validator](https://validator.w3.org)
+#### [HTML Validation check](https://validator.w3.org)
 During the initial validation process, direct validation of the HTML code containing Jinja templates was not possible due to the presence of dynamic code elements. Therefore, the validation tests were conducted after deploying the web application. The validation process identified and corrected minor spelling errors, such as replacing '<lable>' with '<label>'. Additionally, it was discovered that using a link element '<a>' as a child element of a button element is not allowed, and this issue was resolved accordingly. Following the necessary fixes, the HTML code was revalidated and successfully passed the validation tests.
 |page|validation Report|
 |-----|---------------|
@@ -93,17 +102,39 @@ During the initial validation process, direct validation of the HTML code contai
 |Search Student|![](static/images/readme_file_image/validation/html%20validation/validate-search-student.png) |
 |Update Student detail|![](static/images/readme_file_image/validation/html%20validation/validate-update.png) |
 |Delete Student|![](static/images/readme_file_image/validation/html%20validation/validate-delete.png) |
-|Student daily register|![](static/images/readme_file_image/validation/html%20validation/validate-attendance.png)|
+|Record Student Attendance|![](static/images/readme_file_image/validation/html%20validation/validate-attendance.png)|
 |Searching Student Attendance|![](static/images/readme_file_image/validation/html%20validation/validate-search-attendance.png)|
 |Help|![](static/images/readme_file_image/validation/html%20validation/validate-help.png) |
 |About Us|![](static/images/readme_file_image/validation/html%20validation/validate-about.png) |
 
 
-#### [CSS Validation](https://jigsaw.w3.org/css-validator/#validate_by_upload)
+#### [CSS Validation check](https://jigsaw.w3.org/css-validator/#validate_by_upload)
+
 The CSS code was tested by uploading the file via validator. The result was No Errore found.
 
 ![](static/images/readme_file_image/validation/html%20validation/css-valid.png)
 
+
+#### [Python lint validation check](https://infoheap.com/python-lint-online/)
+
+The lint validation ensures that the Python code follows the correct syntax rules and helps identify any potential syntax errors or issues. The successful validation indicates that the code is written in a valid Python syntax according to the lint tool's standards.
+![](static/images/readme_file_image/validation/html%20validation/pythonlint.png)
+
+
+___
+
+### Testing responsiveness
+The responsiveness of the app was tested Manually on different devices and on google chrom developer tools responsiveness testing.
+#### Manual test
+the website was tested on different devices such as laptops, smartphones,tablets.
+||||
+|Device|test & Procedures|Home|Add Student|Search Student|Update student|Delete Student|Record Student Attendance|Search Student Attendance|Help|About Us|
+|---|---|---|---|---|---|---|---|---|---|---|
+|Laptop|Responsiveness|   |   |   |   |   |   |   |   |   |
+|Tablet|Portrait mode|   |   |   |   |   |   |   |   |   |
+|Tablet|Landscape mode|   |   |   |   |   |   |   |   |   |
+|Smartphone|Portrait mode|   |   |   |   |   |   |   |   |   |
+|Smartphone|Landscape mode|   |   |   |   |   |   |   |   |   |
 
 ### Test on different web browsers
 * Safari
@@ -111,19 +142,6 @@ The CSS code was tested by uploading the file via validator. The result was No E
 *  Edge
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-The web app provides various features and functionalities such as adding students, searching for students, updating student details, deleting students, and managing student attendance records. The goal of testing is to ensure that users can navigate through the application seamlessly, perform the intended actions, and have a positive user experience.
 
 This Test Plan covers a range of test cases, including link navigation, verification of link text and images, and responsiveness across different screen sizes. By following this plan, we aim to identify any functional or usability issues, validate the correctness of the link destinations, and confirm that the web app behaves as expected in different environments.
 
@@ -145,17 +163,10 @@ This Test Plan covers a range of test cases, including link navigation, verifica
 |Searching for students without Date of Birth|The program crashes when searching for students without providing the Date of Birth.|	Implement an if statement to handle searching with or without the Date of Birth.|
 |Handling student details separately in attendance table|Faced difficulty in displaying student details separately from the attendance table to avoid repetition.|	Use conditional statements (e.g., if statement) in Jinja template to show the page without crashing and display the student details when searched for.|
 |Multiple data shown when searching attendance by Student ID|When searching for student attendance records by Student ID, multiple records were displayed.|	Modify the SQL query in Python to fetch only the relevant attendance record for the given Student ID.|
+|Case sensitivity in search |Search doesn't find data if the input wasn't in the same capitalization as the data in SQL.|Fix by adding the UPPER function to the SQL query to make the search case-insensitive.|
 
 
-## references
-### Icone Website https://www.flaticon.com
-### bootstrap 
-### w3school
 
-# Security
-
-# Code attribution
-## e.g. bootstrap library
 
 # Screenshots
 
@@ -221,14 +232,30 @@ explening Use the Server dialog to describe a connection to a server:
 http://127.0.0.1:62055/help/help/server_dialog.html
  when connecting from outside 
 
+# Security
 
 
 
-testing
-search doesn't find data if the input was not capitalasation wasn't as data in sql. fixed by adding upper function.
 
 
 
+
+
+
+### Acknowledgment
+
+
+
+### References
+##### bootstrap library
+##### Icone Website https://www.flaticon.com
+##### bootstrap 
+##### w3school
+
+
+
+
+# Code attribution
 
 
 
@@ -245,19 +272,10 @@ __This text__ is italic
 <!-- Strikethrough -->
 ~~This text~~ is strikethrough
 
-<!-- Horizontal Rule -->
 
----
-___
 
 <!-- Blockquote -->
 > This is a quote
 
-<!-- Links -->
-[Traversy Media](http://www.traversymedia.com)
 
-[Traversy Media](http://www.traversymedia.com "Traversy Media")
-
-<!-- UL -->
-* Item 1
 
