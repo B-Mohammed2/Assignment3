@@ -1,15 +1,14 @@
 import os
 from flask import Flask, render_template, redirect, request, url_for
 import psycopg2
-
+user_db=os.environ.get('DB_USER')
+password_db=os.environ.get('DB_PASS')
 app=Flask(__name__)
 
 #connecting to DB
 def db_conn():
-    conn=psycopg2.connect(database="students_details",host="dpg-cijuec5ph6euh7if58e0-a",user="",password="",port="5432")
-    #conn=psycopg2.connect(database="students_details",host="localhost",user="postgres",password="Pass12",port="5432")
+    conn=psycopg2.connect(database="students_details", host="dpg-cijuec5ph6euh7if58e0-a", user=user_db, password=password_db, port="5432")
     return conn
-
 
 #route to index.html
 @app.route("/")
