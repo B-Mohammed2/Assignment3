@@ -278,6 +278,17 @@ http://127.0.0.1:62055/help/help/server_dialog.html
  when connecting from outside 
 
 # Security
+To hide sensitive information such as passwords and usernames in a Python application, I used 'os' moudle. This is the process:
+First: Import the 'os' module at the top of python file.
+Second: Set the sensitive information as environment variables and  give values to the environment variables in sql terminal. for example:
+export MY_USERNAME="your_username"
+export MY_PASSWORD="your_password"
+
+Third: Access the environment variables in the code wherever needed by only typing the environment value given as the username or password.
+'your_username'=os.environ.get['MY_USERNAME'] 
+'your_password'=os.environ.get['MY_PASSWORD'] 
+
+this methode allows you to store sensitive information as environment variables and not hardcoded within your code to enhance data protection and security.
 
 
 
