@@ -1,23 +1,49 @@
-# Assignment3
-Student Records Management
+<h1 style="font-size: 24px;">Assignment3</h1>
+<h2 style="font-size: 22px;">Student Records Management</h2>
 
 live link to the website
 https://record-wep-service.onrender.com
 
-# Table of content
-[Introduction](#Introduction)
-[Features](#Features)
-[User Stories](#User-Stories)
-[Technologies Used](#Technologies-Used)
-[Design](#Design)
-[Wireframe](#Wireframe)
-[Testing](#Testing)
-[Bugs and problems encountered](#Bugs-and-problems-encountered)
-[Compatibility](Compatibility)
-[User manual](#User-manual)
-[Deployment](#Deployment)
-[References](#References)
-[Acknowledgment](#Acknowledgment)
+<h2 style="font-size: 22px;">Content</h2>
+
+- [Introduction](#introduction)
+  - [Features](#features)
+  - [Target audience for web application](#target-audience-for-web-application)
+- [User Stories](#user-stories)
+  - [Technologies Used](#technologies-used)
+  - [Frameworks, Libraries, and Programs used in this project are:](#frameworks-libraries-and-programs-used-in-this-project-are)
+      - [Frameworks:](#frameworks)
+      - [Libraries:](#libraries)
+      - [Programs:](#programs)
+      - [CSS and JavaScript:](#css-and-javascript)
+- [Design](#design)
+  - [SQL Database (PostgreSQL)](#sql-database-postgresql)
+    - [First Table](#first-table)
+    - [Second Table](#second-table)
+  - [Wireframe](#wireframe)
+- [Testing](#testing)
+  - [Aoutomated tests](#aoutomated-tests)
+    - [Lighthouse test](#lighthouse-test)
+    - [Validation tests](#validation-tests)
+      - [HTML Validation check](#html-validation-check)
+      - [CSS Validation check](#css-validation-check)
+      - [Python lint validation check](#python-lint-validation-check)
+    - [Testing responsiveness](#testing-responsiveness)
+      - [Manual test](#manual-test)
+    - [Test on different web browsers](#test-on-different-web-browsers)
+  - [Test table](#test-table)
+- [Bugs and problems encountered](#bugs-and-problems-encountered)
+- [Screenshots](#screenshots)
+- [User manual](#user-manual)
+- [Deployment](#deployment)
+- [Security](#security)
+    - [Acknowledgment](#acknowledgment)
+    - [References](#references)
+        - [bootstrap library](#bootstrap-library)
+        - [Icone Website https://www.flaticon.com](#icone-website-httpswwwflaticoncom)
+        - [bootstrap](#bootstrap)
+        - [w3school](#w3school)
+- [Code attribution](#code-attribution)
 
 
 <!-- Introduction -->
@@ -37,7 +63,7 @@ View Student Attendance: Quickly search and view the daily attendance records of
 I originally created this project for school addministration works to deal with student ditals and mark their daily attendance. 
 However,the users of this type of webpage are mostlly working for administration for companies or schools or even some businesses as they can addd data and update or remove it very easley.
 
-## User Stories
+# User Stories
 
 * As a user, I want to be able to add a new student to the database with their relevant details, such as their name, gender, date of birth, contact information, address, and next of kin information.
 * As a user, I want to be able to search for a student in the database based on their first name and last name, or date of birth, or student reference number.
@@ -178,7 +204,7 @@ The responsiveness of the app was tested Manually on different devices and on go
 #### Manual test
 the website was tested on different devices such as laptops, smartphones,tablets.
                          
-|Device|test & Procedures|Home                     |Add Student              |Search Student           |Update student           |Delete Student           |Record Student Attendance|Search Student Attendance|Help                     |About Us                 |
+|Device|test & Procedures|Home Page |Add Student page|Search Student page |Update student page |Delete Student page |Record Student Attendance|Search Student Attendance|Help page|About Us page|
 |---|---|---|---|---|---|---|---|---|---|---|
 |Laptop|Responsiveness|![](static/images/readme_file_image/manual-test/laptop/home.png)|![](static/images/readme_file_image/manual-test/laptop/add-student.png)|![](static/images/readme_file_image/manual-test/laptop/search-student.png)|![](static/images/readme_file_image/manual-test/laptop/update.png)|![](static/images/readme_file_image/manual-test/laptop/delete.png)|![](static/images/readme_file_image/manual-test/laptop/attendance.png)|![](static/images/readme_file_image/manual-test/laptop/search-attendance.png)|![](static/images/readme_file_image/manual-test/laptop/help.png)|![](static/images/readme_file_image/manual-test/laptop/about.png)|
 |Tablet|Portrait mode|![](static/images/readme_file_image/manual-test/tablet/land/home.png)|![](static/images/readme_file_image/manual-test/tablet/land/add.png)|![](static/images/readme_file_image/manual-test/tablet/land/search.png)|![](static/images/readme_file_image/manual-test/tablet/land/update.png)|![](static/images/readme_file_image/manual-test/tablet/land/delete.png)|![](static/images/readme_file_image/manual-test/tablet/land/record.png)|![](static/images/readme_file_image/manual-test/tablet/land/search-att.png)|![](static/images/readme_file_image/manual-test/tablet/land/help.png)|![](static/images/readme_file_image/manual-test/tablet/land/about.png)|
