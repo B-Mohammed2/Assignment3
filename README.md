@@ -31,6 +31,7 @@ https://record-wep-service.onrender.com
     - [Testing responsiveness](#testing-responsiveness)
       - [Manual test](#manual-test)
     - [Test on different web browsers](#test-on-different-web-browsers)
+    - [comment on the tests](#comment-on-the-tests)
   - [Test table](#test-table)
 - [Bugs and problems encountered](#bugs-and-problems-encountered)
 - [Screenshots](#screenshots)
@@ -217,13 +218,55 @@ the website was tested on different devices such as laptops, smartphones,tablets
 *  Chrome
 *  Edge
 
+### comment on the tests
+I noticed that the <input type="date"> displays the current date by default. However, in Chrome and Edge browsers, the format is displayed as (dd-mm-yyyy). It's important to note that the validation doesn't accept the placeholder attribute for the date input. Additionally, adding a placeholder doesn't affect the way the date is displayed in the input field.
+
+
 This Test Plan covers a range of test cases, including link navigation, verification of link text and images, and responsiveness across different screen sizes. By following this plan, we aim to identify any functional or usability issues, validate the correctness of the link destinations, and confirm that the web app behaves as expected in different environments.
 
 ## Test table
 <!-- Tables -->
-| Test No | Purpose            | Test and Or data|Expected Outcome|Actual Outcome|Comments|
-| --------| ------------------ |-------- |--------|--------|--------|
-| 1      |Add student link navigation  ||Opend add student page|Add student web page diplayed||
+| page name | test test procedures |Expected Outcome|Actual Outcome|
+| --------| ------------------ |-------- |--------|
+|Add Students:|a. Click on the "Add Students" link.
+b. Verify that the page loads correctly.
+c. Fill in the required information in the form.
+d. Click the "Submit" button.
+e. Verify that the student is successfully added to the database.|    |   |
+
+Search for Student:
+a. Click on the "Search for student" link.
+b. Verify that the page loads correctly.
+c. Enter the student details or search criteria.
+d. Click the "Search" button.
+e. Verify that the search results are displayed correctly.
+Update Student Details:
+a. Click on the "Update student detail" link.
+b. Verify that the page loads correctly.
+c. Select the student to update from the dropdown or enter search criteria.
+d. Edit the student details as required.
+e. Click the "Update" button.
+f. Verify that the student's details are successfully updated.
+Delete Student:
+a. Click on the "Delete student" link.
+b. Verify that the page loads correctly.
+c. Select the student to delete from the dropdown or enter search criteria.
+d. Click the "Delete" button.
+e. Confirm the deletion when prompted.
+f. Verify that the student is successfully deleted from the database.
+Record Student Attendance:
+a. Click on the "Record Student Attendance" link.
+b. Verify that the page loads correctly.
+c. Select the student from the dropdown or enter search criteria.
+d. Choose the date and mark the attendance.
+e. Click the "Submit" button.
+f. Verify that the attendance is recorded successfully.
+Search Student Attendance:
+a. Click on the "Search Student Attendance" link.
+b. Verify that the page loads correctly.
+c. Enter the student details or search criteria.
+d. Click the "Search" button.
+e. Verify that the attendance records are displayed correctly.
 
 
 
@@ -262,7 +305,7 @@ Required Python packages installed. You can install them by running the followin
 
 <!-- how to set up the program -->
 # Deployment
-1. creat render account
+<!-- 1. creat render account
 2. creat postgrasql database in render
 3. creat webservice
 connect with gethub and outhorize it
@@ -275,7 +318,19 @@ instal gunicorn
 image
 explening Use the Server dialog to describe a connection to a server:
 http://127.0.0.1:62055/help/help/server_dialog.html
- when connecting from outside 
+ when connecting from outside  -->
+1. Create a Render account.
+2. Set up a PostgreSQL database on Render.
+3. Create a web service.
+   * Connect with GitHub and authorize the connection.
+   * Install Render in GitHub.
+   * Connect with the repository.
+   * Install Gunicorn.
+   * Generate a requirements.txt file using pip.
+    
+Configure the PostgreSQL administration tool.
+Access the server dialog to describe the connection to a server.
+For connections from outside, use the URL: http://127.0.0.1:62055/help/help/server_dialog.html.
 
 # Security
 To hide sensitive information such as passwords and usernames in a Python application, I used 'os' moudle. This is the process:
