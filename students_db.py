@@ -12,9 +12,9 @@ app=Flask(__name__)
 #connecting to DB
 def db_conn():
     #conn=psycopg2.connect(database="students_details", host="dpg-cijuec5ph6euh7if58e0-a", user=user_db, password=password_db, port="5432")
-    conn=psycopg2.connect(database="students_details",host="dpg-cijuec5ph6euh7if58e0-a",user="students_details_user",password="XvSta6aWEsLkW1T9cgKgu59yoDbB1BqR",port="5432")
+    #conn=psycopg2.connect(database="students_details",host="dpg-cijuec5ph6euh7if58e0-a",user="students_details_user",password="XvSta6aWEsLkW1T9cgKgu59yoDbB1BqR",port="5432")
     #connecting to database for local host
-    # conn=psycopg2.connect(database="students_details",host="localhost",user=l_user,password=l_pass,port="5432")
+    conn=psycopg2.connect(database="students_details",host="localhost",user=l_user,password=l_pass,port="5432")
     return conn
 
 #route to index.html

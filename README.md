@@ -50,18 +50,68 @@ However,the users of this type of webpage are mostlly working for administration
 
 ## Technologies Used
 
-- HTML: Used for creating the structure and layout of the web page.
-- Flask: A Python web framework used to provide tools and libraries for building web applications. It is used for routing, rendering templates, handling HTTP requests, and more.
+- HTML5: Used for creating the structure and layout of the web page. 
 - CSS: Used for styling the web page and adding visual enhancements.
-- Jinja2: A templating engine used for integrating Python code with HTML templates.
 - Python: The programming language used for developing the backend logic of the application.
 - PostgreSQL: A powerful open-source relational database management system used for storing and managing student details and attendance data.
-- Psycopg2: A PostgreSQL adapter for Python that allows Python programs to access a PostgreSQL database. It is used to establish a connection between the Flask application and the PostgreSQL database.
+
+
+## Frameworks, Libraries, and Programs used in this project are:
+
+#### Frameworks:
+
+Flask: A Python web framework used to provide tools and libraries for building web applications. It is used for routing, rendering templates, handling HTTP requests, and more.
+#### Libraries:
+
+psycopg2: A PostgreSQL adapter for Python, used for connecting to and interacting with the PostgreSQL database.
+os: A module used for accessing the operating system functionalities, in this case, retrieving environment variables.
+
+#### Programs:
+
+PostgreSQL: A popular open-source relational database management system used as the backend database for this project.
+
+#### CSS and JavaScript:
+
+Bootstrap: A popular CSS framework used for styling the web application.
+HTML:
+
+Jinja2: A templating engine used in Flask for rendering dynamic content in HTML templates.
+
 
 ______
 
 # Design
 I designed the webpage with a clean and minimalist design, using soothing green colors to create a calm and comfortable environment for users. The purpose of the webpage is to serve as an administration tool, providing a pleasant and stress-free experience while performing administrative tasks. By using calming colors, the design aims to have a positive impact on users' mental well-being, promoting a sense of tranquility and ease while working with the webpage.
+
+## SQL Database (PostgreSQL)
+PostgreSQL is utilized as the database for this project. It incorporates two tables to enhance the functionality of the web application:
+
+### First Table
+The first table is designed to store student details and includes the following columns:
+* First Name
+* Last Name
+* Date of Birth
+* Address
+* Email Address
+* Contact Number
+* Next of Kin
+* Relationship to Next of Kin
+* Next of Kin's Phone Number
+* Next of Kin's Email
+* Reference Number
+This table serves the purpose of storing and managing the personal information and contact details of students.
+
+### Second Table
+
+To facilitate the tracking of students' attendance, a separate table is created. This table consists of the following columns:
+
+* Student ID: A unique identifier for each student.
+* Subject: Details of the subjects or courses that students are attending.
+* Date: The date on which the attendance is recorded.
+* Attendance Status: The status of attendance for each student on a particular date.
+
+This table allows you to keep a record of students' attendance for different subjects or courses, providing valuable information for monitoring and analyzing attendance patterns.
+
 
 ## Wireframe
 | Desktop  | Tablet             | Smartpfhone|
@@ -131,8 +181,8 @@ the website was tested on different devices such as laptops, smartphones,tablets
 |Device|test & Procedures|Home                     |Add Student              |Search Student           |Update student           |Delete Student           |Record Student Attendance|Search Student Attendance|Help                     |About Us                 |
 |---|---|---|---|---|---|---|---|---|---|---|
 |Laptop|Responsiveness|![](static/images/readme_file_image/manual-test/laptop/home.png)|![](static/images/readme_file_image/manual-test/laptop/add-student.png)|![](static/images/readme_file_image/manual-test/laptop/search-student.png)|![](static/images/readme_file_image/manual-test/laptop/update.png)|![](static/images/readme_file_image/manual-test/laptop/delete.png)|![](static/images/readme_file_image/manual-test/laptop/attendance.png)|![](static/images/readme_file_image/manual-test/laptop/search-attendance.png)|![](static/images/readme_file_image/manual-test/laptop/help.png)|![](static/images/readme_file_image/manual-test/laptop/about.png)|
-|Tablet|Portrait mode|   |   |   |   |   |   |   |   |   |
-|Tablet|Landscape mode|   |   |   |   |   |   |   |   |   |
+|Tablet|Portrait mode|![](static/images/readme_file_image/manual-test/tablet/land/home.png)|![](static/images/readme_file_image/manual-test/tablet/land/add.png)|![](static/images/readme_file_image/manual-test/tablet/land/search.png)|![](static/images/readme_file_image/manual-test/tablet/land/update.png)|![](static/images/readme_file_image/manual-test/tablet/land/delete.png)|![](static/images/readme_file_image/manual-test/tablet/land/record.png)|![](static/images/readme_file_image/manual-test/tablet/land/search-att.png)|![](static/images/readme_file_image/manual-test/tablet/land/help.png)|![](static/images/readme_file_image/manual-test/tablet/land/about.png)|
+|Tablet|Landscape mode|![](static/images/readme_file_image/manual-test/tablet/land/home.png)|![](static/images/readme_file_image/manual-test/tablet/land/add.png)|![](static/images/readme_file_image/manual-test/tablet/land/search.png)|![](static/images/readme_file_image/manual-test/tablet/land/update.png)|![](static/images/readme_file_image/manual-test/tablet/land/delete.png)|![](static/images/readme_file_image/manual-test/tablet/land/record.png)|![](static/images/readme_file_image/manual-test/tablet/land/search-att.png)|![](static/images/readme_file_image/manual-test/tablet/land/help.png)|![](static/images/readme_file_image/manual-test/smartphone/land/about.PNG)|
 |Smartphone|Portrait mode|![](static/images/readme_file_image/manual-test/smartphone/potr/home.PNG)|![](static/images/readme_file_image/manual-test/smartphone/potr/add.PNG)|![](static/images/readme_file_image/manual-test/smartphone/potr/search.PNG) |![](static/images/readme_file_image/manual-test/smartphone/potr/update.PNG)|![](static/images/readme_file_image/manual-test/smartphone/potr/delete.PNG)|![](static/images/readme_file_image/manual-test/smartphone/potr/record.PNG)|![](static/images/readme_file_image/manual-test/smartphone/potr/search-attendance.PNG)|![](static/images/readme_file_image/manual-test/smartphone/potr/help.PNG)|![](static/images/readme_file_image/manual-test/smartphone/potr/about.PNG)|
 |Smartphone|Landscape mode|![](static/images/readme_file_image/manual-test/smartphone/land/homa-land.PNG)|![](static/images/readme_file_image/manual-test/smartphone/land/add-land.PNG)|![](static/images/readme_file_image/manual-test/smartphone/land/search-.PNG)|![](static/images/readme_file_image/manual-test/smartphone/land/update.PNG)|![](static/images/readme_file_image/manual-test/smartphone/land/delete.PNG)|![](static/images/readme_file_image/manual-test/smartphone/land/record.PNG)|![](static/images/readme_file_image/manual-test/smartphone/land/search-attendance.PNG)|![](static/images/readme_file_image/manual-test/smartphone/land/help.PNG)|![](static/images/readme_file_image/manual-test/smartphone/land/about.PNG)|
 
@@ -141,15 +191,13 @@ the website was tested on different devices such as laptops, smartphones,tablets
 *  Chrome
 *  Edge
 
-
-
 This Test Plan covers a range of test cases, including link navigation, verification of link text and images, and responsiveness across different screen sizes. By following this plan, we aim to identify any functional or usability issues, validate the correctness of the link destinations, and confirm that the web app behaves as expected in different environments.
 
 ## Test table
 <!-- Tables -->
 | Test No | Purpose            | Test and Or data|Expected Outcome|Actual Outcome|Comments|
 | --------| ------------------ |-------- |--------|--------|--------|
-| 5       | install psycopg2  |         |        |        |for mac user add binary in th end|
+| 1      |Add student link navigation  ||Opend add student page|Add student web page diplayed||
 
 
 
@@ -185,35 +233,6 @@ For Mac (source  'Name'env/bin/activate)
 5. install psycopg2 (pip3 install psycopg2)For Mac (pip3 install psycopg2-binary)
 Required Python packages installed. You can install them by running the following command:
 
-## SQL 
-I have designed a database with two tables to enhance the functionality of the web application:
-
-### First Table
-
-I have created a table that includes the following columns for student details:
-
-* First Name
-* Last Name
-* Date of Birth
-* Address
-* Email Address
-* Contact Number
-* Next of Kin
-* Relationship to Next of Kin
-* Next of Kin's Phone Number
-* Next of Kin's Email
-* Reference Number
-This table is designed to store and manage the personal information and contact details of students.
-
-### Second Table
-
-To track students' attendance, I have created a separate table. This table includes the following columns:
-
-* Student ID: A unique identifier for each student.
-* Subject: Details of the subjects or courses that students are attending.
-* Date: The date on which the attendance is recorded.
-* Attendance Status: The status of attendance for each student on a particular date.
-This table allows you to keep a record of students' attendance for different subjects or courses, providing valuable information for monitoring and analyzing attendance patterns.
 
 <!-- how to set up the program -->
 # Deployment
