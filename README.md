@@ -33,8 +33,8 @@ https://record-wep-service.onrender.com
     - [Test on different web browsers](#test-on-different-web-browsers)
     - [Comment on the tests](#comment-on-the-tests)
   - [Test table](#test-table)
+- [Videos of the test](#videos-of-the-test)
 - [Bugs and problems encountered](#bugs-and-problems-encountered)
-- [Screenshots](#screenshots)
 - [User manual](#user-manual)
 - [Deployment](#deployment)
 - [Security](#security)
@@ -230,47 +230,59 @@ I noticed that the <input type="date"> displays the current date by default. How
 <!-- Tables -->
 | Page name | Test procedures |Expected Outcome|Actual Outcome|
 | --------| ------------------ |-------- |--------|
+|Home page:| a. Click on the logo "MANAGING STUDENTS RECORDS" link.|||
+||b. Verify that the page loads correctly.|||
 |Add Students:|a. Click on the "Add Students" link.|||
 ||b. Verify that the page loads correctly.|||
 ||c. Fill in the required information in the form.|||
 ||d. Click the "Submit" button.|||
 ||e. Verify that the student is successfully added to the database.|    |   |
 
-Search for Student:
-a. Click on the "Search for student" link.
-b. Verify that the page loads correctly.
-c. Enter the student details or search criteria.
-d. Click the "Search" button.
-e. Verify that the search results are displayed correctly.
-Update Student Details:
-a. Click on the "Update student detail" link.
-b. Verify that the page loads correctly.
-c. Select the student to update from the dropdown or enter search criteria.
-d. Edit the student details as required.
-e. Click the "Update" button.
-f. Verify that the student's details are successfully updated.
-Delete Student:
-a. Click on the "Delete student" link.
-b. Verify that the page loads correctly.
-c. Select the student to delete from the dropdown or enter search criteria.
-d. Click the "Delete" button.
-e. Confirm the deletion when prompted.
-f. Verify that the student is successfully deleted from the database.
-Record Student Attendance:
-a. Click on the "Record Student Attendance" link.
-b. Verify that the page loads correctly.
-c. Select the student from the dropdown or enter search criteria.
-d. Choose the date and mark the attendance.
-e. Click the "Submit" button.
-f. Verify that the attendance is recorded successfully.
-Search Student Attendance:
-a. Click on the "Search Student Attendance" link.
-b. Verify that the page loads correctly.
-c. Enter the student details or search criteria.
-d. Click the "Search" button.
-e. Verify that the attendance records are displayed correctly.
+|Search for Student:|a. Click on the "Search for student" link.|||
+||b. Verify that the page loads correctly.|||
+||c. Enter the student details or search criteria.|||
+||d. Click the "Search" button.|||
+||e. Verify that the search results are displayed correctly.|||
+|Update Student Details:|a. Click on the "Update student detail" link.|||
+||b. Verify that the page loads correctly.|||
+||c. Select the student to update from the dropdown or enter search criteria.|||
+||d. Edit the student details as required.|||
+||e. Click the "Update" button.|||
+||f. Verify that the student's details are successfully updated.|||
+|Delete Student:|a. Click on the "Delete student" link.|||
+||b. Verify that the page loads correctly.|||
+||c. Select the student to delete from the dropdown or enter search criteria.|||
+||d. Click the "Delete" button.|||
+||e. Confirm the deletion when prompted.|||
+||f. Verify that the student is successfully deleted from the database.|||
+|Record Student Attendance:|a. Click on the "Record Student Attendance" link.|||
+||b. Verify that the page loads correctly.|||
+||c. Select the student from the dropdown or enter search criteria.|||
+||d. Choose the date and mark the attendance.|||
+||e. Click the "Submit" button.|||
+||f. Verify that the attendance is recorded successfully.|||
+|Search Student Attendance:|a. Click on the "Search Student Attendance" link.|||
+||b. Verify that the page loads correctly.|||
+||c. Enter the student details or search criteria.|||
+||d. Click the "Search" button.|||
+||e. Verify that the attendance records are displayed correctly.|||
+|Help page:| a. Click on the "Help" link.|||
+||b. Verify that the page loads correctly.|||
+|About us page:| a. Click on the "Help" link.|||
+||b. Verify that the page loads correctly.|||
 
-
+# Videos of the test
+|page name| Video|
+|---------|------|
+|Add student|   |
+|Search for Student:||
+|Update Student Details:||
+|Delete Student:||
+|Record Student Attendance:||
+|Search Student Attendance:||
+|Help page:||
+|About us page:||
+|Home page:||
 
 
 # Bugs and problems encountered
@@ -285,9 +297,6 @@ e. Verify that the attendance records are displayed correctly.
 |Case sensitivity in search |Search doesn't find data if the input wasn't in the same capitalization as the data in SQL.|Fix by adding the UPPER function to the SQL query to make the search case-insensitive.|
 
 
-
-
-# Screenshots
 
 <!-- how to use the application -->
 # User manual
@@ -330,9 +339,10 @@ http://127.0.0.1:62055/help/help/server_dialog.html
    * Install Gunicorn.
    * Generate a requirements.txt file using pip.
     
-Configure the PostgreSQL administration tool.
-Access the server dialog to describe the connection to a server.
-For connections from outside, use the URL: http://127.0.0.1:62055/help/help/server_dialog.html.
+* Configure the PostgreSQL administration tool.
+  * Access the server dialog to describe the connection to a server.
+  * For connections from outside, use the steps in this page: http://127.0.0.1:62055/help/help/server_dialog.html.
+  
 
 # Security
 To hide sensitive information such as passwords and usernames in a Python application, I used 'os' moudle. This is the process:
