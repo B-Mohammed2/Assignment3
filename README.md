@@ -31,7 +31,7 @@ https://record-wep-service.onrender.com
     - [Testing responsiveness](#testing-responsiveness)
       - [Manual test](#manual-test)
     - [Test on different web browsers](#test-on-different-web-browsers)
-    - [comment on the tests](#comment-on-the-tests)
+    - [Comment on the tests](#comment-on-the-tests)
   - [Test table](#test-table)
 - [Bugs and problems encountered](#bugs-and-problems-encountered)
 - [Screenshots](#screenshots)
@@ -149,6 +149,7 @@ _______
 
 # Testing
 The purpose of this Test Plan is to outline the testing approach and strategies for ensuring the proper functionality and usability of the web application. The test was devided by aoutomated and manual. Aoutomated tests included (lighthouse,code validation tests). furthumore, the web app was tested manually on different devices such as(Laptop, Tablet, smartphone) regarding responsiveness and functionality.
+This Test Plan covers a range of test cases, including link navigation, verification of link text and images, and responsiveness across different screen sizes. By following this plan, I aim to identify any functional or usability issues, validate the correctness of the link destinations, and confirm that the web app behaves as expected in different environments.
 
 
 ## Aoutomated tests
@@ -218,21 +219,22 @@ the website was tested on different devices such as laptops, smartphones,tablets
 *  Chrome
 *  Edge
 
-### comment on the tests
+### Comment on the tests
 I noticed that the <input type="date"> displays the current date by default. However, in Chrome and Edge browsers, the format is displayed as (dd-mm-yyyy). It's important to note that the validation doesn't accept the placeholder attribute for the date input. Additionally, adding a placeholder doesn't affect the way the date is displayed in the input field.
 
 
-This Test Plan covers a range of test cases, including link navigation, verification of link text and images, and responsiveness across different screen sizes. By following this plan, we aim to identify any functional or usability issues, validate the correctness of the link destinations, and confirm that the web app behaves as expected in different environments.
+
 
 ## Test table
+
 <!-- Tables -->
-| page name | test test procedures |Expected Outcome|Actual Outcome|
+| Page name | Test procedures |Expected Outcome|Actual Outcome|
 | --------| ------------------ |-------- |--------|
-|Add Students:|a. Click on the "Add Students" link.
-b. Verify that the page loads correctly.
-c. Fill in the required information in the form.
-d. Click the "Submit" button.
-e. Verify that the student is successfully added to the database.|    |   |
+|Add Students:|a. Click on the "Add Students" link.|||
+||b. Verify that the page loads correctly.|||
+||c. Fill in the required information in the form.|||
+||d. Click the "Submit" button.|||
+||e. Verify that the student is successfully added to the database.|    |   |
 
 Search for Student:
 a. Click on the "Search for student" link.
