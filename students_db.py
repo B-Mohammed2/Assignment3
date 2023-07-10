@@ -6,92 +6,100 @@ user_db = os.environ.get('DB_USER')
 password_db = os.environ.get('DB_PASS')
 l_user = os.environ.get('L_USER')
 l_pass = os.environ.get('L_PASS')
-l_host=os.environ.get('Host')
-app=Flask(__name__)
+host_db = os.environ.get('Host')
+app = Flask(__name__)
 
 
-#connecting to DB
+# connecting to DB
 def db_conn():
-    #conn=psycopg2.connect(database="students_details", host=l_host, user=user_db, password=password_db, port="5432")
-    #connecting to database for local host
-    conn=psycopg2.connect(database="students_details",host="localhost",user=l_user,password=l_pass,port="5432")
+    # conn = psycopg2.connect(database="students_details", host=host_db,
+    #                         user=user_db, password=password_db, port="5432")
+    #conn=psycopg2.connect(database="students_details",host="localhost",user=l_user,password=l_pass,port="5432")
+    conn=psycopg2.connect(database="students_details",host="dpg-cijuec5ph6euh7if58e0-a",user="students_details_user",password="XvSta6aWEsLkW1T9cgKgu59yoDbB1BqR",port="5432")
     return conn
 
 
-#route to index.html
+# route to home webpage
 @app.route("/")
 def homepage():
-    return render_template("index.html") 
-
-# #route to home webpage
-# @app.route("/index")
-# def index():
-#     return render_template("index.html")
+    return render_template("index.html")
 
 
-#route to add student webpage
+#route to index.html file
+@app.route("/index")
+def index():
+    return render_template("index.html")
+
+
+# route to add student webpage
 @app.route("/add_student")
 def add_student():
     return render_template("add_student.html")
 
 
-#insert data from add_student
-@app.route("/create",methods=['POST'])
+# insert data from add_student
+@app.route("/create", methods=['POST'])
 def create():
-    conn=db_conn()
-    cur=conn.cursor()
-    #variables to connect form with db
-    student_reference=request.form['st_ref']
-    first_name=request.form['fname']
-    last_name=request.form['lname']
-    gender=request.form['gender']
-    date_of_birth=request.form['date_of_birth']
-    phone_no=request.form['phone']
-    email=request.form['email']
-    address=request.form['first_line'] +'  ' + request.form['second_line'] + '  '+ request.form['city'] + '  ' +request.form['postcode']
-    next_kin=request.form['kin_fname'] +'  ' + request.form['kin_lname']
-    kin_rel=request.form['kin_relationship']
-    kin_no=request.form['kin_phone']
-    kin_email=request.form['kin_email']
+    conn = db_conn()
+    cur = conn.cursor()
+    # variables to connect form with db
+    student_reference = request.form['st_ref']
+    first_name = request.form['fname']
+    last_name = request.form['lname']
+    gender = request.form['gender']
+    date_of_birth = request.form['date_of_birth']
+    phone_no = request.form['phone']
+    email = request.form['email']
+    address = request.form['first_line'] + '  ' + request.form['second_line'] + \
+        '  ' + request.form['city'] + '  ' + request.form['postcode']
+    next_kin = request.form['kin_fname'] + '  ' + request.form['kin_lname']
+    kin_rel = request.form['kin_relationship']
+    kin_no = request.form['kin_phone']
+    kin_email = request.form['kin_email']
     sql_add = "INSERT INTO courses (student_reference, first_name, last_name, gender, date_of_birth, phone_no, email, address, kin_full_name, kin_relationship, kin_phone, kin_email) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-    data = (student_reference, first_name, last_name, gender, date_of_birth, phone_no, email, address, next_kin, kin_rel, kin_no, kin_email)
+    data = (student_reference, first_name, last_name, gender, date_of_birth,
+            phone_no, email, address, next_kin, kin_rel, kin_no, kin_email)
     cur.execute(sql_add, data)
     conn.commit()
     cur.close()
     conn.close()
-    #redirecting to a function called add_student
+    # redirecting to a function called add_student
     return redirect(url_for('add_student'))
 
 
-#route to search student webpage 
+# route to search student webpage
 @app.route("/search_student")
 def search_student():
     return render_template("search_student.html")
 
 
-#search for student
-@app.route("/search",methods=['POST'])
+# search for student
+@app.route("/search", methods=['POST'])
 def search():
-    conn=db_conn()
-    cur=conn.cursor()
-    first_name=request.form['fname'].upper()
-    last_name=request.form['lname'].upper()
-    date_of_birth=request.form['birth_date']
-    ID=request.form['id']
-    #joinn strings (id and st_ref togehter (concatenation)  
+    conn = db_conn()
+    cur = conn.cursor()
+    first_name = request.form['fname'].upper()
+    last_name = request.form['lname'].upper()
+    date_of_birth = request.form['birth_date']
+    ID = request.form['id']
+    # joinn strings (id and st_ref togehter (concatenation)
     print("dateofbirth is" + date_of_birth)
-    if date_of_birth =='':
-        search_string="select * from courses where upper(first_name)='"+first_name+"' And upper(last_name)='"+last_name+"' OR student_reference='"+ID+"' ;"
+    if date_of_birth == '':
+        search_string = "select * from courses where upper(first_name)='"+first_name + \
+            "' And upper(last_name)='"+last_name + \
+            "' OR student_reference='"+ID+"' ;"
     else:
-        search_string="select * from courses where upper(first_name)='"+first_name+"' And upper(last_name)='"+last_name+"' OR student_reference='"+ID+"' OR date_of_birth='"+date_of_birth+"' ;"
+        search_string = "select * from courses where upper(first_name)='"+first_name+"' And upper(last_name)='" + \
+            last_name+"' OR student_reference='"+ID + \
+            "' OR date_of_birth='"+date_of_birth+"' ;"
 
     cur.execute(search_string)
-    data=cur.fetchall()
+    data = cur.fetchall()
     cur.close()
     conn.close()
-    #render_template going to the template and finding the data and display it
-    return  render_template("search_student.html", data=data)
-    
+    # render_template going to the template and finding the data and display it
+    return render_template("search_student.html", data=data)
+
 
 # Route to update student webpage
 @app.route("/update_student")
@@ -124,10 +132,11 @@ def search_update():
         conn.close()
 
         return render_template("update_student.html", data=data)
-    else:
-        return redirect(url_for('update_student'))
+   
 
 # Update student details
+
+
 @app.route("/update", methods=['POST'])
 def update():
     conn = db_conn()
@@ -144,10 +153,11 @@ def update():
     relationship = request.form['relationship']
     kin_phone = request.form['kin_phone']
     kin_email = request.form['kin_email']
-    ID= request.form['id']
+    ID = request.form['id']
 
     sql_update = '''UPDATE courses SET first_name=%s, last_name=%s, gender=%s, date_of_birth=%s, phone_no=%s, email=%s, address=%s, kin_full_name=%s, kin_relationship=%s, kin_phone=%s, kin_email=%s WHERE student_reference=%s'''
-    params = (first_name, last_name, gender, date_of_birth, phone_no, email, address, next_kin, relationship, kin_phone, kin_email, ID)
+    params = (first_name, last_name, gender, date_of_birth, phone_no,
+              email, address, next_kin, relationship, kin_phone, kin_email, ID)
 
     cur.execute(sql_update, params)
     print(sql_update)
@@ -158,42 +168,45 @@ def update():
     return redirect(url_for('update_student'))
 
 
-
-#route to delete student webpage
+# route to delete student webpage
 @app.route("/delete_student")
 def delete_student():
     return render_template("delete_student.html")
 
 
-#search student for delete
-@app.route("/search_delete",methods=['POST'])
+# search student for delete
+@app.route("/search_delete", methods=['POST'])
 def search_delete():
-    conn=db_conn()
-    cur=conn.cursor()
-    first_name=request.form['fname'].upper()
-    last_name=request.form['lname'].upper()
-    date_of_birth=request.form['birth_date']
-    ID=request.form['id']
-    #joinn strings (id and st_ref togehter (concatenation)  
-    if date_of_birth =='':
-        search_string="select * from courses where upper(first_name)='"+first_name+"' And upper(last_name)='"+last_name+"' OR student_reference='"+ID+"' ;"
+    conn = db_conn()
+    cur = conn.cursor()
+    first_name = request.form['fname'].upper()
+    last_name = request.form['lname'].upper()
+    date_of_birth = request.form['birth_date']
+    ID = request.form['id']
+    # joinn strings (id and st_ref togehter (concatenation)
+    if date_of_birth == '':
+        search_string = "select * from courses where upper(first_name)='"+first_name + \
+            "' And upper(last_name)='"+last_name + \
+            "' OR student_reference='"+ID+"' ;"
     else:
-        search_string="select * from courses where upper(first_name)='"+first_name+"' And upper(last_name)='"+last_name+"' OR student_reference='"+ID+"' OR date_of_birth='"+date_of_birth+"' ;"
+        search_string = "select * from courses where upper(first_name)='"+first_name+"' And upper(last_name)='" + \
+            last_name+"' OR student_reference='"+ID + \
+            "' OR date_of_birth='"+date_of_birth+"' ;"
 
     cur.execute(search_string)
-    data=cur.fetchall()
+    data = cur.fetchall()
     cur.close()
     conn.close()
-    #render_template going to the template and finding the data and display it
-    return  render_template("delete_student.html", data=data)
+    # render_template going to the template and finding the data and display it
+    return render_template("delete_student.html", data=data)
 
 
-#Delet Student
-@app.route("/delete",methods=['POST'])
+# Delet Student
+@app.route("/delete", methods=['POST'])
 def delete():
-    conn=db_conn()
-    cur=conn.cursor()
-    ID=request.form['id']
+    conn = db_conn()
+    cur = conn.cursor()
+    ID = request.form['id']
     # we need to delete the data from both table.if a student detail was deleted from main table
     # the related table will be left without connected data and will face error.
     cur.execute('''DELETE FROM attendance  WHERE student_reference=%s''', (ID,))
@@ -204,65 +217,75 @@ def delete():
     return redirect(url_for('index'))
 
 
+# this part is for students Attendance
 
-#this part is for students Attendance
-
-#route to attendance_student webpage
+# route to attendance_student webpage
 @app.route("/attendance_student")
 def attendance_student():
-    conn=db_conn()
-    cur=conn.cursor()
-    #retrieve all records from attendance table where date of attendance is today
-    cur.execute("select * from attendance where date_of_attendance=CURRENT_DATE;")
-    #if no records where retrived then
-    if cur.rowcount==0:
+    conn = db_conn()
+    cur = conn.cursor()
+    # retrieve all records from attendance table where date of attendance is today
+    cur.execute(
+        "select * from attendance where date_of_attendance=CURRENT_DATE;")
+    # if no records where retrived then
+    if cur.rowcount == 0:
         cur.execute("select * from courses")
-    #creat todays register
-        studentdata=cur.fetchall()
+    # creat todays register
+        studentdata = cur.fetchall()
         for x in studentdata:
-            sql_test="INSERT INTO attendance(subject,student_reference,attendance) VALUES (null,'"+x[0]+"',null);"
+            sql_test = "INSERT INTO attendance(subject,student_reference,attendance) VALUES (null,'" + \
+                x[0]+"',null);"
             cur.execute(sql_test)
             conn.commit()
     # making relationship between the two tables using the student reference number and adding a condition for the date of attendance to avoid duplicate.
-    search_string="select * from courses, attendance where courses.student_reference=attendance.student_reference AND attendance.date_of_attendance=CURRENT_DATE order by attendance_id ASC;"
+    search_string = "select * from courses, attendance where courses.student_reference=attendance.student_reference AND attendance.date_of_attendance=CURRENT_DATE order by attendance_id ASC;"
     cur.execute(search_string)
-    data=cur.fetchall()
+    data = cur.fetchall()
     cur.close()
     conn.close()
     return render_template("attendance_student.html", data=data)
 
-#creating daily attendance in register page
-@app.route("/create_attendance",methods=['POST'])
+# creating daily attendance in register page
+
+
+@app.route("/create_attendance", methods=['POST'])
 def create_attendance():
-    conn=db_conn()
-    cur=conn.cursor()
-    #variables to connect form with db
-    #variable to request data structured in  alist from form(convert data to dictionary type)
-    #reasult givs attendance record
-    result=request.form.to_dict(flat=False)
-    #to list the keys in to col values to show one item
-    keylist=list(result.keys())
-    valuelist=list(result.values())
-    number_of_records=len(keylist)
+    conn = db_conn()
+    cur = conn.cursor()
+    # variables to connect form with db
+    # variable to request data structured in  alist from form(convert data to dictionary type)
+    # reasult givs attendance record
+    result = request.form.to_dict(flat=False)
+    # to list the keys in to col values to show one item
+    keylist = list(result.keys())
+    valuelist = list(result.values())
+    number_of_records = len(keylist)
     for current_attendance_record in range(number_of_records-1):
-        #update for attendance
-        sql_update_attendance="UPDATE attendance SET attendance='"+valuelist[current_attendance_record+1][0]+"' where student_reference='"+keylist[current_attendance_record+1]+"' AND attendance.date_of_attendance=CURRENT_DATE;"
-        #update for subject
-        sql_update_subject="UPDATE attendance SET subject='" + valuelist[0][0] + "' where student_reference='"+keylist[current_attendance_record+1]+"' AND attendance.date_of_attendance=CURRENT_DATE;"
+        # update for attendance
+        sql_update_attendance = "UPDATE attendance SET attendance='" + \
+            valuelist[current_attendance_record+1][0]+"' where student_reference='" + \
+            keylist[current_attendance_record+1] + \
+            "' AND attendance.date_of_attendance=CURRENT_DATE;"
+        # update for subject
+        sql_update_subject = "UPDATE attendance SET subject='" + \
+            valuelist[0][0] + "' where student_reference='"+keylist[current_attendance_record+1] + \
+            "' AND attendance.date_of_attendance=CURRENT_DATE;"
         cur.execute(sql_update_attendance)
         cur.execute(sql_update_subject)
         conn.commit()
 
     cur.close()
     conn.close()
-    #redirecting to a function called add_student
+    # redirecting to a function called add_student
     return redirect(url_for('attendance_student'))
 
-#route to search_attendance_student webpage
+# route to search_attendance_student webpage
+
+
 @app.route("/search_attendance_student")
 def search_attendance_student():
-    return  render_template("search_student_attendance.html")
-    
+    return render_template("search_student_attendance.html")
+
 
 @app.route("/search_student_attendance", methods=['POST'])
 def search_student_attendance_detail():
@@ -272,7 +295,7 @@ def search_student_attendance_detail():
     last_name = request.form['lname'].upper()
     ID = request.form['id']
     date_of_birth = request.form['birth_date']
-    #joinn strings (id and st_ref togehter (concatenation)
+    # joinn strings (id and st_ref togehter (concatenation)
     if date_of_birth == '':
         # Search by name and ID
         search_query = "SELECT * FROM courses, attendance WHERE courses.student_reference=attendance.student_reference AND (upper(courses.first_name)=%s AND upper(courses.last_name)=%s OR courses.student_reference=%s) ORDER BY attendance.date_of_attendance DESC;"
@@ -285,8 +308,9 @@ def search_student_attendance_detail():
     data = cur.fetchall()
     cur.close()
     conn.close()
-    #render_template going to the template and finding the data and display it
+    # render_template going to the template and finding the data and display it
     return render_template("search_student_attendance.html", data=data)
+
 
 @app.route('/help_page')
 def help_page():
@@ -296,6 +320,7 @@ def help_page():
 @app.route('/about')
 def about_us():
     return render_template('about.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)

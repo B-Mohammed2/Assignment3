@@ -309,7 +309,7 @@ In the terminal follow these steps:
 For Mac (source  'Name'env/bin/activate)
 4. pip3 install flask
 5. install psycopg2 (pip3 install psycopg2)For Mac (pip3 install psycopg2-binary)
-Required Python packages installed. You can install them by running the following command:
+6.  autopep8: pip install -U autopep8
 
 
 <!-- how to set up the program -->
