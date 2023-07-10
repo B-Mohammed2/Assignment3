@@ -33,18 +33,13 @@ https://record-wep-service.onrender.com
     - [Test on different web browsers](#test-on-different-web-browsers)
     - [Comment on the tests](#comment-on-the-tests)
   - [Test table](#test-table)
-- [Video of the test](#video-of-the-test)
+  - [Video of the test](#video-of-the-test)
 - [Bugs and problems encountered](#bugs-and-problems-encountered)
 - [User manual](#user-manual)
 - [Deployment](#deployment)
 - [Security](#security)
-    - [Acknowledgment](#acknowledgment)
-    - [References](#references)
-        - [bootstrap library](#bootstrap-library)
-        - [Icone Website https://www.flaticon.com](#icone-website-httpswwwflaticoncom)
-        - [bootstrap](#bootstrap)
-        - [w3school](#w3school)
-- [Code attribution](#code-attribution)
+  - [Acknowledgment](#acknowledgment)
+  - [References](#references)
 
 
 <!-- Introduction -->
@@ -271,8 +266,7 @@ I noticed that the <input type="date"> displays the current date by default. How
 
 
 
-# Video of the test
-https://record-wep-service.onrender.com/video
+## Video of the test
 [(![video](static/images/readme_file_image/video/video-icon.png))](https://record-wep-service.onrender.com/video)
 
 
@@ -338,18 +332,22 @@ this methode allows you to store sensitive information as environment variables 
 
 
 
-### Acknowledgment
+## Acknowledgment
+
+I would like to express my gratitude to the following individuals and organizations who have contributed to the success of this project:
+
+- [Toutur/William]: Thank you for your guidance, support, and valuable insights throughout the project.
+- Icone Website (https://www.flaticon.com): thank you for providing free good quality icon design for the project. 
+
+
+## References
+
+* bootstrap library
+* w3school
+* draw.io
 
 
 
-### References
-##### bootstrap library
-##### Icone Website https://www.flaticon.com
-##### bootstrap 
-##### w3school
-
-
-# Code attribution
 
 
 
