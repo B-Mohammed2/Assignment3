@@ -255,20 +255,20 @@ I noticed that the <input type="date"> displays the current date by default. How
 ||d. Click the "Delete" button.|The selected student details removed from the system.|The student removed.|
 ||e. Verify that the student is successfully deleted from the database.|Search for the student in the search form result display "NO Student Found".|When the student searched for display"No Student Found".|
 |Record Student Attendance:|a. Click on the "Record Student Attendance" link.|Opening Record Student Attendance page.|Record Student Attendance page displayed.|
-||b. Verify that the page loads correctly.|||
-||c. Select the student from the dropdown or enter search criteria.|||
-||d. Choose the date and mark the attendance.|||
-||e. Click the "Submit" button.|||
-||f. Verify that the attendance is recorded successfully.|||
+||b. Verify that the page loads correctly.|The page opens with expected subject inpute and display the students names in formate of table with Submit button.|The page Opens displaying the subject input and attendance recording table as expected.|
+||c. Mark attendance using the radious buttons.|the student records as attended or not by selecting "Yes and No"|Recording is saccesful.|
+||d. Write the subject Name.|The attendance subject recorded in the designed field|Work as expected.|
+||e. Click the "Submit" button.|The data add to Attendance Table.|Data added|
+||f. Verify that the attendance is recorded successfully.|The data added to database,Can be confirmed in Search attendance as well.|The data added|
 |Search Student Attendance:|a. Click on the "Search Student Attendance" link.|Opening Search Student Attendance page.|Search Student Attendance page displayed.|
-||b. Verify that the page loads correctly.|||
-||c. Enter the student details or search criteria.|||
-||d. Click the "Search" button.|||
-||e. Verify that the attendance records are displayed correctly.|||
+||b. Verify that the page loads correctly.|Displaying the page with search form to select student.|The page displayed as expected.|
+||c. Enter the student details or search criteria.|Finding student detail to retrive data by any of the methodes provided.|Student found by all methodes|
+||d. Click the "Search" button.|Submiting the search form and display data.|data displayed as requested|
+||e. Verify that the attendance records are displayed correctly.|The selected student record display|Data displayed.|
 |Help page:| a. Click on the "Help" link.|Opening Help page.|Help page displayed.|
-||b. Verify that the page loads correctly.|||
-|About us page:| a. Click on the "Help" link.|Opening About us page.|About us page displayed.|
-||b. Verify that the page loads correctly.|||
+||b. Verify that the page loads correctly.|The page displayes the Help guidens for the web app.|Page displayed as expected|
+|About us page:| a. Click on the "About us" link.|Opening About us page.|About us page displayed.|
+||b. Verify that the page loads correctly.|The page display the expected information.|Page display as expected.|
 
 # Videos of the test
 |page name| Video|
