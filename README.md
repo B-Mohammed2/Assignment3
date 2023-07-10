@@ -33,7 +33,7 @@ https://record-wep-service.onrender.com
     - [Test on different web browsers](#test-on-different-web-browsers)
     - [Comment on the tests](#comment-on-the-tests)
   - [Test table](#test-table)
-- [Videos of the test](#videos-of-the-test)
+- [Video of the test](#video-of-the-test)
 - [Bugs and problems encountered](#bugs-and-problems-encountered)
 - [User manual](#user-manual)
 - [Deployment](#deployment)
@@ -272,7 +272,7 @@ I noticed that the <input type="date"> displays the current date by default. How
 
 
 # Video of the test
-
+https://record-wep-service.onrender.com/video
 
 
 
