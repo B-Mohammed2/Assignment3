@@ -223,12 +223,9 @@ the website was tested on different devices such as laptops, smartphones,tablets
 I noticed that the <input type="date"> displays the current date by default. However, in Chrome and Edge browsers, the format is displayed as (dd-mm-yyyy). It's important to note that the validation doesn't accept the placeholder attribute for the date input. Additionally, adding a placeholder doesn't affect the way the date is displayed in the input field.
 
 
-
-
 ## Test table
 
 <!-- Tables -->
-Certainly! Here's the revised table:
 
 | Page Name| Test Procedures| Expected Outcome | Actual Outcome  |
 | ------------------------ | ------------------------------------------------------------------------ | ---------------------------------------------------------------------- | --------------------------------------------------------------- |
@@ -298,8 +295,6 @@ Certainly! Here's the revised table:
 |Handling student details separately in attendance table|Faced difficulty in displaying student details separately from the attendance table to avoid repetition.|	Use conditional statements (e.g., if statement) in Jinja template to show the page without crashing and display the student details when searched for.|
 |Multiple data shown when searching attendance by Student ID|When searching for student attendance records by Student ID, multiple records were displayed.|	Modify the SQL query in Python to fetch only the relevant attendance record for the given Student ID.|
 |Case sensitivity in search |Search doesn't find data if the input wasn't in the same capitalization as the data in SQL.|Fix by adding the UPPER function to the SQL query to make the search case-insensitive.|
-
-
 
 <!-- how to use the application -->
 # User manual
