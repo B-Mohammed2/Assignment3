@@ -212,7 +212,6 @@ ul {
 }
 
 li {
-  display: inline;
   margin-right: 20px;
 }
 /* adjust display of list for smaller screens */
