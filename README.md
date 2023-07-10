@@ -237,7 +237,6 @@ I noticed that the <input type="date"> displays the current date by default. How
 ||c. Fill in the required information in the form.|All field accepts the requiered data.|All field can be filled as desired.|
 ||d. Click the "Add Student" button.|The submit button submit the form.|It submit the form and send data to SQL|
 ||e. Verify that the student is successfully added to the database.|The entered data from add student form displayed in the correct order in database|The data entered to database in the table in the correct column.|
-
 |Search for Student:|a. Click on the "Search for student" link.|Opening Search for student page.|Search for student page displayed.|
 | |b. Verify that the page loads correctly.|The page opens with expected  search form detail and layout.|The page Opens displays search for student form as expected.|
 | |c. Enter the student details or search criteria.| All field accepts the requiered data.|All field can be filled as needed.|
