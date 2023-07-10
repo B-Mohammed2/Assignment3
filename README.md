@@ -228,47 +228,51 @@ I noticed that the <input type="date"> displays the current date by default. How
 ## Test table
 
 <!-- Tables -->
-| Page name | Test procedures |Expected Outcome|Actual Outcome|
-| --------| ------------------ |-------- |--------|
-|Home page:| a. Click on the logo "MANAGING STUDENTS RECORDS" link.|Navigate to the home page from any page of the web app.| The home page opens.|
-||b. Verify that the page loads correctly.|The page opens with expected layout and page elements (HTML, CSS, images) are loading correctly.|The page displays as expected.|
-|Add Students:|a. Click on the "Add Students" link.|Opening Add student page.|Add student page displayed.|
-||b. Verify that the page loads correctly.|The page opens with expected form detail and layout.|The page Opens displays add student form as expected. |
-||c. Fill in the required information in the form.|All field accepts the requiered data.|All field can be filled as desired.|
-||d. Click the "Add Student" button.|The submit button submit the form.|It submit the form and send data to SQL|
-||e. Verify that the student is successfully added to the database.|The entered data from add student form displayed in the correct order in database|The data entered to database in the table in the correct column.|
-|Search for Student:|a. Click on the "Search for student" link.|Opening Search for student page.|Search for student page displayed.|
-| |b. Verify that the page loads correctly.|The page opens with expected  search form detail and layout.|The page Opens displays search for student form as expected.|
-| |c. Enter the student details or search criteria.| All field accepts the requiered data.|All field can be filled as needed.|
-| |d. Click the "Search" button.| The Search button submit the form.|It submit the form and retrive data from database and display it.|
-| |e. Verify that the search results are displayed correctly.|The data display in a table correctly| it displays|
-|Update Student Details:|a. Click on the "Update student detail" link.|Opening Update Student page.|Update Student page displayed.|
-||b. Verify that the page loads correctly.|The page opens with expected  search form detail and layout.|The page Opens displays search for student form as expected to find the student than need change of detail.|
-||c. Click the "Search" button.| The Search button submit the form.|It submit the form and retrive data from database and display it.|
-| |d. Verify that the search results are displayed correctly.|The data display in a fields correctly| it displays correctly|
-||e. Edit the student details as required.|The filds can be edited|the details changes|
-||f. Click the "Update" button.|The Update button submit the form.|It submit the form and send data to SQL|
-||g. Verify that the student's details are successfully updated.|The details are edited properlly|The data displayed in the table as expected.|
-|Delete Student:|a. Click on the "Delete student" link.|Opening Delete Student page.|Delete Student page displayed.|
-||b. Verify that the page loads correctly.|Opening Delete Student page.|Delete Student page displayed with search student form.|
-||c. Find the student to delete from the search form.|The details of searched student appear after clicking Search button.|The selected student detail display.|
-||d. Click the "Delete" button.|The selected student details removed from the system.|The student removed.|
-||e. Verify that the student is successfully deleted from the database.|Search for the student in the search form result display "NO Student Found".|When the student searched for display"No Student Found".|
-|Record Student Attendance:|a. Click on the "Record Student Attendance" link.|Opening Record Student Attendance page.|Record Student Attendance page displayed.|
-||b. Verify that the page loads correctly.|The page opens with expected subject inpute and display the students names in formate of table with Submit button.|The page Opens displaying the subject input and attendance recording table as expected.|
-||c. Mark attendance using the radious buttons.|the student records as attended or not by selecting "Yes and No"|Recording is saccesful.|
-||d. Write the subject Name.|The attendance subject recorded in the designed field|Work as expected.|
-||e. Click the "Submit" button.|The data add to Attendance Table.|Data added|
-||f. Verify that the attendance is recorded successfully.|The data added to database,Can be confirmed in Search attendance as well.|The data added|
-|Search Student Attendance:|a. Click on the "Search Student Attendance" link.|Opening Search Student Attendance page.|Search Student Attendance page displayed.|
-||b. Verify that the page loads correctly.|Displaying the page with search form to select student.|The page displayed as expected.|
-||c. Enter the student details or search criteria.|Finding student detail to retrive data by any of the methodes provided.|Student found by all methodes|
-||d. Click the "Search" button.|Submiting the search form and display data.|data displayed as requested|
-||e. Verify that the attendance records are displayed correctly.|The selected student record display|Data displayed.|
-|Help page:| a. Click on the "Help" link.|Opening Help page.|Help page displayed.|
-||b. Verify that the page loads correctly.|The page displayes the Help guidens for the web app.|Page displayed as expected|
-|About us page:| a. Click on the "About us" link.|Opening About us page.|About us page displayed.|
-||b. Verify that the page loads correctly.|The page display the expected information.|Page display as expected.|
+Certainly! Here's the revised table:
+
+| Page Name| Test Procedures| Expected Outcome | Actual Outcome  |
+| ------------------------ | ------------------------------------------------------------------------ | ---------------------------------------------------------------------- | --------------------------------------------------------------- |
+| Home Page                | a. Click on the logo "MANAGING STUDENTS RECORDS" link.                    | Navigate to the home page from any page of the web app.               | The home page opens.                                            |
+|                          | b. Verify that the page loads correctly.                                   | The page opens with the expected layout and elements.                  | The page displays as expected.                                  |
+| Add Students             | a. Click on the "Add Students" link.                                       | Open the "Add Student" page.                                          | The "Add Student" page is displayed.                            |
+|                          | b. Verify that the page loads correctly.                                   | The page opens with the expected form and layout.                      | The page displays the "Add Student" form as expected.           |
+|                          | c. Fill in the required information in the form.                           | All fields accept the required data.                                  | All fields can be filled as desired.                            |
+|                          | d. Click the "Add Student" button.                                         | The form is submitted successfully.                                   | The form is submitted and data is sent to the database.         |
+|                          | e. Verify that the student is successfully added to the database.          | The entered data is displayed in the correct database column.         | The data is entered correctly in the database.                  |
+| Search for Student       | a. Click on the "Search for student" link.                                 | Open the "Search for student" page.                                   | The "Search for student" page is displayed.                     |
+|                          | b. Verify that the page loads correctly.                                   | The page opens with the expected form and layout.                      | The page displays the "Search for student" form as expected.    |
+|                          | c. Enter the student details or search criteria.                           | All fields accept the required data.                                  | All fields can be filled as needed.                             |
+|                          | d. Click the "Search" button.                                              | The form is submitted successfully.                                   | The form is submitted and data is retrieved from the database.  |
+|                          | e. Verify that the search results are displayed correctly.                  | The data is displayed correctly in a table format.                    | The search results are displayed accurately.                    |
+| Update Student Details   | a. Click on the "Update student detail" link.                              | Open the "Update student" page.                                       | The "Update student" page is displayed.                         |
+|                          | b. Verify that the page loads correctly.                                   | The page opens with the expected form and layout.                      | The page displays the "Update student" form as expected.        |
+|                          | c. Click the "Search" button.                                              | The form is submitted successfully.                                   | The form is submitted and data is retrieved from the database.  |
+|                          | d. Verify that the search results are displayed correctly.                  | The data is displayed correctly in the fields.                         | The data is displayed accurately.                              |
+|                          | e. Edit the student details as required.                                   | The fields can be edited.                                             | The details can be changed.                                     |
+|                          | f. Click the "Update" button.                                              | The form is submitted successfully.                                   | The form is submitted and data is sent to the database.         |
+|                          | g. Verify that the student's details are successfully updated.             | The details are updated properly.                                     | The data is displayed correctly in the table.                   |
+| Delete Student           | a. Click on the "Delete student" link.                                     | Open the "Delete student" page.                                       | The "Delete student" page is displayed.                         |
+|                          | b. Verify that the page loads correctly.                                   | The page opens with the expected form and layout.                      | The page displays the "Delete student" form as expected.        |
+|                          | c. Find the student to delete from the search form.                        | The details of the searched student appear after clicking "Search".   | The selected student details are displayed.                     |
+|                          | d. Click the "Delete" button.                                              | The selected student details are removed from the system.             | The student is successfully removed.                            |
+|                          | e. Verify that the student is successfully deleted from the database.      | Searching for the student displays "NO Student Found".                | "No Student Found" is displayed when searching for the student. |
+| Record Student Attendance | a. Click on the "Record Student Attendance" link.                    | Open the "Record Student Attendance" page.                            | The "Record Student Attendance" page is displayed.           |
+|                            | b. Verify that the page loads correctly.                              | The page opens with the expected subject input and a table of students. | The page displays the subject input and table as expected.   |
+|                            | c. Mark attendance using the radio buttons.                           | The student records are marked as attended or not attended.            | Attendance recording is successful.                          |
+|                            | d. Write the subject name.                                           | The subject name is recorded in the designated field.                 | It works as expected.                                        |
+|                            | e. Click the "Submit" button.                                        | The attendance data is added to the Attendance table.                 | The data is successfully added.                              |
+|                            | f. Verify that the attendance is recorded successfully.              | The data is added to the database and can be confirmed in searches.   | The attendance is recorded successfully.                     |
+| Search Student Attendance  | a. Click on the "Search Student Attendance" link.                    | Open the "Search Student Attendance" page.                            | The "Search Student Attendance" page is displayed.           |
+|                            | b. Verify that the page loads correctly.                              | The page opens with the search form to select a student.               | The page displays as expected.                               |
+|                            | c. Enter the student details or search criteria.                      | Find the student details using any of the provided methods.            | The student is found using different search methods.         |
+|                            | d. Click the "Search" button.                                         | Submit the search form and display the data.                          | The data is displayed as requested.                          |
+|                            | e. Verify that the attendance records are displayed correctly.        | The selected student's attendance records are displayed.               | The data is displayed accurately.                            |
+| Help page                  | a. Click on the "Help" link.                                          | Open the Help page.                                                    | The Help page is displayed.                                  |
+|                            | b. Verify that the page loads correctly.                              | The page displays the expected help guidelines for the web app.        | The page is displayed as expected.                           |
+| About us page              | a. Click on the "About us" link.                                      | Open the About us page.                                                | The About us page is displayed.                              |
+|                            | b. Verify that the page loads correctly.                              | The page displays the expected information.                            | The page is displayed as expected.                           |
+
+
 
 # Videos of the test
 |page name| Video|
