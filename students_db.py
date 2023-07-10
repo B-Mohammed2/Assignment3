@@ -9,21 +9,24 @@ l_pass = os.environ.get('L_PASS')
 l_host=os.environ.get('Host')
 app=Flask(__name__)
 
+
 #connecting to DB
 def db_conn():
-    conn=psycopg2.connect(database="students_details", host=l_host, user=user_db, password=password_db, port="5432")
+    #conn=psycopg2.connect(database="students_details", host=l_host, user=user_db, password=password_db, port="5432")
     #connecting to database for local host
-    #conn=psycopg2.connect(database="students_details",host="localhost",user=l_user,password=l_pass,port="5432")
+    conn=psycopg2.connect(database="students_details",host="localhost",user=l_user,password=l_pass,port="5432")
     return conn
+
 
 #route to index.html
 @app.route("/")
 def homepage():
     return render_template("index.html") 
-#route to home webpage
-@app.route("/index")
-def index():
-    return render_template("index.html")
+
+# #route to home webpage
+# @app.route("/index")
+# def index():
+#     return render_template("index.html")
 
 
 #route to add student webpage
@@ -59,10 +62,12 @@ def create():
     #redirecting to a function called add_student
     return redirect(url_for('add_student'))
 
+
 #route to search student webpage 
 @app.route("/search_student")
 def search_student():
     return render_template("search_student.html")
+
 
 #search for student
 @app.route("/search",methods=['POST'])
@@ -88,12 +93,11 @@ def search():
     return  render_template("search_student.html", data=data)
     
 
-
-
 # Route to update student webpage
 @app.route("/update_student")
 def update_student():
     return render_template("update_student.html")
+
 
 # Search student for update
 @app.route("/search_update", methods=['GET', 'POST'])
