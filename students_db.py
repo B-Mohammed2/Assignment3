@@ -4,8 +4,6 @@ import psycopg2
 
 user_db = os.environ.get('DB_USER')
 password_db = os.environ.get('DB_PASS')
-l_user = os.environ.get('L_USER')
-l_pass = os.environ.get('L_PASS')
 host_db = os.environ.get('Host')
 app = Flask(__name__)
 
@@ -13,7 +11,7 @@ app = Flask(__name__)
 # connecting to DB
 def db_conn():
     #conn = psycopg2.connect(database="students_details", host=host_db,user=user_db, password=password_db, port="5432")
-    #conn=psycopg2.connect(database="students_details",host="localhost",user=l_user,password=l_pass,port="5432")
+     #connecting to database for local host
     conn=psycopg2.connect(database="students_details",host="dpg-cijuec5ph6euh7if58e0-a",user="students_details_user",password="XvSta6aWEsLkW1T9cgKgu59yoDbB1BqR",port="5432")
     return conn
 
@@ -310,15 +308,20 @@ def search_student_attendance_detail():
     # render_template going to the template and finding the data and display it
     return render_template("search_student_attendance.html", data=data)
 
-
+# route for help page
 @app.route('/help_page')
 def help_page():
     return render_template('help.html')
 
-
+# route for about us page
 @app.route('/about')
 def about_us():
     return render_template('about.html')
+
+# route for video test page
+@app.route('/video')
+def video_test():
+    return render_template('video.html')
 
 
 if __name__ == '__main__':

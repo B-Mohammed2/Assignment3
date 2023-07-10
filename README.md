@@ -271,18 +271,9 @@ I noticed that the <input type="date"> displays the current date by default. How
 
 
 
-# Videos of the test
-|page name| Video|
-|---------|------|
-|Add student|   |
-|Search for Student:||
-|Update Student Details:||
-|Delete Student:||
-|Record Student Attendance:||
-|Search Student Attendance:||
-|Help page:||
-|About us page:||
-|Home page:||
+# Video of the test
+
+
 
 
 # Bugs and problems encountered

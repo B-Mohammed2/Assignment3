@@ -266,3 +266,18 @@ footer {
   text-align: center;
   clear: both;
 }
+
+/* video styling */
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-bottom: 40px;
+  margin-top: -80px;
+}
+.video_heading{
+  text-align: center;
+  margin-top: 40px;
+
+}
