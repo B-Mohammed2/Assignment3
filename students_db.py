@@ -11,9 +11,9 @@ l_pass = os.environ.get('L_PASS')
 
 # connecting to DB
 def db_conn():
-    #conn = psycopg2.connect(database="students_details", host=host_db,user=user_db, password=password_db, port="5432")
-    #connecting to database for local host
-    conn=psycopg2.connect(database="students_details",host="dpg-cijuec5ph6euh7if58e0-a",user="students_details_user",password="XvSta6aWEsLkW1T9cgKgu59yoDbB1BqR",port="5432")
+    #connecting to database with host
+    conn = psycopg2.connect(database="students_details", host=host_db,user=user_db, password=password_db, port="5432")
+    
     return conn
 
 
