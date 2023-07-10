@@ -273,6 +273,7 @@ I noticed that the <input type="date"> displays the current date by default. How
 
 # Video of the test
 https://record-wep-service.onrender.com/video
+[(![video](static/images/readme_file_image/video/video-icon.png))](https://record-wep-service.onrender.com/video)
 
 
 
