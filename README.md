@@ -230,45 +230,45 @@ I noticed that the <input type="date"> displays the current date by default. How
 <!-- Tables -->
 | Page name | Test procedures |Expected Outcome|Actual Outcome|
 | --------| ------------------ |-------- |--------|
-|Home page:| a. Click on the logo "MANAGING STUDENTS RECORDS" link.|||
-||b. Verify that the page loads correctly.|||
-|Add Students:|a. Click on the "Add Students" link.|||
-||b. Verify that the page loads correctly.|||
-||c. Fill in the required information in the form.|||
-||d. Click the "Submit" button.|||
-||e. Verify that the student is successfully added to the database.|    |   |
+|Home page:| a. Click on the logo "MANAGING STUDENTS RECORDS" link.|Navigate to the home page from any page of the web app.| The home page opens.|
+||b. Verify that the page loads correctly.|The page opens with expected layout and page elements (HTML, CSS, images) are loading correctly.|The page displays as expected.|
+|Add Students:|a. Click on the "Add Students" link.|Opening Add student page.|Add student page displayed.|
+||b. Verify that the page loads correctly.|The page opens with expected form detail and layout.|The page Opens displays add student form as expected. |
+||c. Fill in the required information in the form.|All field accepts the requiered data.|All field can be filled as desired.|
+||d. Click the "Add Student" button.|The submit button submit the form.|It submit the form and send data to SQL|
+||e. Verify that the student is successfully added to the database.|The entered data from add student form displayed in the correct order in database|The data entered to database in the table in the correct column.|
 
-|Search for Student:|a. Click on the "Search for student" link.|||
-||b. Verify that the page loads correctly.|||
-||c. Enter the student details or search criteria.|||
-||d. Click the "Search" button.|||
-||e. Verify that the search results are displayed correctly.|||
-|Update Student Details:|a. Click on the "Update student detail" link.|||
-||b. Verify that the page loads correctly.|||
-||c. Select the student to update from the dropdown or enter search criteria.|||
-||d. Edit the student details as required.|||
-||e. Click the "Update" button.|||
-||f. Verify that the student's details are successfully updated.|||
-|Delete Student:|a. Click on the "Delete student" link.|||
-||b. Verify that the page loads correctly.|||
-||c. Select the student to delete from the dropdown or enter search criteria.|||
-||d. Click the "Delete" button.|||
-||e. Confirm the deletion when prompted.|||
-||f. Verify that the student is successfully deleted from the database.|||
-|Record Student Attendance:|a. Click on the "Record Student Attendance" link.|||
+|Search for Student:|a. Click on the "Search for student" link.|Opening Search for student page.|Search for student page displayed.|
+| |b. Verify that the page loads correctly.|The page opens with expected  search form detail and layout.|The page Opens displays search for student form as expected.|
+| |c. Enter the student details or search criteria.| All field accepts the requiered data.|All field can be filled as needed.|
+| |d. Click the "Search" button.| The Search button submit the form.|It submit the form and retrive data from database and display it.|
+| |e. Verify that the search results are displayed correctly.|The data display in a table correctly| it displays|
+|Update Student Details:|a. Click on the "Update student detail" link.|Opening Update Student page.|Update Student page displayed.|
+||b. Verify that the page loads correctly.|The page opens with expected  search form detail and layout.|The page Opens displays search for student form as expected to find the student than need change of detail.|
+||c. Click the "Search" button.| The Search button submit the form.|It submit the form and retrive data from database and display it.|
+| |d. Verify that the search results are displayed correctly.|The data display in a fields correctly| it displays correctly|
+||e. Edit the student details as required.|The filds can be edited|the details changes|
+||f. Click the "Update" button.|The Update button submit the form.|It submit the form and send data to SQL|
+||g. Verify that the student's details are successfully updated.|The details are edited properlly|The data displayed in the table as expected.|
+|Delete Student:|a. Click on the "Delete student" link.|Opening Delete Student page.|Delete Student page displayed.|
+||b. Verify that the page loads correctly.|Opening Delete Student page.|Delete Student page displayed with search student form.|
+||c. Find the student to delete from the search form.|The details of searched student appear after clicking Search button.|The selected student detail display.|
+||d. Click the "Delete" button.|The selected student details removed from the system.|The student removed.|
+||e. Verify that the student is successfully deleted from the database.|Search for the student in the search form result display "NO Student Found".|When the student searched for display"No Student Found".|
+|Record Student Attendance:|a. Click on the "Record Student Attendance" link.|Opening Record Student Attendance page.|Record Student Attendance page displayed.|
 ||b. Verify that the page loads correctly.|||
 ||c. Select the student from the dropdown or enter search criteria.|||
 ||d. Choose the date and mark the attendance.|||
 ||e. Click the "Submit" button.|||
 ||f. Verify that the attendance is recorded successfully.|||
-|Search Student Attendance:|a. Click on the "Search Student Attendance" link.|||
+|Search Student Attendance:|a. Click on the "Search Student Attendance" link.|Opening Search Student Attendance page.|Search Student Attendance page displayed.|
 ||b. Verify that the page loads correctly.|||
 ||c. Enter the student details or search criteria.|||
 ||d. Click the "Search" button.|||
 ||e. Verify that the attendance records are displayed correctly.|||
-|Help page:| a. Click on the "Help" link.|||
+|Help page:| a. Click on the "Help" link.|Opening Help page.|Help page displayed.|
 ||b. Verify that the page loads correctly.|||
-|About us page:| a. Click on the "Help" link.|||
+|About us page:| a. Click on the "Help" link.|Opening About us page.|About us page displayed.|
 ||b. Verify that the page loads correctly.|||
 
 # Videos of the test
@@ -316,52 +316,35 @@ Required Python packages installed. You can install them by running the followin
 
 <!-- how to set up the program -->
 # Deployment
-<!-- 1. creat render account
-2. creat postgrasql database in render
-3. creat webservice
-connect with gethub and outhorize it
-install render in github
-get all the reposetries from github
-connect with the reposetry
-instal gunicorn
- make pip >requirments.txt
-4. pg admine 
-image
-explening Use the Server dialog to describe a connection to a server:
-http://127.0.0.1:62055/help/help/server_dialog.html
- when connecting from outside  -->
-1. Create a Render account.
-2. Set up a PostgreSQL database on Render.
-3. Create a web service.
-   * Connect with GitHub and authorize the connection.
-   * Install Render in GitHub.
-   * Connect with the repository.
-   * Install Gunicorn.
-   * Generate a requirements.txt file using pip.
+
+First: Create a Render account.
+Second: Set up a PostgreSQL database on Render.
+Third: Create a web service.
+   1. Connect with GitHub and authorize the connection.
+   2. Install Render in GitHub.
+   3. Connect with the repository.
+   4. Install Gunicorn.
+   5. Generate a requirements.txt file using pip.
     
-* Configure the PostgreSQL administration tool.
-  * Access the server dialog to describe the connection to a server.
-  * For connections from outside, use the steps in this page: http://127.0.0.1:62055/help/help/server_dialog.html.
+Fourth: Configure the PostgreSQL administration tool.
+  * Access the server dialog to describe the connection to a server.For connections in pgAdmin from outside, use the steps in this page: http://127.0.0.1:62055/help/help/server_dialog.html.
   
 
 # Security
 To hide sensitive information such as passwords and usernames in a Python application, I used 'os' moudle. This is the process:
 First: Import the 'os' module at the top of python file.
+
 Second: Set the sensitive information as environment variables and  give values to the environment variables in sql terminal. for example:
+
 export MY_USERNAME="your_username"
 export MY_PASSWORD="your_password"
 
 Third: Access the environment variables in the code wherever needed by only typing the environment value given as the username or password.
+
 'your_username'=os.environ.get['MY_USERNAME'] 
 'your_password'=os.environ.get['MY_PASSWORD'] 
 
 this methode allows you to store sensitive information as environment variables and not hardcoded within your code to enhance data protection and security.
-
-
-
-
-
-
 
 
 
@@ -376,29 +359,8 @@ this methode allows you to store sensitive information as environment variables 
 ##### w3school
 
 
-
-
 # Code attribution
 
-
-
-<!-- Italics -->
-*This text* is italic
-
-_This text_ is italic
-
-<!-- Strong -->
-**This text** is italic
-
-__This text__ is italic
-
-<!-- Strikethrough -->
-~~This text~~ is strikethrough
-
-
-
-<!-- Blockquote -->
-> This is a quote
 
 
 
