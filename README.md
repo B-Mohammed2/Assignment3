@@ -134,6 +134,8 @@ To facilitate the tracking of students' attendance, a separate table is created.
 
 This table allows you to keep a record of students' attendance for different subjects or courses, providing valuable information for monitoring and analyzing attendance patterns.
 
+![](static/images/readme_file_image/table/table_rel.drawio-2.png)
+
 
 ## Wireframe
 | Desktop  | Tablet             | Smartpfhone|
