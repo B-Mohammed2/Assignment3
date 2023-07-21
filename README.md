@@ -28,6 +28,7 @@ https://record-wep-service.onrender.com
       - [HTML Validation check](#html-validation-check)
       - [CSS Validation check](#css-validation-check)
       - [Python lint validation check](#python-lint-validation-check)
+      - [Pycodestyle](#pycodestyle)
     - [Testing responsiveness](#testing-responsiveness)
       - [Manual test](#manual-test)
     - [Test on different web browsers](#test-on-different-web-browsers)
@@ -194,6 +195,11 @@ The CSS code was tested by uploading the file via validator. The result was No E
 
 The lint validation ensures that the Python code follows the correct syntax rules and helps identify any potential syntax errors or issues. The successful validation indicates that the code is written in a valid Python syntax according to the lint tool's standards.
 ![](static/images/readme_file_image/validation/html%20validation/pythonlint.png)
+
+#### Pycodestyle 
+Pycodestyle was used to check python codes to meet pep8 style standards.
+
+![](static/images/readme_file_image/validation/html%20validation/pycodestyle.png)
 
 
 ___
