@@ -22,7 +22,7 @@ https://record-wep-service.onrender.com
     - [Second Table](#second-table)
   - [Wireframe](#wireframe)
 - [Testing](#testing)
-  - [Aoutomated tests](#aoutomated-tests)
+  - [Automated tests](#automated-tests)
     - [Lighthouse test](#lighthouse-test)
     - [Validation tests](#validation-tests)
       - [HTML Validation check](#html-validation-check)
@@ -149,7 +149,7 @@ The purpose of this Test Plan is to outline the testing approach and strategies 
 This Test Plan covers a range of test cases, including link navigation, verification of link text and images, and responsiveness across different screen sizes. By following this plan, I aim to identify any functional or usability issues, validate the correctness of the link destinations, and confirm that the web app behaves as expected in different environments.
 
 
-## Aoutomated tests
+## Automated tests
 
 ### Lighthouse test
 The web app was tested on Lighthouse for categories performance, accessibility, best practices, and SEO(Search Engine Optimization) for Mobile devices and Desktops. This is the report as in the images for all web pages:
