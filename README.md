@@ -145,7 +145,7 @@ This table allows you to keep a record of students' attendance for different sub
 _______
 
 # Testing
-The purpose of this Test Plan is to outline the testing approach and strategies for ensuring the proper functionality and usability of the web application. The test was devided by aoutomated and manual. Aoutomated tests included (lighthouse,code validation tests). furthumore, the web app was tested manually on different devices such as(Laptop, Tablet, smartphone) regarding responsiveness and functionality.
+The purpose of this Test Plan is to outline the testing approach and strategies for ensuring the proper functionality and usability of the web application. The test was devided by automated and manual. Automated tests included (lighthouse,code validation tests). furthumore, the web app was tested manually on different devices such as(Laptop, Tablet, smartphone) regarding responsiveness and functionality.
 This Test Plan covers a range of test cases, including link navigation, verification of link text and images, and responsiveness across different screen sizes. By following this plan, I aim to identify any functional or usability issues, validate the correctness of the link destinations, and confirm that the web app behaves as expected in different environments.
 
 
@@ -203,7 +203,7 @@ The responsiveness of the app was tested Manually on different devices and on go
 #### Manual test
 the website was tested on different devices such as laptops, smartphones,tablets.
 **Please click on the thumbnail to see a bigger picture.**    
-               
+
 |Device|test & Procedures|Home Page |Add Student page|Search Student page |Update student page |Delete Student page |Record Student Attendance|Search Student Attendance|Help page|About Us page|
 |---|---|---|---|---|---|---|---|---|---|---|
 |Laptop|Responsiveness|![](static/images/readme_file_image/manual-test/laptop/home.png)|![](static/images/readme_file_image/manual-test/laptop/add-student.png)|![](static/images/readme_file_image/manual-test/laptop/search-student.png)|![](static/images/readme_file_image/manual-test/laptop/update.png)|![](static/images/readme_file_image/manual-test/laptop/delete.png)|![](static/images/readme_file_image/manual-test/laptop/attendance.png)|![](static/images/readme_file_image/manual-test/laptop/search-attendance.png)|![](static/images/readme_file_image/manual-test/laptop/help.png)|![](static/images/readme_file_image/manual-test/laptop/about.png)|
