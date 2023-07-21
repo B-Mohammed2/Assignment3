@@ -202,7 +202,8 @@ ___
 The responsiveness of the app was tested Manually on different devices and on google chrom developer tools responsiveness testing.
 #### Manual test
 the website was tested on different devices such as laptops, smartphones,tablets.
-                         
+**Please click on the thumbnail to see a bigger picture.**    
+               
 |Device|test & Procedures|Home Page |Add Student page|Search Student page |Update student page |Delete Student page |Record Student Attendance|Search Student Attendance|Help page|About Us page|
 |---|---|---|---|---|---|---|---|---|---|---|
 |Laptop|Responsiveness|![](static/images/readme_file_image/manual-test/laptop/home.png)|![](static/images/readme_file_image/manual-test/laptop/add-student.png)|![](static/images/readme_file_image/manual-test/laptop/search-student.png)|![](static/images/readme_file_image/manual-test/laptop/update.png)|![](static/images/readme_file_image/manual-test/laptop/delete.png)|![](static/images/readme_file_image/manual-test/laptop/attendance.png)|![](static/images/readme_file_image/manual-test/laptop/search-attendance.png)|![](static/images/readme_file_image/manual-test/laptop/help.png)|![](static/images/readme_file_image/manual-test/laptop/about.png)|
