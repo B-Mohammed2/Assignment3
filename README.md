@@ -1,4 +1,4 @@
-<h1 style="font-size: 24px;">Assignment3</h1>
+<h1 style="font-size: 24px;">Python Flask</h1>
 <h2 style="font-size: 22px;">Student Records Management</h2>
 
 live link to the website
