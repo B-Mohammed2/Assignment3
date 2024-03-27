@@ -9,13 +9,11 @@ app = Flask(__name__)
 l_user = os.environ.get('L_USER')
 l_pass = os.environ.get('L_PASS')
 
-
 # connecting to DB
 def db_conn():
-    # connecting to database with host
-    conn = psycopg2.connect(
-        database="students_details",
-        host=host_db, user=user_db, password=password_db, port="5432")
+# connecting to database with host
+    conn = psycopg2.connect(database="students_details", host=host_db,user=user_db, password=password_db, port="5432")
+    
     return conn
 
 
@@ -25,7 +23,7 @@ def homepage():
     return render_template("index.html")
 
 
-# route to index.html file
+#route to index.html file
 @app.route("/index")
 def index():
     return render_template("index.html")
@@ -50,18 +48,13 @@ def create():
     date_of_birth = request.form['date_of_birth']
     phone_no = request.form['phone']
     email = request.form['email']
-    address = request.form['first_line'] + \
-        '  ' + request.form['second_line'] + \
+    address = request.form['first_line'] + '  ' + request.form['second_line'] + \
         '  ' + request.form['city'] + '  ' + request.form['postcode']
     next_kin = request.form['kin_fname'] + '  ' + request.form['kin_lname']
     kin_rel = request.form['kin_relationship']
     kin_no = request.form['kin_phone']
     kin_email = request.form['kin_email']
-    sql_add = """INSERT INTO courses
-    (student_reference, first_name, last_name, gender, date_of_birth,
-    phone_no, email, address, kin_full_name, kin_relationship,
-    kin_phone, kin_email)
-    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
+    sql_add = "INSERT INTO courses (student_reference, first_name, last_name, gender, date_of_birth, phone_no, email, address, kin_full_name, kin_relationship, kin_phone, kin_email) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
     data = (student_reference, first_name, last_name, gender, date_of_birth,
             phone_no, email, address, next_kin, kin_rel, kin_no, kin_email)
     cur.execute(sql_add, data)
@@ -90,16 +83,13 @@ def search():
     # joinn strings (id and st_ref togehter (concatenation)
     print("dateofbirth is" + date_of_birth)
     if date_of_birth == '':
-        search_string = """select * from courses
-        where upper(first_name)='"+first_name +"'
-        And upper(last_name)='"+last_name +"'
-        OR student_reference='"+ID+"' ;"""
+        search_string = "select * from courses where upper(first_name)='"+first_name + \
+            "' And upper(last_name)='"+last_name + \
+            "' OR student_reference='"+ID+"' ;"
     else:
-        search_string = """select * from courses
-        where upper(first_name)='"+first_name+"'
-        And upper(last_name)='" +last_name+"'
-        OR student_reference='"+ID +"'
-        OR date_of_birth='"+date_of_birth+"' ;"""
+        search_string = "select * from courses where upper(first_name)='"+first_name+"' And upper(last_name)='" + \
+            last_name+"' OR student_reference='"+ID + \
+            "' OR date_of_birth='"+date_of_birth+"' ;"
 
     cur.execute(search_string)
     data = cur.fetchall()
@@ -127,17 +117,10 @@ def search_update():
         ID = request.form['id']
 
         if date_of_birth == '':
-            search_string = """SELECT * FROM courses
-            WHERE upper(first_name)=%s
-            AND upper(last_name)=%s
-            OR student_reference=%s;"""
+            search_string = "SELECT * FROM courses WHERE upper(first_name)=%s AND upper(last_name)=%s OR student_reference=%s;"
             params = (first_name, last_name, ID)
         else:
-            search_string = """SELECT * FROM courses
-            WHERE upper(first_name)=%s
-            AND upper(last_name)=%s
-            OR student_reference=%s
-            OR date_of_birth=%s;"""
+            search_string = "SELECT * FROM courses WHERE upper(first_name)=%s AND upper(last_name)=%s OR student_reference=%s OR date_of_birth=%s;"
             params = (first_name, last_name, ID, date_of_birth)
 
         cur.execute(search_string, params)
@@ -147,9 +130,11 @@ def search_update():
         conn.close()
 
         return render_template("update_student.html", data=data)
-
+   
 
 # Update student details
+
+
 @app.route("/update", methods=['POST'])
 def update():
     conn = db_conn()
@@ -168,11 +153,7 @@ def update():
     kin_email = request.form['kin_email']
     ID = request.form['id']
 
-    sql_update = '''UPDATE courses
-    SET first_name=%s, last_name=%s, gender=%s, date_of_birth=%s,
-    phone_no=%s, email=%s, address=%s, kin_full_name=%s, kin_relationship=%s,
-    kin_phone=%s, kin_email=%s
-    WHERE student_reference=%s'''
+    sql_update = '''UPDATE courses SET first_name=%s, last_name=%s, gender=%s, date_of_birth=%s, phone_no=%s, email=%s, address=%s, kin_full_name=%s, kin_relationship=%s, kin_phone=%s, kin_email=%s WHERE student_reference=%s'''
     params = (first_name, last_name, gender, date_of_birth, phone_no,
               email, address, next_kin, relationship, kin_phone, kin_email, ID)
 
@@ -202,16 +183,13 @@ def search_delete():
     ID = request.form['id']
     # joinn strings (id and st_ref togehter (concatenation)
     if date_of_birth == '':
-        search_string = """select * from courses
-        where upper(first_name)='"+first_name +"'
-        And upper(last_name)='"+last_name +"'
-        OR student_reference='"+ID+"' ;"""
+        search_string = "select * from courses where upper(first_name)='"+first_name + \
+            "' And upper(last_name)='"+last_name + \
+            "' OR student_reference='"+ID+"' ;"
     else:
-        search_string = """select * from courses
-        where upper(first_name)='"+first_name+"'
-        And upper(last_name)='" +last_name+"'
-        OR student_reference='"+ID +"'
-        OR date_of_birth='"+date_of_birth+"' ;"""
+        search_string = "select * from courses where upper(first_name)='"+first_name+"' And upper(last_name)='" + \
+            last_name+"' OR student_reference='"+ID + \
+            "' OR date_of_birth='"+date_of_birth+"' ;"
 
     cur.execute(search_string)
     data = cur.fetchall()
@@ -227,13 +205,10 @@ def delete():
     conn = db_conn()
     cur = conn.cursor()
     ID = request.form['id']
-    # we need to delete the data from both table.
-    # if a student detail was deleted from main table
-    # the related table will be left without connected data and will face error
-    cur.execute('''DELETE FROM attendance
-    WHERE student_reference=%s''', (ID,))
-    cur.execute('''DELETE FROM courses
-    WHERE student_reference=%s''', (ID,))
+    # we need to delete the data from both table.if a student detail was deleted from main table
+    # the related table will be left without connected data and will face error.
+    cur.execute('''DELETE FROM attendance  WHERE student_reference=%s''', (ID,))
+    cur.execute('''DELETE FROM courses  WHERE student_reference=%s''', (ID,))
     conn.commit()
     cur.close()
     conn.close()
@@ -247,8 +222,7 @@ def delete():
 def attendance_student():
     conn = db_conn()
     cur = conn.cursor()
-    # retrieve all records from attendance table
-    # where date of attendance is today
+    # retrieve all records from attendance table where date of attendance is today
     cur.execute(
         "select * from attendance where date_of_attendance=CURRENT_DATE;")
     # if no records where retrived then
@@ -257,19 +231,12 @@ def attendance_student():
     # creat todays register
         studentdata = cur.fetchall()
         for x in studentdata:
-            sql_test = f"""INSERT INTO attendance
-            (subject, student_reference, attendance)
-            VALUES (null, '{x[0]}', null);"""
-
+            sql_test = "INSERT INTO attendance(subject,student_reference,attendance) VALUES (null,'" + \
+                x[0]+"',null);"
             cur.execute(sql_test)
             conn.commit()
-    # making relationship between the two tables
-    # using the student reference number and adding a condition
-    # for the date of attendance to avoid duplicate.
-    search_string = """select * from courses, attendance
-    where courses.student_reference=attendance.student_reference
-    AND attendance.date_of_attendance=CURRENT_DATE
-    order by attendance_id ASC;"""
+    # making relationship between the two tables using the student reference number and adding a condition for the date of attendance to avoid duplicate.
+    search_string = "select * from courses, attendance where courses.student_reference=attendance.student_reference AND attendance.date_of_attendance=CURRENT_DATE order by attendance_id ASC;"
     cur.execute(search_string)
     data = cur.fetchall()
     cur.close()
@@ -284,8 +251,7 @@ def create_attendance():
     conn = db_conn()
     cur = conn.cursor()
     # variables to connect form with db
-    # variable to request data structured in a list from form
-    # form (convert data to dictionary type)
+    # variable to request data structured in  alist from form(convert data to dictionary type)
     # reasult givs attendance record
     result = request.form.to_dict(flat=False)
     # to list the keys in to col values to show one item
@@ -295,15 +261,13 @@ def create_attendance():
     for current_attendance_record in range(number_of_records-1):
         # update for attendance
         sql_update_attendance = "UPDATE attendance SET attendance='" + \
-            valuelist[current_attendance_record+1][0] + \
-            "' where student_reference='" + \
+            valuelist[current_attendance_record+1][0]+"' where student_reference='" + \
             keylist[current_attendance_record+1] + \
             "' AND attendance.date_of_attendance=CURRENT_DATE;"
         # update for subject
-        sql_update_subject = """UPDATE attendance
-        SET subject='" + valuelist[0][0] + "'
-        where student_reference='"+keylist[current_attendance_record+1] +"'
-        AND attendance.date_of_attendance=CURRENT_DATE;"""
+        sql_update_subject = "UPDATE attendance SET subject='" + \
+            valuelist[0][0] + "' where student_reference='"+keylist[current_attendance_record+1] + \
+            "' AND attendance.date_of_attendance=CURRENT_DATE;"
         cur.execute(sql_update_attendance)
         cur.execute(sql_update_subject)
         conn.commit()
@@ -332,21 +296,11 @@ def search_student_attendance_detail():
     # joinn strings (id and st_ref togehter (concatenation)
     if date_of_birth == '':
         # Search by name and ID
-        search_query = """SELECT * FROM courses, attendance
-        WHERE courses.student_reference=attendance.student_reference
-        AND (upper(courses.first_name)=%s
-        AND upper(courses.last_name)=%s
-        OR courses.student_reference=%s)
-        ORDER BY attendance.date_of_attendance DESC;"""
+        search_query = "SELECT * FROM courses, attendance WHERE courses.student_reference=attendance.student_reference AND (upper(courses.first_name)=%s AND upper(courses.last_name)=%s OR courses.student_reference=%s) ORDER BY attendance.date_of_attendance DESC;"
         cur.execute(search_query, (first_name, last_name, ID))
     else:
         # Search by name and date of birth
-        search_query = """SELECT * FROM courses, attendance
-        WHERE courses.student_reference=attendance.student_reference
-        AND upper(courses.first_name)=%s
-        AND upper(courses.last_name)=%s
-        AND courses.date_of_birth=%s
-        ORDER BY attendance.date_of_attendance DESC;"""
+        search_query = "SELECT * FROM courses, attendance WHERE courses.student_reference=attendance.student_reference AND upper(courses.first_name)=%s AND upper(courses.last_name)=%s AND courses.date_of_birth=%s ORDER BY attendance.date_of_attendance DESC;"
         cur.execute(search_query, (first_name, last_name, date_of_birth))
 
     data = cur.fetchall()
@@ -355,18 +309,15 @@ def search_student_attendance_detail():
     # render_template going to the template and finding the data and display it
     return render_template("search_student_attendance.html", data=data)
 
-
 # route for help page
 @app.route('/help_page')
 def help_page():
     return render_template('help.html')
 
-
 # route for about us page
 @app.route('/about')
 def about_us():
     return render_template('about.html')
-
 
 # route for video test page
 @app.route('/video')
